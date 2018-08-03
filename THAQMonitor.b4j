@@ -53,7 +53,7 @@ Sub AppStart (Form1 As Form, Args() As String)
 	MainForm = Form1
 	MainForm.SetFormStyle("UTILITY") 'UNIFIED
 	MainForm.RootPane.LoadLayout("1") 'Load the layout file.
-	MainForm.Title = "THAQ Monitor"
+	MainForm.Title = "Catanaoan THAQ Monitor ver 1.0"
 	MainForm.Resizable = False
 	MainForm.Show
 	StatusBar1.Initialize("StatusBar1")
