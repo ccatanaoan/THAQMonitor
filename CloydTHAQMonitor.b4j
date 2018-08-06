@@ -1,0 +1,760 @@
+﻿AppType=JavaFX
+Build1=Default,b4j.example
+File1=crysta.ttf
+File10=sk01_btMaxEnt.png
+File11=sk01_btMin.png
+File12=sk01_btMinEnt.png
+File13=sk01_left.png
+File14=sk01_right.png
+File15=sk01_title.png
+File16=sk01_top_left.png
+File17=sk01_top_right.png
+File18=sk02.css
+File19=sk02_bottom.png
+File2=icon.png
+File20=sk02_bottom_left.png
+File21=sk02_bottom_right.png
+File22=sk02_btClose.png
+File23=sk02_btCloseEnt.png
+File24=sk02_btMax.png
+File25=sk02_btMaxEnt.png
+File26=sk02_btMin.png
+File27=sk02_btMinEnt.png
+File28=sk02_left.png
+File29=sk02_right.png
+File3=sk01.css
+File30=sk02_title.png
+File31=sk02_top_left.png
+File32=sk02_top_right.png
+File33=sk03.css
+File34=sk03_bottom.png
+File35=sk03_bottom_left.png
+File36=sk03_bottom_right.png
+File37=sk03_btClose.png
+File38=sk03_btCloseEnt.png
+File39=sk03_btMax.png
+File4=sk01_bottom.png
+File40=sk03_btMaxEnt.png
+File41=sk03_btMin.png
+File42=sk03_btMinEnt.png
+File43=sk03_left.png
+File44=sk03_right.png
+File45=sk03_title.png
+File46=sk03_top_left.png
+File47=sk03_top_right.png
+File48=sk04.css
+File49=sk04_bottom.png
+File5=sk01_bottom_left.png
+File50=sk04_bottom_left.png
+File51=sk04_bottom_right.png
+File52=sk04_btClose.png
+File53=sk04_btCloseEnt.png
+File54=sk04_btMax.png
+File55=sk04_btMaxEnt.png
+File56=sk04_btMin.png
+File57=sk04_btMinEnt.png
+File58=sk04_left.png
+File59=sk04_right.png
+File6=sk01_bottom_right.png
+File60=sk04_title.png
+File61=sk04_top_left.png
+File62=sk04_top_right.png
+File63=sk05.css
+File64=sk05_bottom.png
+File65=sk05_bottom_left.png
+File66=sk05_bottom_right.png
+File67=sk05_btClose.png
+File68=sk05_btCloseEnt.png
+File69=sk05_btMax.png
+File7=sk01_btClose.png
+File70=sk05_btMaxEnt.png
+File71=sk05_btMin.png
+File72=sk05_btMinEnt.png
+File73=sk05_left.png
+File74=sk05_right.png
+File75=sk05_title.png
+File76=sk05_top_left.png
+File77=sk05_top_right.png
+File78=sk06.css
+File79=sk06_bottom.png
+File8=sk01_btCloseEnt.png
+File80=sk06_bottom_left.png
+File81=sk06_bottom_right.png
+File82=sk06_btClose.png
+File83=sk06_btCloseEnt.png
+File84=sk06_btMax.png
+File85=sk06_btMaxEnt.png
+File86=sk06_btMin.png
+File87=sk06_btMinEnt.png
+File88=sk06_left.png
+File89=sk06_right.png
+File9=sk01_btMax.png
+File90=sk06_title.png
+File91=sk06_top_left.png
+File92=sk06_top_right.png
+File93=vdSk01.bjl
+File94=vdSk02.bjl
+File95=vdSk03.bjl
+File96=vdSk04.bjl
+File97=vdSk05.bjl
+File98=vdSk06.bjl
+FileGroup1=Default Group
+FileGroup10=Default Group
+FileGroup11=Default Group
+FileGroup12=Default Group
+FileGroup13=Default Group
+FileGroup14=Default Group
+FileGroup15=Default Group
+FileGroup16=Default Group
+FileGroup17=Default Group
+FileGroup18=Default Group
+FileGroup19=Default Group
+FileGroup2=Default Group
+FileGroup20=Default Group
+FileGroup21=Default Group
+FileGroup22=Default Group
+FileGroup23=Default Group
+FileGroup24=Default Group
+FileGroup25=Default Group
+FileGroup26=Default Group
+FileGroup27=Default Group
+FileGroup28=Default Group
+FileGroup29=Default Group
+FileGroup3=Default Group
+FileGroup30=Default Group
+FileGroup31=Default Group
+FileGroup32=Default Group
+FileGroup33=Default Group
+FileGroup34=Default Group
+FileGroup35=Default Group
+FileGroup36=Default Group
+FileGroup37=Default Group
+FileGroup38=Default Group
+FileGroup39=Default Group
+FileGroup4=Default Group
+FileGroup40=Default Group
+FileGroup41=Default Group
+FileGroup42=Default Group
+FileGroup43=Default Group
+FileGroup44=Default Group
+FileGroup45=Default Group
+FileGroup46=Default Group
+FileGroup47=Default Group
+FileGroup48=Default Group
+FileGroup49=Default Group
+FileGroup5=Default Group
+FileGroup50=Default Group
+FileGroup51=Default Group
+FileGroup52=Default Group
+FileGroup53=Default Group
+FileGroup54=Default Group
+FileGroup55=Default Group
+FileGroup56=Default Group
+FileGroup57=Default Group
+FileGroup58=Default Group
+FileGroup59=Default Group
+FileGroup6=Default Group
+FileGroup60=Default Group
+FileGroup61=Default Group
+FileGroup62=Default Group
+FileGroup63=Default Group
+FileGroup64=Default Group
+FileGroup65=Default Group
+FileGroup66=Default Group
+FileGroup67=Default Group
+FileGroup68=Default Group
+FileGroup69=Default Group
+FileGroup7=Default Group
+FileGroup70=Default Group
+FileGroup71=Default Group
+FileGroup72=Default Group
+FileGroup73=Default Group
+FileGroup74=Default Group
+FileGroup75=Default Group
+FileGroup76=Default Group
+FileGroup77=Default Group
+FileGroup78=Default Group
+FileGroup79=Default Group
+FileGroup8=Default Group
+FileGroup80=Default Group
+FileGroup81=Default Group
+FileGroup82=Default Group
+FileGroup83=Default Group
+FileGroup84=Default Group
+FileGroup85=Default Group
+FileGroup86=Default Group
+FileGroup87=Default Group
+FileGroup88=Default Group
+FileGroup89=Default Group
+FileGroup9=Default Group
+FileGroup90=Default Group
+FileGroup91=Default Group
+FileGroup92=Default Group
+FileGroup93=Default Group
+FileGroup94=Default Group
+FileGroup95=Default Group
+FileGroup96=Default Group
+FileGroup97=Default Group
+FileGroup98=Default Group
+Group=Default Group
+Library1=jcore
+Library2=jfx
+Library3=javaobject
+Library4=jreflection
+Library5=jxui
+Library6=jdateutils
+Library7=jmqtt
+Library8=jrandomaccessfile
+Module1=Gauge
+NumberOfFiles=98
+NumberOfLibraries=8
+NumberOfModules=1
+Version=6.3
+@EndOfDesignText@
+#Region Project Attributes 
+	#MainFormWidth: 390
+	#MainFormHeight: 710 
+#End Region
+
+Sub Process_Globals
+	Private fx As JFX
+	Private MainForm As Form
+	Private lbTitle As Label 'ignore
+	Private xMouse, yMouse As Double 
+	Private isMaximized As Boolean = False
+	Private ivClose As ImageView
+	Private ivMax As ImageView
+	Private ivMin As ImageView
+	Private lstSkins As ListView 'ignore
+	Private AtualSkin As String
+	Private imgInit As String
+	Private isMaximized As Boolean = False
+	Private f_X, f_Y, f_W, f_H As Double
+	Private Button1 As Button 'ignore
+	Private fx As JFX
+	Private MainForm As Form
+	Private Canvas1 As Canvas 'ignore
+	Private mqtt As MqttClient
+	Type CircleData (x As Double, y As Double, clr As Int)
+	Private MenuBar1 As MenuBar 'ignore
+	Private user As String = "vynckfaq"
+	Private password As String = "KHSV1Q1qSUUY"
+	Private gaugeHomeTemp As Gauge 'ignore
+	Private xui As XUI
+	Private GaugeAirQuality As Gauge 'ignore
+	Private serializator As B4XSerializator
+	Private gaugeHomeHumidity As Gauge 'ignore
+	Private GaugeBasementAirQuality As Gauge 'ignore
+	Private gaugeBasementHumidity As Gauge 'ignore
+	Private gaugeBasementTemp As Gauge 'ignore
+	Private labelgaugeHomeTemp As Label 'ignore
+	Private labelGaugeAirQuality As Label 'ignore
+	Private labelgaugeHomeHumidity As Label 'ignore
+	Private labelgaugeBasementTemp As Label 'ignore
+	Private labelGaugeBasementAirQuality As Label 'ignore
+	Private labelgaugeBasementHumidity As Label 'ignore
+	Private lblStatus As Label 'ignore
+End Sub
+
+Sub AppStart (Form1 As Form, Args() As String)
+	Dim skinTemp As String 
+	Dim skinDefault As String
+	
+	If File.Exists(File.DirApp, "skin.ini") Then
+		skinTemp = File.ReadString(File.DirApp, "skin.ini")
+	Else
+		File.WriteString(File.DirApp, "skin.ini", "vdSk03")
+		skinTemp = "vdSk03"
+	End If
+	
+	If skinTemp = "" Then
+		skinDefault = "vdSk03"
+	Else
+		If skinTemp = "vdSk01" Or skinTemp = "vdSk02" Or skinTemp = "vdSk03" Or skinTemp = "vdSk04" Or skinTemp = "vdSk05" Or skinTemp = "vdSk06" Then
+			skinDefault = skinTemp
+		Else
+			skinDefault = "vdSk03"
+		End If
+	End If
+	
+	MainForm = Form1
+	MainForm.SetFormStyle("TRANSPARENT")
+	MainForm.RootPane.LoadLayout(skinDefault) 'Load the layout file.
+	AtualSkin = skinDefault
+	MainForm.BackColor = fx.Colors.Transparent
+	MainForm.RootPane.Style = "-fx-background-color:transparent;-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1.0) , 15,0, 0.0, 0.0);"
+	MainForm.Resizable = False	
+	MainForm.Icon = fx.LoadImage(File.DirAssets, "icon.png")
+	lbTitle.MouseCursor = fx.Cursors.MOVE
+	lbTitle.Text = "Catanaoan THAQ Monitor v1.0"
+	Dim Obj As Reflector
+	Obj.Target = ivClose
+	Obj.AddEventHandler2("Close_Entered", "onMouseEnteredProperty")
+	Obj.AddEventHandler2("Close_Exited", "onMouseExitedProperty")
+	Dim Obj As Reflector
+	Obj.Target = ivMax
+	Obj.AddEventHandler2("Max_Entered", "onMouseEnteredProperty")
+	Obj.AddEventHandler2("Max_Exited", "onMouseExitedProperty")
+	Dim Obj As Reflector
+	Obj.Target = ivMin
+	Obj.AddEventHandler2("Min_Entered", "onMouseEnteredProperty")
+	Obj.AddEventHandler2("Min_Exited", "onMouseExitedProperty")
+	
+	imgInit = AtualSkin.SubString(2).ToLowerCase
+	loadList
+	Get_css
+	MainForm.Show
+	
+	lblStatus.TextColor = fx.Colors.Red
+	lblStatus.Text = "Status: *** Connecting to Cloud MQTT ***"
+	Dim clientId As String = Rnd(0, 999999999) & DateTime.Now 'create a unique id
+	mqtt.Initialize("mqtt", "tcp://m14.cloudmqtt.com:11816", clientId)
+	Dim mo As MqttConnectOptions
+	mo.Initialize(user, password)
+	mqtt.Connect2(mo)
+	
+	gaugeHomeTemp.SetRanges(Array(gaugeHomeTemp.CreateRange(0, 75, xui.Color_Green), _
+    gaugeHomeTemp.CreateRange(75, 90, xui.Color_Yellow), _
+    gaugeHomeTemp.CreateRange(90, 100, xui.Color_Red)))
+	gaugeHomeTemp.CurrentValue=0
+	
+	gaugeHomeHumidity.SetRanges(Array(gaugeHomeHumidity.CreateRange(0, 70, xui.Color_Green), _
+	gaugeHomeHumidity.CreateRange(70, 80, xui.Color_Yellow), _
+	gaugeHomeHumidity.CreateRange(80, 100, xui.Color_Red)))
+	gaugeHomeHumidity.CurrentValue=0
+	
+	GaugeAirQuality.SetRanges(Array(GaugeAirQuality.CreateRange(0, 100, xui.Color_Green), _
+	GaugeAirQuality.CreateRange(100, 400, xui.Color_RGB(100,240,23)), _
+	GaugeAirQuality.CreateRange(400, 900, xui.Color_Yellow), _
+	GaugeAirQuality.CreateRange(900, 1000, xui.Color_Red)))
+	GaugeAirQuality.CurrentValue = 0
+	
+	gaugeBasementTemp.SetRanges(Array(gaugeBasementTemp.CreateRange(0, 75, xui.Color_Green), _
+    gaugeBasementTemp.CreateRange(75, 90, xui.Color_Yellow), _
+    gaugeBasementTemp.CreateRange(90, 100, xui.Color_Red)))
+	gaugeBasementTemp.CurrentValue=0
+	
+	gaugeBasementHumidity.SetRanges(Array(gaugeBasementHumidity.CreateRange(0, 70, xui.Color_Green), _
+	gaugeBasementHumidity.CreateRange(70, 80, xui.Color_Yellow), _
+	gaugeBasementHumidity.CreateRange(80, 100, xui.Color_Red)))
+	gaugeBasementHumidity.CurrentValue=0
+	
+	GaugeBasementAirQuality.SetRanges(Array(GaugeBasementAirQuality.CreateRange(0, 100, xui.Color_Green), _
+	GaugeBasementAirQuality.CreateRange(100, 400, xui.Color_RGB(100,240,23)), _
+	GaugeBasementAirQuality.CreateRange(400, 900, xui.Color_Yellow), _
+	GaugeBasementAirQuality.CreateRange(900, 1000, xui.Color_Red)))
+	GaugeBasementAirQuality.CurrentValue = 0
+	
+	AlwaysOnTop(MainForm,True)
+	
+	'RotateNode(labelgaugeHomeTemp,270.0)
+	
+	MainForm.WindowLeft = CheckMonitor.MaxX	- MainForm.Width 
+	MainForm.WindowTop = CheckMonitor.MaxY - MainForm.Height - 20dip 
+End Sub
+
+Private Sub lbTitle_MouseDragged (EventData As MouseEvent)
+	If isMaximized Then Return
+   	Dim jo As JavaObject = EventData
+   	MainForm.WindowLeft = jo.RunMethod("getScreenX", Null) - xMouse
+   	MainForm.WindowTop = jo.RunMethod("getScreenY", Null) - yMouse		
+End Sub
+
+Private Sub lbTitle_MousePressed (EventData As MouseEvent)
+	xMouse = EventData.X + lbTitle.Left + 15
+	yMouse = EventData.Y + lbTitle.Top + 15		
+End Sub
+
+Private Sub ivClose_MouseClicked (EventData As MouseEvent)
+	ExitApplication
+End Sub
+
+Private Sub Close_Entered_Event(e As Event)
+	ivClose.SetImage(fx.LoadImage(File.DirAssets, imgInit & "_btCloseEnt.png"))
+End Sub
+
+Private Sub Close_Exited_Event(e As Event)
+	ivClose.SetImage(fx.LoadImage(File.DirAssets, imgInit & "_btClose.png"))
+End Sub
+
+Private Sub ivMax_MouseClicked (EventData As MouseEvent)
+'	isMaximized = Not(isMaximized)
+'	Dim jmf As JavaObject = MainForm
+'	Dim stage As JavaObject = jmf.GetField("stage")
+'	stage.RunMethod("setFullScreen", Array As Object(isMaximized))	
+	Dim scr As Screen = fx.PrimaryScreen
+	If isMaximized Then
+		MainForm.WindowLeft = f_X
+		MainForm.WindowTop = f_Y
+		MainForm.WindowWidth = f_W
+		MainForm.WindowHeight = f_H
+	Else
+		f_X = MainForm.WindowLeft 
+		f_Y = MainForm.WindowTop 
+		f_W = MainForm.WindowWidth 
+		f_H = MainForm.WindowHeight 
+		MainForm.WindowLeft = 0
+		MainForm.WindowTop = 0
+		MainForm.WindowWidth = scr.MaxX 
+		MainForm.WindowHeight = scr.MaxY + 40
+	End If
+	isMaximized = Not(isMaximized)
+End Sub
+
+Private Sub Max_Entered_Event(e As Event)
+	ivMax.SetImage(fx.LoadImage(File.DirAssets, imgInit & "_btMaxEnt.png"))
+End Sub
+
+Private Sub Max_Exited_Event(e As Event)
+	ivMax.SetImage(fx.LoadImage(File.DirAssets, imgInit & "_btMax.png"))
+End Sub
+
+Private Sub ivMin_MouseClicked (EventData As MouseEvent)
+	Dim jmf As JavaObject = MainForm
+	Dim stage As JavaObject = jmf.GetField("stage")
+	stage.RunMethod("setIconified", Array As Object(True))		
+End Sub
+
+Private Sub Min_Entered_Event(e As Event)
+	ivMin.SetImage(fx.LoadImage(File.DirAssets, imgInit & "_btMinEnt.png"))
+End Sub
+
+Private Sub Min_Exited_Event(e As Event)
+	ivMin.SetImage(fx.LoadImage(File.DirAssets, imgInit & "_btMin.png"))
+End Sub
+
+Private Sub lstSkins_MouseClicked (EventData As MouseEvent)
+	Dim idx As Short = lstSkins.SelectedIndex
+	If idx = -1 Then Return
+	Dim lb As Label = lstSkins.Items.Get(idx)
+	If lb.tag = AtualSkin Then Return
+	AtualSkin = lb.tag
+	imgInit = AtualSkin.SubString(2).ToLowerCase
+	loadSkin(AtualSkin)
+End Sub
+
+Private Sub loadSkin(Sk As String)
+	MainForm.RootPane.RemoveAllNodes
+	MainForm.RootPane.LoadLayout(Sk) 
+	MainForm.BackColor = fx.Colors.Transparent
+	MainForm.RootPane.Style = "-fx-background-color:transparent;-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1.0) , 15,0, 0.0, 0.0);"
+	MainForm.Resizable = False	
+	lbTitle.MouseCursor = fx.Cursors.MOVE
+	lbTitle.Text = "Title  -  " & Sk
+	Dim Obj As Reflector
+	Obj.Target = ivClose
+	Obj.AddEventHandler2("Close_Entered", "onMouseEnteredProperty")
+	Obj.AddEventHandler2("Close_Exited", "onMouseExitedProperty")
+	Dim Obj As Reflector
+	Obj.Target = ivMax
+	Obj.AddEventHandler2("Max_Entered", "onMouseEnteredProperty")
+	Obj.AddEventHandler2("Max_Exited", "onMouseExitedProperty")
+	Dim Obj As Reflector
+	Obj.Target = ivMin
+	Obj.AddEventHandler2("Min_Entered", "onMouseEnteredProperty")
+	Obj.AddEventHandler2("Min_Exited", "onMouseExitedProperty")
+	Get_css
+	loadList
+End Sub
+
+Private Sub loadList
+	lstSkins.Items.Clear
+	For i = 1 To 6
+		Dim lb As Label
+		lb.Initialize("")
+		Dim n As String =  i
+		Dim lg As Short = n .Length
+		Do Until lg = 2
+			n = "0" & n
+			lg = n .Length  
+		Loop
+		lb.Text = "Skin #"  &  n
+		lb.Tag = "vdSk" & n  
+		lstSkins.Items.Add(lb)	
+	Next
+End Sub
+
+Public Sub Get_css
+	Dim jForm As JavaObject = MainForm
+	Dim scene As JavaObject = jForm.GetField("scene")
+	Dim stylesheets As List = scene.RunMethod("getStylesheets", Null)
+	stylesheets.Clear
+	stylesheets.Add(File.GetUri(File.DirAssets, imgInit & ".css"))
+End Sub
+
+Private Sub Button1_Action
+	ivMax.Visible = Not(ivMax.Visible)
+	ivMin.Visible = Not(ivMin.Visible)
+End Sub
+
+Sub AlwaysOnTop(o As Form,boo As Boolean)
+	getStage(o).RunMethod("setAlwaysOnTop",Array(boo))
+End Sub
+
+private Sub getStage(o As JavaObject) As JavaObject
+	Return o.GetFieldJO("stage")
+End Sub
+
+Sub CheckMonitor() As Screen
+	Try
+		If fx.Screens.Size= 1 Then
+			Dim SList As List = fx.Screens
+			Dim S As Screen = SList.Get(0)
+			'Msgbox.Show("Minimum X: " & S.MinX,"Screen")
+			Return S
+		Else If fx.Screens.Size> 1 Then
+			Dim SList As List = fx.Screens
+			Dim S As Screen = SList.Get(1)
+			'Msgbox.Show("Minimum X: " & S.MinX,"Screen")
+			Return S
+		Else
+			Dim SList As List = fx.Screens
+			Dim S As Screen = SList.Get(0)
+			'Msgbox.Show("Minimum X: " & S.MinX,"Screen")
+			Return S
+		End If
+	Catch
+		Dim SList As List = fx.Screens
+		Dim S As Screen = SList.Get(0)
+		'Msgbox.Show("Minimum X: " & S.MinX,"Screen")
+		Return S
+	End Try
+End Sub
+
+
+Sub GetPerception(DHT11Perception As String) As String
+	' Return value       Dew point                        Human perception[6]
+	'    7         Over 26 °C (>78.8°F)     Severely high, even deadly For asthma related illnesses
+	'    6         24–26 °C (75.2-78.8°F)   Extremely uncomfortable, oppressive
+	'    5         21–24 °C (69.8-75.2°F)   Very humid, quite uncomfortable
+	'    4         18–21 °C (64.4-69.8°F)   Somewhat uncomfortable For most people at upper limit
+	'    3         16–18 °C (60.8-64.4°F)   OK For most, but everyone perceives the humidity at upper limit
+	'    2         13–16 °C (55.4-60.8°F)   Comfortable
+	'    1         10–12 °C (50-53.6°F)     Very comfortable
+	'    0         Under 10 °C (<50°F)      Feels like the western US, a Bit dry To some
+	
+	Dim localperception As String
+	Select Case DHT11Perception
+		Case 0
+			localperception = "Feels like the western US, a bit dry to some"
+		Case 1
+			localperception = "Very comfortable"
+		Case 2
+			localperception = "Comfortable"
+		Case 3
+			localperception = "OK but humidity is at upper limit"
+		Case 4
+			localperception = "Uncomfortable and the humidity is at upper limit"
+		Case 5
+			localperception = "Very humid, quite uncomfortable"
+		Case 6
+			localperception = "Extremely uncomfortable, oppressive"
+		Case 7
+			localperception = "Severely high, even deadly for asthma related illnesses"
+	End Select
+	Return localperception
+End Sub
+
+Sub GetComfort(DHT11ComfortStatus As String) As String
+	Dim localcomfortstatus As String
+	Select Case DHT11ComfortStatus
+		Case 0
+			localcomfortstatus = "OK"
+		Case 1
+			localcomfortstatus = "Too hot"
+		Case 2
+			localcomfortstatus = "Too cold"
+		Case 4
+			localcomfortstatus = "Too dry"
+		Case 5
+			localcomfortstatus = "Hot and dry"
+		Case 6
+			localcomfortstatus = "Cold and dry"
+		Case 8
+			localcomfortstatus = "Too humid"
+		Case 9
+			localcomfortstatus = "Hot and humid"
+		Case 10
+			localcomfortstatus = "Cold and humid"
+		Case Else
+			localcomfortstatus = "Unknown"
+	End Select
+	Return localcomfortstatus
+End Sub
+
+Sub GetAirQuality(number As Int) As String
+	' Detecting range: 10ppm-1000ppm carbon monoxide
+	' Air quality-cases: < 100 perfect | 100 - 400 normal | > 400 - 900 high | > 900 abnormal
+	If number <= 100 Then
+		Return("Carbon monoxide perfect")
+	else if ((number > 100) And (number < 400)) Or number = 400 Then
+		Return("Carbon monoxide normal")
+	else if ((number > 400) And (number < 900)) Or number = 900 Then
+		Return("Carbon monoxide high")
+	else If number > 900 Then
+		Return("ALARM Carbon monoxide very high")
+	Else
+		Return("MQ-7 - cant read any value - check the sensor!")
+	End If
+End Sub
+
+Sub RotateNode(n As Node, Degree As Double) 'ignore
+	Dim jo As JavaObject = n
+	jo.RunMethod("setRotate", Array(Degree))
+End Sub
+
+Sub MainForm_Closed
+	mqtt.Close
+End Sub
+
+Sub mqtt_Connected (Success As Boolean)
+	If Success = False Then
+		Log(LastException)
+		lblStatus.TextColor = fx.Colors.Red
+		lblStatus.Text = "Status: Error connecting"
+	Else
+		lblStatus.TextColor = fx.Colors.White
+		lblStatus.Text = "Status: Connected to Cloud MQTT"
+		MenuBar1.Enabled = True
+		mqtt.Subscribe("TempHumid", 0)
+		mqtt.Subscribe("MQ7", 0)
+		mqtt.Subscribe("TempHumidBasement", 0)
+		mqtt.Subscribe("MQ7Basement", 0)
+		mqtt.Publish("MQ7", serializator.ConvertObjectToBytes("Read voltage"))
+		mqtt.Publish("MQ7Basement", serializator.ConvertObjectToBytes("Read voltage"))
+	End If
+End Sub
+
+Private Sub mqtt_Disconnected
+	Try
+		lblStatus.TextColor = fx.Colors.Red
+		lblStatus.Text = "Status: Disconnected from Cloud MQTT"
+		Sleep(1000)
+		MenuBar1.Enabled = False
+		Dim mo As MqttConnectOptions
+		mo.Initialize(user, password)
+		mqtt.Connect2(mo)
+	Catch
+		Log(LastException)
+	End Try
+
+End Sub
+
+Private Sub mqtt_MessageArrived (Topic As String, Payload() As Byte)
+	If Topic = "TempHumid" Then
+		Dim s As String = BytesToString(Payload, 0, Payload.Length, "utf8")
+		Dim a() As String = Regex.Split("\|",s)
+		If a.Length = 9 Then
+			gaugeHomeTemp.CurrentValue=a(1)
+			gaugeHomeHumidity.CurrentValue=a(2)
+			labelgaugeHomeTemp.Text = GetPerception(a(3))
+			labelgaugeHomeHumidity.Text = GetComfort(a(4))
+			
+			If a(3) > 3 Then
+				labelgaugeHomeTemp.TextColor = fx.Colors.Red
+			Else
+				labelgaugeHomeTemp.TextColor = fx.Colors.Black
+			End If
+			If a(4) > 0 Then
+				labelgaugeHomeHumidity.TextColor = fx.Colors.Red
+			Else
+				labelgaugeHomeHumidity.TextColor = fx.Colors.Black
+			End If
+			' *** Check how old the message is
+			DateTime.DateFormat = "yy-MM-dd HH:mm:ss z"
+			Dim ticks As Long = DateTime.DateParse(a(7) & " " & a(8) & " GMT")
+			DateTime.DateFormat = "MMM d, yyyy h:mm:ss a z"
+			Dim lngTicks As Long = ticks
+			Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
+			'Log("TempHumidity Time difference: " & p.Hours & ":" & p.Minutes & " minutes")
+			If p.Minutes > = 5 Then
+				labelgaugeHomeTemp.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+				labelgaugeHomeTemp.TextColor = fx.Colors.Red
+				labelgaugeHomeHumidity.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+				labelgaugeHomeHumidity.TextColor = fx.Colors.Red
+			End If
+			' *** Check how old the message is
+		End If
+	else If Topic = "MQ7" Then
+		Dim s As String = BytesToString(Payload, 0, Payload.Length, "utf8")
+		Dim a() As String = Regex.Split("\|",s)
+		If a.Length = 3 Then
+			GaugeAirQuality.CurrentValue=a(0)
+			labelGaugeAirQuality.Text = GetAirQuality(a(0))
+			If a(0) > 400 Then
+				labelGaugeAirQuality.TextColor = fx.Colors.Red
+			Else
+				labelGaugeAirQuality.TextColor = fx.Colors.Black
+			End If
+			' *** Check how old the message is
+			DateTime.DateFormat = "yy-MM-dd HH:mm:ss z"
+			Dim ticks As Long = DateTime.DateParse(a(1) & " " & a(2) & " GMT")
+			DateTime.DateFormat = "MMM d, yyyy h:mm:ss a z"
+			Dim lngTicks As Long = ticks
+			Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
+			'Log("AirQuality Time difference: " & p.Minutes & " minutes" & p.Seconds & " seconds")
+			If p.Minutes > = 5 Then
+				labelGaugeAirQuality.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+				labelGaugeAirQuality.TextColor = fx.Colors.Red
+			End If
+			' *** Check how old the message is
+		End If
+	else If Topic = "TempHumidBasement" Then
+		Dim s As String = BytesToString(Payload, 0, Payload.Length, "utf8")
+		Dim a() As String = Regex.Split("\|",s)
+		If a.Length = 9 Then
+			gaugeBasementTemp.CurrentValue=a(1)
+			gaugeBasementHumidity.CurrentValue=a(2)
+			labelgaugeBasementTemp.Text = GetPerception(a(3))
+			labelgaugeBasementHumidity.Text = GetComfort(a(4))
+			If a(3) > 3 Then
+				labelgaugeBasementTemp.TextColor = fx.Colors.Red
+			Else
+				labelgaugeBasementTemp.TextColor = fx.Colors.Black
+			End If
+			If a(4) > 0 Then
+				labelgaugeBasementHumidity.TextColor = fx.Colors.Red
+			Else
+				labelgaugeBasementHumidity.TextColor = fx.Colors.Black
+			End If
+			' *** Check how old the message is
+			DateTime.DateFormat = "yy-MM-dd HH:mm:ss z"
+			Dim ticks As Long = DateTime.DateParse(a(7) & " " & a(8) & " GMT")
+			DateTime.DateFormat = "MMM d, yyyy h:mm:ss a z"
+			Dim lngTicks As Long = ticks
+			Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
+			'Log("TempHumidity Time difference: " & p.Hours & ":" & p.Minutes & " minutes")
+			If p.Minutes > = 5 Then
+				labelgaugeBasementTemp.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+				labelgaugeBasementTemp.TextColor = fx.Colors.Red
+				labelgaugeBasementHumidity.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+				labelgaugeBasementHumidity.TextColor = fx.Colors.Red
+			End If
+			' *** Check how old the message is
+		End If
+	else If Topic = "MQ7Basement" Then
+		Dim s As String = BytesToString(Payload, 0, Payload.Length, "utf8")
+		Dim a() As String = Regex.Split("\|",s)
+		If a.Length = 3 Then
+			GaugeBasementAirQuality.CurrentValue=a(0)
+			labelGaugeBasementAirQuality.Text = GetAirQuality(a(0))
+			If a(0) > 400 Then
+				labelGaugeBasementAirQuality.TextColor = fx.Colors.Red
+			Else
+				labelGaugeBasementAirQuality.TextColor = fx.Colors.Black
+			End If
+			' *** Check how old the message is
+			DateTime.DateFormat = "yy-MM-dd HH:mm:ss z"
+			Dim ticks As Long = DateTime.DateParse(a(1) & " " & a(2) & " GMT")
+			DateTime.DateFormat = "MMM d, yyyy h:mm:ss a z"
+			Dim lngTicks As Long = ticks
+			Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
+			'Log("AirQuality Time difference: " & p.Minutes & " minutes" & p.Seconds & " seconds")
+			If p.Minutes > = 5 Then
+				labelGaugeBasementAirQuality.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+				labelGaugeBasementAirQuality.TextColor = fx.Colors.Red
+			End If
+			' *** Check how old the message is
+		End If
+	End If
+End Sub

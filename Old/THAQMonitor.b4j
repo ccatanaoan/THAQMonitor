@@ -23,7 +23,7 @@ Version=6.01
 @EndOfDesignText@
 #Region  Project Attributes 
 	#MainFormWidth: 350
-	#MainFormHeight: 675 
+	#MainFormHeight: 700 
 #End Region
 
 Sub Process_Globals
