@@ -2,8 +2,10 @@
 Build1=Default,b4j.example
 File1=1.bjl
 File2=crysta.ttf
+File3=icon.png
 FileGroup1=Default Group
 FileGroup2=Default Group
+FileGroup3=Default Group
 Group=Default Group
 Library1=jcore
 Library2=jfx
@@ -12,9 +14,10 @@ Library4=jmqtt
 Library5=jcontrolsfx
 Library6=jxui
 Library7=javaobject
+Library8=jdateutils
 Module1=Gauge
-NumberOfFiles=2
-NumberOfLibraries=7
+NumberOfFiles=3
+NumberOfLibraries=8
 NumberOfModules=1
 Version=6.01
 @EndOfDesignText@
@@ -51,11 +54,13 @@ End Sub
 
 Sub AppStart (Form1 As Form, Args() As String)
 	MainForm = Form1
-	MainForm.SetFormStyle("UTILITY") 'UNIFIED
+	MainForm.SetFormStyle("UNIFIED") 'UNIFIED
 	MainForm.RootPane.LoadLayout("1") 'Load the layout file.
-	MainForm.Title = "Catanaoan THAQ Monitor ver 1.0"
+	MainForm.Title = "Catanaoan THAQ Monitor v1.0"
 	MainForm.Resizable = False
+	MainForm.Icon = fx.LoadImage(File.DirAssets, "icon.png")
 	MainForm.Show
+
 	StatusBar1.Initialize("StatusBar1")
 	StatusBar1.Text = "*** Connecting to Cloud MQTT ***"
 	Dim clientId As String = Rnd(0, 999999999) & DateTime.Now 'create a unique id
@@ -136,22 +141,28 @@ Sub mqtt_Connected (Success As Boolean)
 End Sub
 
 Private Sub mqtt_Disconnected
-	StatusBar1.Text = "Disconnected from Cloud MQTT"
-	MenuBar1.Enabled = False
-	Dim mo As MqttConnectOptions
-	mo.Initialize(user, password)
-	mqtt.Connect2(mo)
+	Try
+		StatusBar1.Text = "Disconnected from Cloud MQTT"
+		MenuBar1.Enabled = False
+		Dim mo As MqttConnectOptions
+		mo.Initialize(user, password)
+		mqtt.Connect2(mo)
+	Catch
+		Log(LastException)
+	End Try
+
 End Sub
 
 Private Sub mqtt_MessageArrived (Topic As String, Payload() As Byte)
 	If Topic = "TempHumid" Then
 		Dim s As String = BytesToString(Payload, 0, Payload.Length, "utf8")
 		Dim a() As String = Regex.Split("\|",s)
-		If a.Length = 9 Then 
+		If a.Length = 9 Then
 			gaugeHomeTemp.CurrentValue=a(1)
 			gaugeHomeHumidity.CurrentValue=a(2)
 			labelgaugeHomeTemp.Text = GetPerception(a(3))
 			labelgaugeHomeHumidity.Text = GetComfort(a(4))
+			
 			If a(3) > 3 Then
 				labelgaugeHomeTemp.TextColor = fx.Colors.Red
 			Else
@@ -162,6 +173,20 @@ Private Sub mqtt_MessageArrived (Topic As String, Payload() As Byte)
 			Else
 				labelgaugeHomeHumidity.TextColor = fx.Colors.black
 			End If
+			' *** Check how old the message is
+			DateTime.DateFormat = "yy-MM-dd HH:mm:ss z"
+			Dim ticks As Long = DateTime.DateParse(a(7) & " " & a(8) & " GMT")
+			DateTime.DateFormat = "MMM d, yyyy h:mm:ss a z"
+			Dim lngTicks As Long = ticks
+			Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
+			'Log("TempHumidity Time difference: " & p.Hours & ":" & p.Minutes & " minutes")
+			If p.Minutes > = 5 Then
+				labelgaugeHomeTemp.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+				labelgaugeHomeTemp.TextColor = fx.Colors.Red
+				labelgaugeHomeHumidity.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+				labelgaugeHomeHumidity.TextColor = fx.Colors.Red
+			End If
+			' *** Check how old the message is
 		End If
 	else If Topic = "MQ7" Then
 		Dim s As String = BytesToString(Payload, 0, Payload.Length, "utf8")
@@ -174,6 +199,18 @@ Private Sub mqtt_MessageArrived (Topic As String, Payload() As Byte)
 			Else
 				labelGaugeAirQuality.TextColor = fx.Colors.black
 			End If
+			' *** Check how old the message is
+			DateTime.DateFormat = "yy-MM-dd HH:mm:ss z"
+			Dim ticks As Long = DateTime.DateParse(a(1) & " " & a(2) & " GMT")
+			DateTime.DateFormat = "MMM d, yyyy h:mm:ss a z"
+			Dim lngTicks As Long = ticks
+			Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
+			'Log("AirQuality Time difference: " & p.Minutes & " minutes" & p.Seconds & " seconds")
+			If p.Minutes > = 5 Then
+				labelGaugeAirQuality.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+				labelGaugeAirQuality.TextColor = fx.Colors.Red
+			End If
+			' *** Check how old the message is
 		End If
 	else If Topic = "TempHumidBasement" Then
 		Dim s As String = BytesToString(Payload, 0, Payload.Length, "utf8")
@@ -193,6 +230,20 @@ Private Sub mqtt_MessageArrived (Topic As String, Payload() As Byte)
 			Else
 				labelgaugeBasementHumidity.TextColor = fx.Colors.black
 			End If
+			' *** Check how old the message is
+			DateTime.DateFormat = "yy-MM-dd HH:mm:ss z"
+			Dim ticks As Long = DateTime.DateParse(a(7) & " " & a(8) & " GMT")
+			DateTime.DateFormat = "MMM d, yyyy h:mm:ss a z"
+			Dim lngTicks As Long = ticks
+			Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
+			'Log("TempHumidity Time difference: " & p.Hours & ":" & p.Minutes & " minutes")
+			If p.Minutes > = 5 Then
+				labelgaugeBasementTemp.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+				labelgaugeBasementTemp.TextColor = fx.Colors.Red
+				labelgaugeBasementHumidity.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+				labelgaugeBasementHumidity.TextColor = fx.Colors.Red
+			End If
+			' *** Check how old the message is
 		End If
 	else If Topic = "MQ7Basement" Then
 		Dim s As String = BytesToString(Payload, 0, Payload.Length, "utf8")
@@ -205,6 +256,18 @@ Private Sub mqtt_MessageArrived (Topic As String, Payload() As Byte)
 			Else
 				labelGaugeBasementAirQuality.TextColor = fx.Colors.black
 			End If
+			' *** Check how old the message is
+			DateTime.DateFormat = "yy-MM-dd HH:mm:ss z"
+			Dim ticks As Long = DateTime.DateParse(a(1) & " " & a(2) & " GMT")
+			DateTime.DateFormat = "MMM d, yyyy h:mm:ss a z"
+			Dim lngTicks As Long = ticks
+			Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
+			'Log("AirQuality Time difference: " & p.Minutes & " minutes" & p.Seconds & " seconds")
+			If p.Minutes > = 5 Then
+				labelGaugeBasementAirQuality.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+				labelGaugeBasementAirQuality.TextColor = fx.Colors.Red
+			End If
+			' *** Check how old the message is
 		End If
 	End If
 End Sub
@@ -328,3 +391,5 @@ Sub CheckMonitor() As Screen
 		Return S
 	End Try
 End Sub
+
+

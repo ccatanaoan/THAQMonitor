@@ -53,6 +53,7 @@ public int _gaugetype = 0;
 public int _anglerange = 0;
 public int _angleoffset = 0;
 public int _backgroundcolor = 0;
+public b4j.example.dateutils _dateutils = null;
 public b4j.example.main _main = null;
 public static class _gaugerange{
 public boolean IsInitialized;
