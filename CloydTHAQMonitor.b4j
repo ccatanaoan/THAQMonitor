@@ -285,6 +285,7 @@ Sub AppStart (Form1 As Form, Args() As String)
 	MainForm.RootPane.Style = "-fx-background-color:transparent;-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1.0) , 15,0, 0.0, 0.0);"
 	MainForm.Resizable = False	
 	MainForm.Icon = fx.LoadImage(File.DirAssets, "icon.png")
+	MainForm.Title = "THAQ"
 	lbTitle.MouseCursor = fx.Cursors.MOVE
 	lbTitle.Text = "Catanaoan THAQ Monitor v1.0"
 	Dim Obj As Reflector
