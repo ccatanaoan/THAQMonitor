@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.web.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <WebView id="wv1" prefHeight="650.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+    <Button id="BackButton" layoutX="94.0" layoutY="15.0" mnemonicParsing="false" text="Back" visible="false" />
+    <Button id="forwardButton" layoutX="148.0" layoutY="15.0" mnemonicParsing="false" text="Forward" visible="false" />
+    <Button id="homeButton" layoutX="19.0" layoutY="15.0" mnemonicParsing="false" prefWidth="68.0" text="Home" visible="false" />
+    <TextField id="navBar" layoutX="269.0" layoutY="14.0" prefWidth="452.0" visible="false" />
+    <Button id="goButton" layoutX="730.0" layoutY="15.0" mnemonicParsing="false" text="Go" visible="false" />
+    <ComboBox id="combo1" layoutX="14.0" layoutY="50.0" prefHeight="21.0" prefWidth="747.0" promptText="Links in Page" visible="false">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+  </children>
+</AnchorPane>

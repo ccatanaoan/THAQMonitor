@@ -205,9 +205,10 @@ Library5=jxui
 Library6=jdateutils
 Library7=jmqtt
 Library8=jrandomaccessfile
+Library9=jshell
 Module1=Gauge
 NumberOfFiles=98
-NumberOfLibraries=8
+NumberOfLibraries=9
 NumberOfModules=1
 Version=6.3
 @EndOfDesignText@
@@ -379,27 +380,10 @@ Private Sub Close_Exited_Event(e As Event)
 End Sub
 
 Private Sub ivMax_MouseClicked (EventData As MouseEvent)
-'	isMaximized = Not(isMaximized)
-'	Dim jmf As JavaObject = MainForm
-'	Dim stage As JavaObject = jmf.GetField("stage")
-'	stage.RunMethod("setFullScreen", Array As Object(isMaximized))	
-	Dim scr As Screen = fx.PrimaryScreen
-	If isMaximized Then
-		MainForm.WindowLeft = f_X
-		MainForm.WindowTop = f_Y
-		MainForm.WindowWidth = f_W
-		MainForm.WindowHeight = f_H
-	Else
-		f_X = MainForm.WindowLeft 
-		f_Y = MainForm.WindowTop 
-		f_W = MainForm.WindowWidth 
-		f_H = MainForm.WindowHeight 
-		MainForm.WindowLeft = 0
-		MainForm.WindowTop = 0
-		MainForm.WindowWidth = scr.MaxX 
-		MainForm.WindowHeight = scr.MaxY + 40
-	End If
-	isMaximized = Not(isMaximized)
+	Dim jshl As Shell 
+	jshl.Initialize("jsl","java",Array As String("-jar","webengine.jar"))
+	jshl.WorkingDirectory = "C:\Users\ccatanaoan\Desktop\IoT\THAQ Monitor\Objects"
+	jshl.run(-1)
 End Sub
 
 Private Sub Max_Entered_Event(e As Event)
