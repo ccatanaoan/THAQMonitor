@@ -207,9 +207,10 @@ Library7=jmqtt
 Library8=jrandomaccessfile
 Library9=jshell
 Module1=Gauge
+Module2=clXToastMessage
 NumberOfFiles=98
 NumberOfLibraries=9
-NumberOfModules=1
+NumberOfModules=2
 Version=6.3
 @EndOfDesignText@
 #Region Project Attributes 
@@ -255,6 +256,7 @@ Sub Process_Globals
 	Private labelGaugeBasementAirQuality As Label 'ignore
 	Private labelgaugeBasementHumidity As Label 'ignore
 	Private lblStatus As Label 'ignore
+	Private Toast As clXToastMessage
 End Sub
 
 Sub AppStart (Form1 As Form, Args() As String)
@@ -380,10 +382,22 @@ Private Sub Close_Exited_Event(e As Event)
 End Sub
 
 Private Sub ivMax_MouseClicked (EventData As MouseEvent)
+	Toast.Initialize(MainForm.RootPane)
+	
+	Toast.SetTMDefaults
+	'set blue backgroud, thick yellow border with radius
+	Toast.SetTMBackground(fx.Colors.Blue, 4, fx.Colors.Yellow, 8)
+	'set toast message to be displayed at the center of the Form
+	Toast.SetTMPosition(Toast.TMPOS_CENTER)
+	' 4 seconds display time for long duration
+	Toast.SetTMDuration(1000,3000)
+	
 	Dim jshl As Shell 
 	jshl.Initialize("jsl","java",Array As String("-jar","webengine.jar"))
 	jshl.WorkingDirectory = "C:\Users\ccatanaoan\Desktop\IoT\THAQ Monitor\Objects"
 	jshl.run(-1)
+	
+	Toast.TMShow("          Running webview for Lee's Summit weather", True, True)
 End Sub
 
 Private Sub Max_Entered_Event(e As Event)
