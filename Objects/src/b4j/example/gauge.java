@@ -476,8 +476,8 @@ _circleradius = _indicatorbasewidth;
 _cvsindicator.DrawCircle(_x,_y,_circleradius,_centercolor,__c.True,(float) (0));
  //BA.debugLineNum = 192;BA.debugLine="cvsIndicator.Invalidate";
 _cvsindicator.Invalidate();
- //BA.debugLineNum = 193;BA.debugLine="mlbl.Text = s & NumberFormat2(Value, 2, 1, 1, Tru";
-_mlbl.setText(_s+__c.NumberFormat2(_value,(int) (2),(int) (1),(int) (1),__c.True)+_suffixtext);
+ //BA.debugLineNum = 193;BA.debugLine="mlbl.Text = s & NumberFormat2(Value, 1, 2, 0, Tru";
+_mlbl.setText(_s+__c.NumberFormat2(_value,(int) (1),(int) (2),(int) (0),__c.True)+_suffixtext);
  //BA.debugLineNum = 194;BA.debugLine="End Sub";
 return "";
 }
