@@ -394,7 +394,7 @@ Private Sub ivMax_MouseClicked (EventData As MouseEvent)
 	
 	Dim jshl As Shell 
 	jshl.Initialize("jsl","java",Array As String("-jar","webengine.jar"))
-	jshl.WorkingDirectory = "C:\Users\ccatanaoan\Desktop\IoT\THAQ Monitor\Objects"
+	jshl.WorkingDirectory = File.DirApp
 	jshl.run(-1)
 	
 	Toast.TMShow("          Running webview for Lee's Summit weather", True, True)
