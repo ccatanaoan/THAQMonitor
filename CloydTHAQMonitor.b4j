@@ -392,12 +392,16 @@ Private Sub ivMax_MouseClicked (EventData As MouseEvent)
 	' 4 seconds display time for long duration
 	Toast.SetTMDuration(1000,3000)
 	
-	Dim jshl As Shell 
-	jshl.Initialize("jsl","java",Array As String("-jar","webengine.jar"))
-	jshl.WorkingDirectory = File.DirApp
-	jshl.run(-1)
+	If File.Exists(File.DirApp,"webengine.jar") Then
+		Dim jshl As Shell
+		jshl.Initialize("jsl","java",Array As String("-jar","webengine.jar"))
+		jshl.WorkingDirectory = File.DirApp
+		jshl.run(-1)
 	
-	Toast.TMShow("          Running webview for Lee's Summit weather", True, True)
+		Toast.TMShow("          Running webview for Lee's Summit weather", True, True)
+	Else
+		Toast.TMShow("          Webview application (JAR) does not exist", True, True)
+	End If
 End Sub
 
 Private Sub Max_Entered_Event(e As Event)
