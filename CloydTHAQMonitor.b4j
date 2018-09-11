@@ -231,7 +231,6 @@ Sub Process_Globals
 	Private AtualSkin As String
 	Private imgInit As String
 	Private isMaximized As Boolean = False
-	Private f_X, f_Y, f_W, f_H As Double
 	Private Button1 As Button 'ignore
 	Private fx As JFX
 	Private MainForm As Form
@@ -260,113 +259,125 @@ Sub Process_Globals
 End Sub
 
 Sub AppStart (Form1 As Form, Args() As String)
-	Dim skinTemp As String 
-	Dim skinDefault As String
+	Try
+		Dim skinTemp As String
+		Dim skinDefault As String
 	
-	If File.Exists(File.DirApp, "skin.ini") Then
-		skinTemp = File.ReadString(File.DirApp, "skin.ini")
-	Else
-		File.WriteString(File.DirApp, "skin.ini", "vdSk03")
-		skinTemp = "vdSk03"
-	End If
-	
-	If skinTemp = "" Then
-		skinDefault = "vdSk03"
-	Else
-		If skinTemp = "vdSk01" Or skinTemp = "vdSk02" Or skinTemp = "vdSk03" Or skinTemp = "vdSk04" Or skinTemp = "vdSk05" Or skinTemp = "vdSk06" Then
-			skinDefault = skinTemp
+		If File.Exists(File.DirApp, "skin.ini") Then
+			skinTemp = File.ReadString(File.DirApp, "skin.ini")
 		Else
-			skinDefault = "vdSk03"
+			File.WriteString(File.DirApp, "skin.ini", "vdSk03")
+			skinTemp = "vdSk03"
 		End If
-	End If
 	
-	MainForm = Form1
-	MainForm.SetFormStyle("TRANSPARENT")
-	MainForm.RootPane.LoadLayout(skinDefault) 'Load the layout file.
-	AtualSkin = skinDefault
-	MainForm.BackColor = fx.Colors.Transparent
-	MainForm.RootPane.Style = "-fx-background-color:transparent;-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1.0) , 15,0, 0.0, 0.0);"
-	MainForm.Resizable = False	
-	MainForm.Icon = fx.LoadImage(File.DirAssets, "icon.png")
-	MainForm.Title = "THAQ"
-	lbTitle.MouseCursor = fx.Cursors.MOVE
-	lbTitle.Text = "Catanaoan THAQ Monitor v1.0"
-	Dim Obj As Reflector
-	Obj.Target = ivClose
-	Obj.AddEventHandler2("Close_Entered", "onMouseEnteredProperty")
-	Obj.AddEventHandler2("Close_Exited", "onMouseExitedProperty")
-	Dim Obj As Reflector
-	Obj.Target = ivMax
-	Obj.AddEventHandler2("Max_Entered", "onMouseEnteredProperty")
-	Obj.AddEventHandler2("Max_Exited", "onMouseExitedProperty")
-	Dim Obj As Reflector
-	Obj.Target = ivMin
-	Obj.AddEventHandler2("Min_Entered", "onMouseEnteredProperty")
-	Obj.AddEventHandler2("Min_Exited", "onMouseExitedProperty")
+		If skinTemp = "" Then
+			skinDefault = "vdSk03"
+		Else
+			If skinTemp = "vdSk01" Or skinTemp = "vdSk02" Or skinTemp = "vdSk03" Or skinTemp = "vdSk04" Or skinTemp = "vdSk05" Or skinTemp = "vdSk06" Then
+				skinDefault = skinTemp
+			Else
+				skinDefault = "vdSk03"
+			End If
+		End If
 	
-	imgInit = AtualSkin.SubString(2).ToLowerCase
-	loadList
-	Get_css
-	MainForm.Show
+		MainForm = Form1
+		MainForm.SetFormStyle("TRANSPARENT")
+		MainForm.RootPane.LoadLayout(skinDefault) 'Load the layout file.
+		AtualSkin = skinDefault
+		MainForm.BackColor = fx.Colors.Transparent
+		MainForm.RootPane.Style = "-fx-background-color:transparent;-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1.0) , 15,0, 0.0, 0.0);"
+		MainForm.Resizable = False
+		MainForm.Icon = fx.LoadImage(File.DirAssets, "icon.png")
+		MainForm.Title = "THAQ"
+		lbTitle.MouseCursor = fx.Cursors.MOVE
+		lbTitle.Text = "Catanaoan THAQ Monitor v1.0"
+		Dim Obj As Reflector
+		Obj.Target = ivClose
+		Obj.AddEventHandler2("Close_Entered", "onMouseEnteredProperty")
+		Obj.AddEventHandler2("Close_Exited", "onMouseExitedProperty")
+		Dim Obj As Reflector
+		Obj.Target = ivMax
+		Obj.AddEventHandler2("Max_Entered", "onMouseEnteredProperty")
+		Obj.AddEventHandler2("Max_Exited", "onMouseExitedProperty")
+		Dim Obj As Reflector
+		Obj.Target = ivMin
+		Obj.AddEventHandler2("Min_Entered", "onMouseEnteredProperty")
+		Obj.AddEventHandler2("Min_Exited", "onMouseExitedProperty")
 	
-	lblStatus.TextColor = fx.Colors.Red
-	lblStatus.Text = "Status: *** Connecting to Cloud MQTT ***"
-	Dim clientId As String = Rnd(0, 999999999) & DateTime.Now 'create a unique id
-	mqtt.Initialize("mqtt", "tcp://m14.cloudmqtt.com:11816", clientId)
-	Dim mo As MqttConnectOptions
-	mo.Initialize(user, password)
-	mqtt.Connect2(mo)
+		imgInit = AtualSkin.SubString(2).ToLowerCase
+		loadList
+		Get_css
+		MainForm.Show
 	
-	gaugeHomeTemp.SetRanges(Array(gaugeHomeTemp.CreateRange(0, 75, xui.Color_Green), _
+		lblStatus.TextColor = fx.Colors.Red
+		lblStatus.Text = "Status: *** Connecting to Cloud MQTT ***"
+		Dim clientId As String = Rnd(0, 999999999) & DateTime.Now 'create a unique id
+		mqtt.Initialize("mqtt", "tcp://m14.cloudmqtt.com:11816", clientId)
+		Dim mo As MqttConnectOptions
+		mo.Initialize(user, password)
+		mqtt.Connect2(mo)
+	
+		gaugeHomeTemp.SetRanges(Array(gaugeHomeTemp.CreateRange(0, 75, xui.Color_Green), _
     gaugeHomeTemp.CreateRange(75, 90, xui.Color_Yellow), _
     gaugeHomeTemp.CreateRange(90, 100, xui.Color_Red)))
-	gaugeHomeTemp.CurrentValue=0
+		gaugeHomeTemp.CurrentValue=0
 	
-	gaugeHomeHumidity.SetRanges(Array(gaugeHomeHumidity.CreateRange(0, 70, xui.Color_Green), _
+		gaugeHomeHumidity.SetRanges(Array(gaugeHomeHumidity.CreateRange(0, 70, xui.Color_Green), _
 	gaugeHomeHumidity.CreateRange(70, 80, xui.Color_Yellow), _
 	gaugeHomeHumidity.CreateRange(80, 100, xui.Color_Red)))
-	gaugeHomeHumidity.CurrentValue=0
+		gaugeHomeHumidity.CurrentValue=0
 	
-	GaugeAirQuality.SetRanges(Array(GaugeAirQuality.CreateRange(0, 100, xui.Color_Green), _
+		GaugeAirQuality.SetRanges(Array(GaugeAirQuality.CreateRange(0, 100, xui.Color_Green), _
 	GaugeAirQuality.CreateRange(100, 400, xui.Color_RGB(100,240,23)), _
 	GaugeAirQuality.CreateRange(400, 900, xui.Color_Yellow), _
 	GaugeAirQuality.CreateRange(900, 1000, xui.Color_Red)))
-	GaugeAirQuality.CurrentValue = 0
+		GaugeAirQuality.CurrentValue = 0
 	
-	gaugeBasementTemp.SetRanges(Array(gaugeBasementTemp.CreateRange(0, 75, xui.Color_Green), _
+		gaugeBasementTemp.SetRanges(Array(gaugeBasementTemp.CreateRange(0, 75, xui.Color_Green), _
     gaugeBasementTemp.CreateRange(75, 90, xui.Color_Yellow), _
     gaugeBasementTemp.CreateRange(90, 100, xui.Color_Red)))
-	gaugeBasementTemp.CurrentValue=0
+		gaugeBasementTemp.CurrentValue=0
 	
-	gaugeBasementHumidity.SetRanges(Array(gaugeBasementHumidity.CreateRange(0, 70, xui.Color_Green), _
+		gaugeBasementHumidity.SetRanges(Array(gaugeBasementHumidity.CreateRange(0, 70, xui.Color_Green), _
 	gaugeBasementHumidity.CreateRange(70, 80, xui.Color_Yellow), _
 	gaugeBasementHumidity.CreateRange(80, 100, xui.Color_Red)))
-	gaugeBasementHumidity.CurrentValue=0
+		gaugeBasementHumidity.CurrentValue=0
 	
-	GaugeBasementAirQuality.SetRanges(Array(GaugeBasementAirQuality.CreateRange(0, 100, xui.Color_Green), _
+		GaugeBasementAirQuality.SetRanges(Array(GaugeBasementAirQuality.CreateRange(0, 100, xui.Color_Green), _
 	GaugeBasementAirQuality.CreateRange(100, 400, xui.Color_RGB(100,240,23)), _
 	GaugeBasementAirQuality.CreateRange(400, 900, xui.Color_Yellow), _
 	GaugeBasementAirQuality.CreateRange(900, 1000, xui.Color_Red)))
-	GaugeBasementAirQuality.CurrentValue = 0
+		GaugeBasementAirQuality.CurrentValue = 0
 	
-	AlwaysOnTop(MainForm,True)
+		AlwaysOnTop(MainForm,True)
 	
-	'RotateNode(labelgaugeHomeTemp,270.0)
+		'RotateNode(labelgaugeHomeTemp,270.0)
 	
-	MainForm.WindowLeft = CheckMonitor.MaxX	- MainForm.Width 
-	MainForm.WindowTop = CheckMonitor.MaxY - MainForm.Height - 20dip 
+		MainForm.WindowLeft = CheckMonitor.MaxX	- MainForm.Width
+		MainForm.WindowTop = CheckMonitor.MaxY - MainForm.Height - 20dip
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
 Private Sub lbTitle_MouseDragged (EventData As MouseEvent)
-	If isMaximized Then Return
-   	Dim jo As JavaObject = EventData
-   	MainForm.WindowLeft = jo.RunMethod("getScreenX", Null) - xMouse
-   	MainForm.WindowTop = jo.RunMethod("getScreenY", Null) - yMouse		
+	Try
+		If isMaximized Then Return
+		Dim jo As JavaObject = EventData
+		MainForm.WindowLeft = jo.RunMethod("getScreenX", Null) - xMouse
+		MainForm.WindowTop = jo.RunMethod("getScreenY", Null) - yMouse
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
 Private Sub lbTitle_MousePressed (EventData As MouseEvent)
-	xMouse = EventData.X + lbTitle.Left + 15
-	yMouse = EventData.Y + lbTitle.Top + 15		
+	Try
+		xMouse = EventData.X + lbTitle.Left + 15
+		yMouse = EventData.Y + lbTitle.Top + 15
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
 Private Sub ivClose_MouseClicked (EventData As MouseEvent)
@@ -374,128 +385,188 @@ Private Sub ivClose_MouseClicked (EventData As MouseEvent)
 End Sub
 
 Private Sub Close_Entered_Event(e As Event)
-	ivClose.SetImage(fx.LoadImage(File.DirAssets, imgInit & "_btCloseEnt.png"))
+	Try
+		ivClose.SetImage(fx.LoadImage(File.DirAssets, imgInit & "_btCloseEnt.png"))
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
 Private Sub Close_Exited_Event(e As Event)
-	ivClose.SetImage(fx.LoadImage(File.DirAssets, imgInit & "_btClose.png"))
+	Try
+		ivClose.SetImage(fx.LoadImage(File.DirAssets, imgInit & "_btClose.png"))
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
 Private Sub ivMax_MouseClicked (EventData As MouseEvent)
-	Toast.Initialize(MainForm.RootPane)
+	Try
+		Toast.Initialize(MainForm.RootPane)
 	
-	Toast.SetTMDefaults
-	'set blue backgroud, thick yellow border with radius
-	Toast.SetTMBackground(fx.Colors.Blue, 4, fx.Colors.Yellow, 8)
-	'set toast message to be displayed at the center of the Form
-	Toast.SetTMPosition(Toast.TMPOS_CENTER)
-	' 4 seconds display time for long duration
-	Toast.SetTMDuration(1000,3000)
+		Toast.SetTMDefaults
+		'set blue backgroud, thick yellow border with radius
+		Toast.SetTMBackground(fx.Colors.Blue, 4, fx.Colors.Yellow, 8)
+		'set toast message to be displayed at the center of the Form
+		Toast.SetTMPosition(Toast.TMPOS_CENTER)
+		' 4 seconds display time for long duration
+		Toast.SetTMDuration(1000,3000)
 	
-	If File.Exists(File.DirApp,"webengine.jar") Then
-		Dim jshl As Shell
-		jshl.Initialize("jsl","java",Array As String("-jar","webengine.jar"))
-		jshl.WorkingDirectory = File.DirApp
-		jshl.run(-1)
+		If File.Exists(File.DirApp,"webengine.jar") Then
+			Dim jshl As Shell
+			jshl.Initialize("jsl","java",Array As String("-jar","webengine.jar"))
+			jshl.WorkingDirectory = File.DirApp
+			jshl.run(-1)
 	
-		Toast.TMShow("          Running webview for Lee's Summit weather", True, True)
-	Else
-		Toast.TMShow("          Webview application (JAR) does not exist", True, True)
-	End If
+			Toast.TMShow("          Running webview for Lee's Summit weather", True, True)
+		Else
+			Toast.TMShow("          Webview application (JAR) does not exist", True, True)
+		End If
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
 Private Sub Max_Entered_Event(e As Event)
-	ivMax.SetImage(fx.LoadImage(File.DirAssets, imgInit & "_btMaxEnt.png"))
+	Try
+		ivMax.SetImage(fx.LoadImage(File.DirAssets, imgInit & "_btMaxEnt.png"))
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
 Private Sub Max_Exited_Event(e As Event)
-	ivMax.SetImage(fx.LoadImage(File.DirAssets, imgInit & "_btMax.png"))
+	Try
+		ivMax.SetImage(fx.LoadImage(File.DirAssets, imgInit & "_btMax.png"))
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
 Private Sub ivMin_MouseClicked (EventData As MouseEvent)
-	Dim jmf As JavaObject = MainForm
-	Dim stage As JavaObject = jmf.GetField("stage")
-	stage.RunMethod("setIconified", Array As Object(True))		
+	Try
+		Dim jmf As JavaObject = MainForm
+		Dim stage As JavaObject = jmf.GetField("stage")
+		stage.RunMethod("setIconified", Array As Object(True))
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
 Private Sub Min_Entered_Event(e As Event)
-	ivMin.SetImage(fx.LoadImage(File.DirAssets, imgInit & "_btMinEnt.png"))
+	Try
+		ivMin.SetImage(fx.LoadImage(File.DirAssets, imgInit & "_btMinEnt.png"))
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
 Private Sub Min_Exited_Event(e As Event)
-	ivMin.SetImage(fx.LoadImage(File.DirAssets, imgInit & "_btMin.png"))
+	Try
+		ivMin.SetImage(fx.LoadImage(File.DirAssets, imgInit & "_btMin.png"))
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
 Private Sub lstSkins_MouseClicked (EventData As MouseEvent)
-	Dim idx As Short = lstSkins.SelectedIndex
-	If idx = -1 Then Return
-	Dim lb As Label = lstSkins.Items.Get(idx)
-	If lb.tag = AtualSkin Then Return
-	AtualSkin = lb.tag
-	imgInit = AtualSkin.SubString(2).ToLowerCase
-	loadSkin(AtualSkin)
+	Try
+		Dim idx As Short = lstSkins.SelectedIndex
+		If idx = -1 Then Return
+		Dim lb As Label = lstSkins.Items.Get(idx)
+		If lb.tag = AtualSkin Then Return
+		AtualSkin = lb.tag
+		imgInit = AtualSkin.SubString(2).ToLowerCase
+		loadSkin(AtualSkin)
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
 Private Sub loadSkin(Sk As String)
-	MainForm.RootPane.RemoveAllNodes
-	MainForm.RootPane.LoadLayout(Sk) 
-	MainForm.BackColor = fx.Colors.Transparent
-	MainForm.RootPane.Style = "-fx-background-color:transparent;-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1.0) , 15,0, 0.0, 0.0);"
-	MainForm.Resizable = False	
-	lbTitle.MouseCursor = fx.Cursors.MOVE
-	lbTitle.Text = "Title  -  " & Sk
-	Dim Obj As Reflector
-	Obj.Target = ivClose
-	Obj.AddEventHandler2("Close_Entered", "onMouseEnteredProperty")
-	Obj.AddEventHandler2("Close_Exited", "onMouseExitedProperty")
-	Dim Obj As Reflector
-	Obj.Target = ivMax
-	Obj.AddEventHandler2("Max_Entered", "onMouseEnteredProperty")
-	Obj.AddEventHandler2("Max_Exited", "onMouseExitedProperty")
-	Dim Obj As Reflector
-	Obj.Target = ivMin
-	Obj.AddEventHandler2("Min_Entered", "onMouseEnteredProperty")
-	Obj.AddEventHandler2("Min_Exited", "onMouseExitedProperty")
-	Get_css
-	loadList
+	Try
+		MainForm.RootPane.RemoveAllNodes
+		MainForm.RootPane.LoadLayout(Sk)
+		MainForm.BackColor = fx.Colors.Transparent
+		MainForm.RootPane.Style = "-fx-background-color:transparent;-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1.0) , 15,0, 0.0, 0.0);"
+		MainForm.Resizable = False
+		lbTitle.MouseCursor = fx.Cursors.MOVE
+		lbTitle.Text = "Title  -  " & Sk
+		Dim Obj As Reflector
+		Obj.Target = ivClose
+		Obj.AddEventHandler2("Close_Entered", "onMouseEnteredProperty")
+		Obj.AddEventHandler2("Close_Exited", "onMouseExitedProperty")
+		Dim Obj As Reflector
+		Obj.Target = ivMax
+		Obj.AddEventHandler2("Max_Entered", "onMouseEnteredProperty")
+		Obj.AddEventHandler2("Max_Exited", "onMouseExitedProperty")
+		Dim Obj As Reflector
+		Obj.Target = ivMin
+		Obj.AddEventHandler2("Min_Entered", "onMouseEnteredProperty")
+		Obj.AddEventHandler2("Min_Exited", "onMouseExitedProperty")
+		Get_css
+		loadList
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
 Private Sub loadList
-	lstSkins.Items.Clear
-	For i = 1 To 6
-		Dim lb As Label
-		lb.Initialize("")
-		Dim n As String =  i
-		Dim lg As Short = n .Length
-		Do Until lg = 2
-			n = "0" & n
-			lg = n .Length  
-		Loop
-		lb.Text = "Skin #"  &  n
-		lb.Tag = "vdSk" & n  
-		lstSkins.Items.Add(lb)	
-	Next
+	Try
+		lstSkins.Items.Clear
+		For i = 1 To 6
+			Dim lb As Label
+			lb.Initialize("")
+			Dim n As String =  i
+			Dim lg As Short = n .Length
+			Do Until lg = 2
+				n = "0" & n
+				lg = n .Length
+			Loop
+			lb.Text = "Skin #"  &  n
+			lb.Tag = "vdSk" & n
+			lstSkins.Items.Add(lb)
+		Next
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
 Public Sub Get_css
-	Dim jForm As JavaObject = MainForm
-	Dim scene As JavaObject = jForm.GetField("scene")
-	Dim stylesheets As List = scene.RunMethod("getStylesheets", Null)
-	stylesheets.Clear
-	stylesheets.Add(File.GetUri(File.DirAssets, imgInit & ".css"))
+	Try
+		Dim jForm As JavaObject = MainForm
+		Dim scene As JavaObject = jForm.GetField("scene")
+		Dim stylesheets As List = scene.RunMethod("getStylesheets", Null)
+		stylesheets.Clear
+		stylesheets.Add(File.GetUri(File.DirAssets, imgInit & ".css"))
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
 Private Sub Button1_Action
-	ivMax.Visible = Not(ivMax.Visible)
-	ivMin.Visible = Not(ivMin.Visible)
+	Try
+		ivMax.Visible = Not(ivMax.Visible)
+		ivMin.Visible = Not(ivMin.Visible)
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
 Sub AlwaysOnTop(o As Form,boo As Boolean)
-	getStage(o).RunMethod("setAlwaysOnTop",Array(boo))
+	Try
+		getStage(o).RunMethod("setAlwaysOnTop",Array(boo))
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
-private Sub getStage(o As JavaObject) As JavaObject
-	Return o.GetFieldJO("stage")
+private Sub getStage(o As JavaObject) As JavaObject 'ignore
+	Try
+		Return o.GetFieldJO("stage")
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
 Sub CheckMonitor() As Screen
@@ -525,7 +596,7 @@ Sub CheckMonitor() As Screen
 End Sub
 
 
-Sub GetPerception(DHT11Perception As String) As String
+Sub GetPerception(DHT11Perception As String) As String 'ignore
 	' Return value       Dew point                        Human perception[6]
 	'    7         Over 26 °C (>78.8°F)     Severely high, even deadly For asthma related illnesses
 	'    6         24–26 °C (75.2-78.8°F)   Extremely uncomfortable, oppressive
@@ -536,74 +607,90 @@ Sub GetPerception(DHT11Perception As String) As String
 	'    1         10–12 °C (50-53.6°F)     Very comfortable
 	'    0         Under 10 °C (<50°F)      Feels like the western US, a Bit dry To some
 	
-	Dim localperception As String
-	Select Case DHT11Perception
-		Case 0
-			localperception = "Feels like the western US, a bit dry to some"
-		Case 1
-			localperception = "Very comfortable"
-		Case 2
-			localperception = "Comfortable"
-		Case 3
-			localperception = "OK but humidity is at upper limit"
-		Case 4
-			localperception = "Uncomfortable and the humidity is at upper limit"
-		Case 5
-			localperception = "Very humid, quite uncomfortable"
-		Case 6
-			localperception = "Extremely uncomfortable, oppressive"
-		Case 7
-			localperception = "Severely high, even deadly for asthma related illnesses"
-	End Select
-	Return localperception
+	Try
+		Dim localperception As String
+		Select Case DHT11Perception
+			Case 0
+				localperception = "Feels like the western US, a bit dry to some"
+			Case 1
+				localperception = "Very comfortable"
+			Case 2
+				localperception = "Comfortable"
+			Case 3
+				localperception = "OK but humidity is at upper limit"
+			Case 4
+				localperception = "Uncomfortable and the humidity is at upper limit"
+			Case 5
+				localperception = "Very humid, quite uncomfortable"
+			Case 6
+				localperception = "Extremely uncomfortable, oppressive"
+			Case 7
+				localperception = "Severely high, even deadly for asthma related illnesses"
+		End Select
+		Return localperception
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
-Sub GetComfort(DHT11ComfortStatus As String) As String
-	Dim localcomfortstatus As String
-	Select Case DHT11ComfortStatus
-		Case 0
-			localcomfortstatus = "OK"
-		Case 1
-			localcomfortstatus = "Too hot"
-		Case 2
-			localcomfortstatus = "Too cold"
-		Case 4
-			localcomfortstatus = "Too dry"
-		Case 5
-			localcomfortstatus = "Hot and dry"
-		Case 6
-			localcomfortstatus = "Cold and dry"
-		Case 8
-			localcomfortstatus = "Too humid"
-		Case 9
-			localcomfortstatus = "Hot and humid"
-		Case 10
-			localcomfortstatus = "Cold and humid"
-		Case Else
-			localcomfortstatus = "Unknown"
-	End Select
-	Return localcomfortstatus
+Sub GetComfort(DHT11ComfortStatus As String) As String 'ignore
+	Try
+		Dim localcomfortstatus As String
+		Select Case DHT11ComfortStatus
+			Case 0
+				localcomfortstatus = "OK"
+			Case 1
+				localcomfortstatus = "Too hot"
+			Case 2
+				localcomfortstatus = "Too cold"
+			Case 4
+				localcomfortstatus = "Too dry"
+			Case 5
+				localcomfortstatus = "Hot and dry"
+			Case 6
+				localcomfortstatus = "Cold and dry"
+			Case 8
+				localcomfortstatus = "Too humid"
+			Case 9
+				localcomfortstatus = "Hot and humid"
+			Case 10
+				localcomfortstatus = "Cold and humid"
+			Case Else
+				localcomfortstatus = "Unknown"
+		End Select
+		Return localcomfortstatus
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
-Sub GetAirQuality(number As Int) As String
+Sub GetAirQuality(number As Int) As String 'ignore
 	' Detecting range: 10ppm-1000ppm carbon monoxide
 	' Air quality-cases: < 100 perfect | 100 - 400 normal | > 400 - 900 high | > 900 abnormal
-	If number <= 100 Then
-		Return("Carbon monoxide perfect")
-	else if ((number > 100) And (number < 400)) Or number = 400 Then
-		Return("Carbon monoxide normal")
-	else if ((number > 400) And (number < 900)) Or number = 900 Then
-		Return("Carbon monoxide high")
-	else If number > 900 Then
-		Return("ALARM Carbon monoxide very high")
-	Else
-		Return("MQ-7 - cant read any value - check the sensor!")
-	End If
+	Try
+		If number <= 100 Then
+			Return("Carbon monoxide perfect")
+		else if ((number > 100) And (number < 400)) Or number = 400 Then
+			Return("Carbon monoxide normal")
+		else if ((number > 400) And (number < 900)) Or number = 900 Then
+			Return("Carbon monoxide high")
+		else If number > 900 Then
+			Return("ALARM Carbon monoxide very high")
+		Else
+			Return("MQ-7 - cant read any value - check the sensor!")
+		End If
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
 Sub RotateNode(n As Node, Degree As Double) 'ignore
-	Dim jo As JavaObject = n
-	jo.RunMethod("setRotate", Array(Degree))
+	Try
+		Dim jo As JavaObject = n
+		jo.RunMethod("setRotate", Array(Degree))
+	Catch
+		Log(LastException)
+	End Try
 End Sub
 
 Sub MainForm_Closed
@@ -611,21 +698,25 @@ Sub MainForm_Closed
 End Sub
 
 Sub mqtt_Connected (Success As Boolean)
-	If Success = False Then
+	Try
+		If Success = False Then
+			Log(LastException)
+			lblStatus.TextColor = fx.Colors.Red
+			lblStatus.Text = "Status: Error connecting"
+		Else
+			lblStatus.TextColor = fx.Colors.White
+			lblStatus.Text = "Status: Connected to Cloud MQTT"
+			MenuBar1.Enabled = True
+			mqtt.Subscribe("TempHumid", 0)
+			mqtt.Subscribe("MQ7", 0)
+			mqtt.Subscribe("TempHumidBasement", 0)
+			mqtt.Subscribe("MQ7Basement", 0)
+			mqtt.Publish("MQ7", serializator.ConvertObjectToBytes("Read voltage"))
+			mqtt.Publish("MQ7Basement", serializator.ConvertObjectToBytes("Read voltage"))
+		End If
+	Catch
 		Log(LastException)
-		lblStatus.TextColor = fx.Colors.Red
-		lblStatus.Text = "Status: Error connecting"
-	Else
-		lblStatus.TextColor = fx.Colors.White
-		lblStatus.Text = "Status: Connected to Cloud MQTT"
-		MenuBar1.Enabled = True
-		mqtt.Subscribe("TempHumid", 0)
-		mqtt.Subscribe("MQ7", 0)
-		mqtt.Subscribe("TempHumidBasement", 0)
-		mqtt.Subscribe("MQ7Basement", 0)
-		mqtt.Publish("MQ7", serializator.ConvertObjectToBytes("Read voltage"))
-		mqtt.Publish("MQ7Basement", serializator.ConvertObjectToBytes("Read voltage"))
-	End If
+	End Try
 End Sub
 
 Private Sub mqtt_Disconnected
@@ -644,120 +735,124 @@ Private Sub mqtt_Disconnected
 End Sub
 
 Private Sub mqtt_MessageArrived (Topic As String, Payload() As Byte)
-	If Topic = "TempHumid" Then
-		Dim s As String = BytesToString(Payload, 0, Payload.Length, "utf8")
-		Dim a() As String = Regex.Split("\|",s)
-		If a.Length = 9 Then
-			gaugeHomeTemp.CurrentValue=a(1)
-			gaugeHomeHumidity.CurrentValue=a(2)
-			labelgaugeHomeTemp.Text = GetPerception(a(3))
-			labelgaugeHomeHumidity.Text = GetComfort(a(4))
+	Try
+		If Topic = "TempHumid" Then
+			Dim s As String = BytesToString(Payload, 0, Payload.Length, "utf8")
+			Dim a() As String = Regex.Split("\|",s)
+			If a.Length = 9 Then
+				gaugeHomeTemp.CurrentValue=a(1)
+				gaugeHomeHumidity.CurrentValue=a(2)
+				labelgaugeHomeTemp.Text = GetPerception(a(3))
+				labelgaugeHomeHumidity.Text = GetComfort(a(4))
 			
-			If a(3) > 3 Then
-				labelgaugeHomeTemp.TextColor = fx.Colors.Red
-			Else
-				labelgaugeHomeTemp.TextColor = fx.Colors.Black
+				If a(3) > 3 Then
+					labelgaugeHomeTemp.TextColor = fx.Colors.Red
+				Else
+					labelgaugeHomeTemp.TextColor = fx.Colors.Black
+				End If
+				If a(4) > 0 Then
+					labelgaugeHomeHumidity.TextColor = fx.Colors.Red
+				Else
+					labelgaugeHomeHumidity.TextColor = fx.Colors.Black
+				End If
+				' *** Check how old the message is
+				DateTime.DateFormat = "yy-MM-dd HH:mm:ss z"
+				Dim ticks As Long = DateTime.DateParse(a(7) & " " & a(8) & " GMT")
+				DateTime.DateFormat = "MMM d, yyyy h:mm:ss a z"
+				Dim lngTicks As Long = ticks
+				Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
+				'Log("TempHumidity Time difference: " & p.Hours & ":" & p.Minutes & " minutes")
+				If p.Minutes > = 5 Then
+					labelgaugeHomeTemp.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+					labelgaugeHomeTemp.TextColor = fx.Colors.Red
+					labelgaugeHomeHumidity.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+					labelgaugeHomeHumidity.TextColor = fx.Colors.Red
+				End If
+				' *** Check how old the message is
 			End If
-			If a(4) > 0 Then
-				labelgaugeHomeHumidity.TextColor = fx.Colors.Red
-			Else
-				labelgaugeHomeHumidity.TextColor = fx.Colors.Black
+		else If Topic = "MQ7" Then
+			Dim s As String = BytesToString(Payload, 0, Payload.Length, "utf8")
+			Dim a() As String = Regex.Split("\|",s)
+			If a.Length = 3 Then
+				GaugeAirQuality.CurrentValue=a(0)
+				labelGaugeAirQuality.Text = GetAirQuality(a(0))
+				If a(0) > 400 Then
+					labelGaugeAirQuality.TextColor = fx.Colors.Red
+				Else
+					labelGaugeAirQuality.TextColor = fx.Colors.Black
+				End If
+				' *** Check how old the message is
+				DateTime.DateFormat = "yy-MM-dd HH:mm:ss z"
+				Dim ticks As Long = DateTime.DateParse(a(1) & " " & a(2) & " GMT")
+				DateTime.DateFormat = "MMM d, yyyy h:mm:ss a z"
+				Dim lngTicks As Long = ticks
+				Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
+				'Log("AirQuality Time difference: " & p.Minutes & " minutes" & p.Seconds & " seconds")
+				If p.Minutes > = 5 Then
+					labelGaugeAirQuality.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+					labelGaugeAirQuality.TextColor = fx.Colors.Red
+				End If
+				' *** Check how old the message is
 			End If
-			' *** Check how old the message is
-			DateTime.DateFormat = "yy-MM-dd HH:mm:ss z"
-			Dim ticks As Long = DateTime.DateParse(a(7) & " " & a(8) & " GMT")
-			DateTime.DateFormat = "MMM d, yyyy h:mm:ss a z"
-			Dim lngTicks As Long = ticks
-			Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
-			'Log("TempHumidity Time difference: " & p.Hours & ":" & p.Minutes & " minutes")
-			If p.Minutes > = 5 Then
-				labelgaugeHomeTemp.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
-				labelgaugeHomeTemp.TextColor = fx.Colors.Red
-				labelgaugeHomeHumidity.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
-				labelgaugeHomeHumidity.TextColor = fx.Colors.Red
+		else If Topic = "TempHumidBasement" Then
+			Dim s As String = BytesToString(Payload, 0, Payload.Length, "utf8")
+			Dim a() As String = Regex.Split("\|",s)
+			If a.Length = 9 Then
+				gaugeBasementTemp.CurrentValue=a(1)
+				gaugeBasementHumidity.CurrentValue=a(2)
+				labelgaugeBasementTemp.Text = GetPerception(a(3))
+				labelgaugeBasementHumidity.Text = GetComfort(a(4))
+				If a(3) > 3 Then
+					labelgaugeBasementTemp.TextColor = fx.Colors.Red
+				Else
+					labelgaugeBasementTemp.TextColor = fx.Colors.Black
+				End If
+				If a(4) > 0 Then
+					labelgaugeBasementHumidity.TextColor = fx.Colors.Red
+				Else
+					labelgaugeBasementHumidity.TextColor = fx.Colors.Black
+				End If
+				' *** Check how old the message is
+				DateTime.DateFormat = "yy-MM-dd HH:mm:ss z"
+				Dim ticks As Long = DateTime.DateParse(a(7) & " " & a(8) & " GMT")
+				DateTime.DateFormat = "MMM d, yyyy h:mm:ss a z"
+				Dim lngTicks As Long = ticks
+				Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
+				'Log("TempHumidity Time difference: " & p.Hours & ":" & p.Minutes & " minutes")
+				If p.Minutes > = 5 Then
+					labelgaugeBasementTemp.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+					labelgaugeBasementTemp.TextColor = fx.Colors.Red
+					labelgaugeBasementHumidity.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+					labelgaugeBasementHumidity.TextColor = fx.Colors.Red
+				End If
+				' *** Check how old the message is
 			End If
-			' *** Check how old the message is
+		else If Topic = "MQ7Basement" Then
+			Dim s As String = BytesToString(Payload, 0, Payload.Length, "utf8")
+			Dim a() As String = Regex.Split("\|",s)
+			If a.Length = 3 Then
+				GaugeBasementAirQuality.CurrentValue=a(0)
+				labelGaugeBasementAirQuality.Text = GetAirQuality(a(0))
+				If a(0) > 400 Then
+					labelGaugeBasementAirQuality.TextColor = fx.Colors.Red
+				Else
+					labelGaugeBasementAirQuality.TextColor = fx.Colors.Black
+				End If
+				' *** Check how old the message is
+				DateTime.DateFormat = "yy-MM-dd HH:mm:ss z"
+				Dim ticks As Long = DateTime.DateParse(a(1) & " " & a(2) & " GMT")
+				DateTime.DateFormat = "MMM d, yyyy h:mm:ss a z"
+				Dim lngTicks As Long = ticks
+				Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
+				'Log("AirQuality Time difference: " & p.Minutes & " minutes" & p.Seconds & " seconds")
+				If p.Minutes > = 5 Then
+					labelGaugeBasementAirQuality.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+					labelGaugeBasementAirQuality.TextColor = fx.Colors.Red
+				End If
+				' *** Check how old the message is
+			End If
 		End If
-	else If Topic = "MQ7" Then
-		Dim s As String = BytesToString(Payload, 0, Payload.Length, "utf8")
-		Dim a() As String = Regex.Split("\|",s)
-		If a.Length = 3 Then
-			GaugeAirQuality.CurrentValue=a(0)
-			labelGaugeAirQuality.Text = GetAirQuality(a(0))
-			If a(0) > 400 Then
-				labelGaugeAirQuality.TextColor = fx.Colors.Red
-			Else
-				labelGaugeAirQuality.TextColor = fx.Colors.Black
-			End If
-			' *** Check how old the message is
-			DateTime.DateFormat = "yy-MM-dd HH:mm:ss z"
-			Dim ticks As Long = DateTime.DateParse(a(1) & " " & a(2) & " GMT")
-			DateTime.DateFormat = "MMM d, yyyy h:mm:ss a z"
-			Dim lngTicks As Long = ticks
-			Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
-			'Log("AirQuality Time difference: " & p.Minutes & " minutes" & p.Seconds & " seconds")
-			If p.Minutes > = 5 Then
-				labelGaugeAirQuality.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
-				labelGaugeAirQuality.TextColor = fx.Colors.Red
-			End If
-			' *** Check how old the message is
-		End If
-	else If Topic = "TempHumidBasement" Then
-		Dim s As String = BytesToString(Payload, 0, Payload.Length, "utf8")
-		Dim a() As String = Regex.Split("\|",s)
-		If a.Length = 9 Then
-			gaugeBasementTemp.CurrentValue=a(1)
-			gaugeBasementHumidity.CurrentValue=a(2)
-			labelgaugeBasementTemp.Text = GetPerception(a(3))
-			labelgaugeBasementHumidity.Text = GetComfort(a(4))
-			If a(3) > 3 Then
-				labelgaugeBasementTemp.TextColor = fx.Colors.Red
-			Else
-				labelgaugeBasementTemp.TextColor = fx.Colors.Black
-			End If
-			If a(4) > 0 Then
-				labelgaugeBasementHumidity.TextColor = fx.Colors.Red
-			Else
-				labelgaugeBasementHumidity.TextColor = fx.Colors.Black
-			End If
-			' *** Check how old the message is
-			DateTime.DateFormat = "yy-MM-dd HH:mm:ss z"
-			Dim ticks As Long = DateTime.DateParse(a(7) & " " & a(8) & " GMT")
-			DateTime.DateFormat = "MMM d, yyyy h:mm:ss a z"
-			Dim lngTicks As Long = ticks
-			Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
-			'Log("TempHumidity Time difference: " & p.Hours & ":" & p.Minutes & " minutes")
-			If p.Minutes > = 5 Then
-				labelgaugeBasementTemp.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
-				labelgaugeBasementTemp.TextColor = fx.Colors.Red
-				labelgaugeBasementHumidity.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
-				labelgaugeBasementHumidity.TextColor = fx.Colors.Red
-			End If
-			' *** Check how old the message is
-		End If
-	else If Topic = "MQ7Basement" Then
-		Dim s As String = BytesToString(Payload, 0, Payload.Length, "utf8")
-		Dim a() As String = Regex.Split("\|",s)
-		If a.Length = 3 Then
-			GaugeBasementAirQuality.CurrentValue=a(0)
-			labelGaugeBasementAirQuality.Text = GetAirQuality(a(0))
-			If a(0) > 400 Then
-				labelGaugeBasementAirQuality.TextColor = fx.Colors.Red
-			Else
-				labelGaugeBasementAirQuality.TextColor = fx.Colors.Black
-			End If
-			' *** Check how old the message is
-			DateTime.DateFormat = "yy-MM-dd HH:mm:ss z"
-			Dim ticks As Long = DateTime.DateParse(a(1) & " " & a(2) & " GMT")
-			DateTime.DateFormat = "MMM d, yyyy h:mm:ss a z"
-			Dim lngTicks As Long = ticks
-			Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
-			'Log("AirQuality Time difference: " & p.Minutes & " minutes" & p.Seconds & " seconds")
-			If p.Minutes > = 5 Then
-				labelGaugeBasementAirQuality.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
-				labelGaugeBasementAirQuality.TextColor = fx.Colors.Red
-			End If
-			' *** Check how old the message is
-		End If
-	End If
+	Catch
+		Log(LastException)
+	End Try
 End Sub
