@@ -1,7 +1,7 @@
 # Cloyd Smart Home Monitor System Java Desktop Client
-This is the desktop client for my Smart Home Monitor System. It was written in Java and designed to monitor the DHT22 (temperature and humidity) and MQ-7 (carbon monoxide) sensors at house via the Cloud MQTT anywhere in the world. [Click this link for the Smart Home Monitor and Android application client](https://github.com/ccatanaoan/HomeTempHumidityMonitor).
+This is the desktop client for my Smart Home Monitor System. It was written in Java and designed to monitor the DHT22 (temperature and humidity) and MQ-7 (carbon monoxide) sensors in our house via the Cloud MQTT anywhere in the world. [Click this link for the Smart Home Monitor and Android application client](https://github.com/ccatanaoan/HomeTempHumidityMonitor).
 
-I used two pairs of ESP8266 microcontroller to power, control, and read the DHT22 and the MQ-7 sensors. This desktop client, Android application, and the two microcontrollers subscribe to their own topics and publish payloads (MQTT) to communicate and sync up with each other.
+I used two pairs of ESP8266 microcontroller to power, control, and read the DHT22 and the MQ-7 sensors. This desktop client, Android application, and the four microcontrollers subscribe to their own topics and publish payloads (MQTT) to communicate and sync up with each other.
 
 This project has started as a simple home weather station but turned in to a full-blown smart home monitoring system. :+1:
 
@@ -40,4 +40,4 @@ MQ7 (Carbon monoxide) and DHT22 (Temp & humidity) sensors | ![Image 3](Images/3.
 
 ### Java Desktop application image:
 
-![Image 1](Images/41.png)
+![Image 1](Images/1.png)
