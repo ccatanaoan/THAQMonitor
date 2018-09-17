@@ -7,7 +7,7 @@ This project has started as a simple home weather station but turned in to a ful
 
 The ESP8266 WiFi Module is a self contained system on chip (SoC) with integrated TCP/IP protocol stack that can give any microcontroller access to the WiFi network.
 
-### Data sent from the sensors at home to the desktop client app via cloud MQTT
+### Data sent from the sensors at home to the desktop client app via the Cloud MQTT
 - Carbon monoxide level in parts per million (ppm)
 - Air quality based on ppm level
 - Temperature
@@ -30,7 +30,7 @@ The ESP8266 WiFi Module is a self contained system on chip (SoC) with integrated
 ### Desktop application and protocols used for Internet of Things (IoT):
 - Custom-made Java desktop application
 - Cloud MQTT
-- [Click this link for the Smart Home Monitor and Android application client](https://github.com/ccatanaoan/HomeTempHumidityMonitor).
+- [Click this link for the Smart Home Monitor and Android application client](https://github.com/ccatanaoan/HomeTempHumidityMonitor)
 
 ### Hardware images:
 Description | Image
@@ -38,6 +38,6 @@ Description | Image
 Powerful ESP8266 microcontrollers | ![Image 2](Images/2.jpg) 
 MQ7 (Carbon monoxide) and DHT22 (Temp & humidity) sensors | ![Image 3](Images/3.jpg)
 
-### Java Desktop application image:
+### Java Desktop (MS Windows) application image:
 
 ![Image 1](Images/1.png)
