@@ -10,7 +10,7 @@ Library4=jscriptengine
 NumberOfFiles=1
 NumberOfLibraries=4
 NumberOfModules=0
-Version=6.3
+Version=6.51
 @EndOfDesignText@
 #Region  Project Attributes 
 	#MainFormWidth: 800
@@ -44,7 +44,7 @@ Sub AppStart (Form1 As Form, Args() As String)
 	navBar.TooltipText = "[WEB}    http://website.com" & CRLF & _
 						 "[FILES]  file:pathandname.ext"
 	
-	MainForm.SetFormStyle("UTILITY")
+	MainForm.SetFormStyle("DECORATED")
 	MainForm.Show
 	
 	AlwaysOnTop(MainForm,True)
