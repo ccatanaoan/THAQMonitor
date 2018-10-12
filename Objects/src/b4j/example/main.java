@@ -61,7 +61,7 @@ public static anywheresoftware.b4j.objects.MenuItemWrapper.MenuBarWrapper _menub
 public static String _user = "";
 public static String _password = "";
 public static b4j.example.gauge _gaugehometemp = null;
-public static anywheresoftware.b4j.objects.B4XViewWrapper.XUI _xui = null;
+public static anywheresoftware.b4a.objects.B4XViewWrapper.XUI _xui = null;
 public static b4j.example.gauge _gaugeairquality = null;
 public static anywheresoftware.b4a.randomaccessfile.B4XSerializator _serializator = null;
 public static b4j.example.gauge _gaugehomehumidity = null;
@@ -528,7 +528,7 @@ anywheresoftware.b4j.objects.Shell _jshl = null;
  //BA.debugLineNum = 188;BA.debugLine="Private Sub ivMax_MouseClicked (EventData As Mouse";
  //BA.debugLineNum = 189;BA.debugLine="Try";
 try { //BA.debugLineNum = 190;BA.debugLine="Toast.Initialize(MainForm.RootPane)";
-_toast._initialize(ba,(anywheresoftware.b4j.objects.B4XViewWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4j.objects.B4XViewWrapper(), (java.lang.Object)(_mainform.getRootPane().getObject())));
+_toast._initialize(ba,(anywheresoftware.b4a.objects.B4XViewWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.B4XViewWrapper(), (java.lang.Object)(_mainform.getRootPane().getObject())));
  //BA.debugLineNum = 192;BA.debugLine="Toast.SetTMDefaults";
 _toast._settmdefaults();
  //BA.debugLineNum = 194;BA.debugLine="Toast.SetTMBackground(fx.Colors.Blue, 4, fx.Colo";
@@ -960,178 +960,184 @@ _gaugehomehumidity._setcurrentvalue((float)(Double.parseDouble(_a[(int) (2)])));
 _labelgaugehometemp.setText(_getperception(_a[(int) (3)]));
  //BA.debugLineNum = 531;BA.debugLine="labelgaugeHomeHumidity.Text = GetComfort(a(4))";
 _labelgaugehomehumidity.setText(_getcomfort(_a[(int) (4)]));
- //BA.debugLineNum = 533;BA.debugLine="If a(3) > 3 Then";
+ //BA.debugLineNum = 533;BA.debugLine="If a(4) = 2 Or a(4) = 6 Or a(4) = 10 Then";
+if ((_a[(int) (4)]).equals(BA.NumberToString(2)) || (_a[(int) (4)]).equals(BA.NumberToString(6)) || (_a[(int) (4)]).equals(BA.NumberToString(10))) { 
+ //BA.debugLineNum = 534;BA.debugLine="labelgaugeHomeHumidity.TextColor = fx.Colors.";
+_labelgaugehomehumidity.setTextColor(_fx.Colors.Blue);
+ }else if((_a[(int) (4)]).equals(BA.NumberToString(0))) { 
+ //BA.debugLineNum = 536;BA.debugLine="labelgaugeHomeHumidity.TextColor = fx.Colors.";
+_labelgaugehomehumidity.setTextColor(_fx.Colors.Black);
+ }else {
+ //BA.debugLineNum = 538;BA.debugLine="labelgaugeHomeHumidity.TextColor = fx.Colors.";
+_labelgaugehomehumidity.setTextColor(_fx.Colors.Red);
+ };
+ //BA.debugLineNum = 540;BA.debugLine="If a(3) > 3 Then";
 if ((double)(Double.parseDouble(_a[(int) (3)]))>3) { 
- //BA.debugLineNum = 534;BA.debugLine="labelgaugeHomeTemp.TextColor = fx.Colors.Red";
+ //BA.debugLineNum = 541;BA.debugLine="labelgaugeHomeTemp.TextColor = fx.Colors.Red";
 _labelgaugehometemp.setTextColor(_fx.Colors.Red);
  }else {
- //BA.debugLineNum = 536;BA.debugLine="labelgaugeHomeTemp.TextColor = fx.Colors.Blac";
+ //BA.debugLineNum = 543;BA.debugLine="labelgaugeHomeTemp.TextColor = fx.Colors.Blac";
 _labelgaugehometemp.setTextColor(_fx.Colors.Black);
  };
- //BA.debugLineNum = 538;BA.debugLine="If a(4) > 0 Then";
-if ((double)(Double.parseDouble(_a[(int) (4)]))>0) { 
- //BA.debugLineNum = 539;BA.debugLine="labelgaugeHomeHumidity.TextColor = fx.Colors.";
-_labelgaugehomehumidity.setTextColor(_fx.Colors.Red);
- }else {
- //BA.debugLineNum = 541;BA.debugLine="labelgaugeHomeHumidity.TextColor = fx.Colors.";
-_labelgaugehomehumidity.setTextColor(_fx.Colors.Black);
- };
- //BA.debugLineNum = 544;BA.debugLine="DateTime.DateFormat = \"yy-MM-dd HH:mm:ss z\"";
+ //BA.debugLineNum = 546;BA.debugLine="DateTime.DateFormat = \"yy-MM-dd HH:mm:ss z\"";
 anywheresoftware.b4a.keywords.Common.DateTime.setDateFormat("yy-MM-dd HH:mm:ss z");
- //BA.debugLineNum = 545;BA.debugLine="Dim ticks As Long = DateTime.DateParse(a(7) &";
+ //BA.debugLineNum = 547;BA.debugLine="Dim ticks As Long = DateTime.DateParse(a(7) &";
 _ticks = anywheresoftware.b4a.keywords.Common.DateTime.DateParse(_a[(int) (7)]+" "+_a[(int) (8)]+" GMT");
- //BA.debugLineNum = 546;BA.debugLine="DateTime.DateFormat = \"MMM d, yyyy h:mm:ss a z";
+ //BA.debugLineNum = 548;BA.debugLine="DateTime.DateFormat = \"MMM d, yyyy h:mm:ss a z";
 anywheresoftware.b4a.keywords.Common.DateTime.setDateFormat("MMM d, yyyy h:mm:ss a z");
- //BA.debugLineNum = 547;BA.debugLine="Dim lngTicks As Long = ticks";
+ //BA.debugLineNum = 549;BA.debugLine="Dim lngTicks As Long = ticks";
 _lngticks = _ticks;
- //BA.debugLineNum = 548;BA.debugLine="Dim p As Period = DateUtils.PeriodBetween(lngT";
+ //BA.debugLineNum = 550;BA.debugLine="Dim p As Period = DateUtils.PeriodBetween(lngT";
 _p = _dateutils._periodbetween(_lngticks,anywheresoftware.b4a.keywords.Common.DateTime.getNow());
- //BA.debugLineNum = 550;BA.debugLine="If p.Minutes > = 5 Then";
+ //BA.debugLineNum = 552;BA.debugLine="If p.Minutes > = 5 Then";
 if (_p.Minutes>=5) { 
- //BA.debugLineNum = 551;BA.debugLine="labelgaugeHomeTemp.Text = \"Message is \" & p.H";
+ //BA.debugLineNum = 553;BA.debugLine="labelgaugeHomeTemp.Text = \"Message is \" & p.H";
 _labelgaugehometemp.setText("Message is "+BA.NumberToString(_p.Hours)+"hr "+BA.NumberToString(_p.Minutes)+"m old.");
- //BA.debugLineNum = 552;BA.debugLine="labelgaugeHomeTemp.TextColor = fx.Colors.Red";
+ //BA.debugLineNum = 554;BA.debugLine="labelgaugeHomeTemp.TextColor = fx.Colors.Red";
 _labelgaugehometemp.setTextColor(_fx.Colors.Red);
- //BA.debugLineNum = 553;BA.debugLine="labelgaugeHomeHumidity.Text = \"Message is \" &";
+ //BA.debugLineNum = 555;BA.debugLine="labelgaugeHomeHumidity.Text = \"Message is \" &";
 _labelgaugehomehumidity.setText("Message is "+BA.NumberToString(_p.Hours)+"hr "+BA.NumberToString(_p.Minutes)+"m old.");
- //BA.debugLineNum = 554;BA.debugLine="labelgaugeHomeHumidity.TextColor = fx.Colors.";
+ //BA.debugLineNum = 556;BA.debugLine="labelgaugeHomeHumidity.TextColor = fx.Colors.";
 _labelgaugehomehumidity.setTextColor(_fx.Colors.Red);
  };
  };
  }else if((_topic).equals("MQ7")) { 
- //BA.debugLineNum = 559;BA.debugLine="Dim s As String = BytesToString(Payload, 0, Pay";
+ //BA.debugLineNum = 561;BA.debugLine="Dim s As String = BytesToString(Payload, 0, Pay";
 _s = anywheresoftware.b4a.keywords.Common.BytesToString(_payload,(int) (0),_payload.length,"utf8");
- //BA.debugLineNum = 560;BA.debugLine="Dim a() As String = Regex.Split(\"\\|\",s)";
+ //BA.debugLineNum = 562;BA.debugLine="Dim a() As String = Regex.Split(\"\\|\",s)";
 _a = anywheresoftware.b4a.keywords.Common.Regex.Split("\\|",_s);
- //BA.debugLineNum = 561;BA.debugLine="If a.Length = 3 Then";
+ //BA.debugLineNum = 563;BA.debugLine="If a.Length = 3 Then";
 if (_a.length==3) { 
- //BA.debugLineNum = 562;BA.debugLine="GaugeAirQuality.CurrentValue=a(0)";
+ //BA.debugLineNum = 564;BA.debugLine="GaugeAirQuality.CurrentValue=a(0)";
 _gaugeairquality._setcurrentvalue((float)(Double.parseDouble(_a[(int) (0)])));
- //BA.debugLineNum = 563;BA.debugLine="labelGaugeAirQuality.Text = GetAirQuality(a(0)";
+ //BA.debugLineNum = 565;BA.debugLine="labelGaugeAirQuality.Text = GetAirQuality(a(0)";
 _labelgaugeairquality.setText(_getairquality((int)(Double.parseDouble(_a[(int) (0)]))));
- //BA.debugLineNum = 564;BA.debugLine="If a(0) > 400 Then";
+ //BA.debugLineNum = 566;BA.debugLine="If a(0) > 400 Then";
 if ((double)(Double.parseDouble(_a[(int) (0)]))>400) { 
- //BA.debugLineNum = 565;BA.debugLine="labelGaugeAirQuality.TextColor = fx.Colors.Re";
+ //BA.debugLineNum = 567;BA.debugLine="labelGaugeAirQuality.TextColor = fx.Colors.Re";
 _labelgaugeairquality.setTextColor(_fx.Colors.Red);
  }else {
- //BA.debugLineNum = 567;BA.debugLine="labelGaugeAirQuality.TextColor = fx.Colors.Bl";
+ //BA.debugLineNum = 569;BA.debugLine="labelGaugeAirQuality.TextColor = fx.Colors.Bl";
 _labelgaugeairquality.setTextColor(_fx.Colors.Black);
  };
- //BA.debugLineNum = 570;BA.debugLine="DateTime.DateFormat = \"yy-MM-dd HH:mm:ss z\"";
+ //BA.debugLineNum = 572;BA.debugLine="DateTime.DateFormat = \"yy-MM-dd HH:mm:ss z\"";
 anywheresoftware.b4a.keywords.Common.DateTime.setDateFormat("yy-MM-dd HH:mm:ss z");
- //BA.debugLineNum = 571;BA.debugLine="Dim ticks As Long = DateTime.DateParse(a(1) &";
+ //BA.debugLineNum = 573;BA.debugLine="Dim ticks As Long = DateTime.DateParse(a(1) &";
 _ticks = anywheresoftware.b4a.keywords.Common.DateTime.DateParse(_a[(int) (1)]+" "+_a[(int) (2)]+" GMT");
- //BA.debugLineNum = 572;BA.debugLine="DateTime.DateFormat = \"MMM d, yyyy h:mm:ss a z";
+ //BA.debugLineNum = 574;BA.debugLine="DateTime.DateFormat = \"MMM d, yyyy h:mm:ss a z";
 anywheresoftware.b4a.keywords.Common.DateTime.setDateFormat("MMM d, yyyy h:mm:ss a z");
- //BA.debugLineNum = 573;BA.debugLine="Dim lngTicks As Long = ticks";
+ //BA.debugLineNum = 575;BA.debugLine="Dim lngTicks As Long = ticks";
 _lngticks = _ticks;
- //BA.debugLineNum = 574;BA.debugLine="Dim p As Period = DateUtils.PeriodBetween(lngT";
+ //BA.debugLineNum = 576;BA.debugLine="Dim p As Period = DateUtils.PeriodBetween(lngT";
 _p = _dateutils._periodbetween(_lngticks,anywheresoftware.b4a.keywords.Common.DateTime.getNow());
- //BA.debugLineNum = 576;BA.debugLine="If p.Minutes > = 5 Then";
+ //BA.debugLineNum = 578;BA.debugLine="If p.Minutes > = 5 Then";
 if (_p.Minutes>=5) { 
- //BA.debugLineNum = 577;BA.debugLine="labelGaugeAirQuality.Text = \"Message is \" & p";
+ //BA.debugLineNum = 579;BA.debugLine="labelGaugeAirQuality.Text = \"Message is \" & p";
 _labelgaugeairquality.setText("Message is "+BA.NumberToString(_p.Hours)+"hr "+BA.NumberToString(_p.Minutes)+"m old.");
- //BA.debugLineNum = 578;BA.debugLine="labelGaugeAirQuality.TextColor = fx.Colors.Re";
+ //BA.debugLineNum = 580;BA.debugLine="labelGaugeAirQuality.TextColor = fx.Colors.Re";
 _labelgaugeairquality.setTextColor(_fx.Colors.Red);
  };
  };
  }else if((_topic).equals("TempHumidBasement")) { 
- //BA.debugLineNum = 583;BA.debugLine="Dim s As String = BytesToString(Payload, 0, Pay";
+ //BA.debugLineNum = 585;BA.debugLine="Dim s As String = BytesToString(Payload, 0, Pay";
 _s = anywheresoftware.b4a.keywords.Common.BytesToString(_payload,(int) (0),_payload.length,"utf8");
- //BA.debugLineNum = 584;BA.debugLine="Dim a() As String = Regex.Split(\"\\|\",s)";
+ //BA.debugLineNum = 586;BA.debugLine="Dim a() As String = Regex.Split(\"\\|\",s)";
 _a = anywheresoftware.b4a.keywords.Common.Regex.Split("\\|",_s);
- //BA.debugLineNum = 585;BA.debugLine="If a.Length = 9 Then";
+ //BA.debugLineNum = 587;BA.debugLine="If a.Length = 9 Then";
 if (_a.length==9) { 
- //BA.debugLineNum = 586;BA.debugLine="gaugeBasementTemp.CurrentValue=a(1)";
+ //BA.debugLineNum = 588;BA.debugLine="gaugeBasementTemp.CurrentValue=a(1)";
 _gaugebasementtemp._setcurrentvalue((float)(Double.parseDouble(_a[(int) (1)])));
- //BA.debugLineNum = 587;BA.debugLine="gaugeBasementHumidity.CurrentValue=a(2)";
+ //BA.debugLineNum = 589;BA.debugLine="gaugeBasementHumidity.CurrentValue=a(2)";
 _gaugebasementhumidity._setcurrentvalue((float)(Double.parseDouble(_a[(int) (2)])));
- //BA.debugLineNum = 588;BA.debugLine="labelgaugeBasementTemp.Text = GetPerception(a(";
+ //BA.debugLineNum = 590;BA.debugLine="labelgaugeBasementTemp.Text = GetPerception(a(";
 _labelgaugebasementtemp.setText(_getperception(_a[(int) (3)]));
- //BA.debugLineNum = 589;BA.debugLine="labelgaugeBasementHumidity.Text = GetComfort(a";
+ //BA.debugLineNum = 591;BA.debugLine="labelgaugeBasementHumidity.Text = GetComfort(a";
 _labelgaugebasementhumidity.setText(_getcomfort(_a[(int) (4)]));
- //BA.debugLineNum = 590;BA.debugLine="If a(3) > 3 Then";
+ //BA.debugLineNum = 592;BA.debugLine="If a(4) = 2 Or a(4) = 6 Or a(4) = 10 Then";
+if ((_a[(int) (4)]).equals(BA.NumberToString(2)) || (_a[(int) (4)]).equals(BA.NumberToString(6)) || (_a[(int) (4)]).equals(BA.NumberToString(10))) { 
+ //BA.debugLineNum = 593;BA.debugLine="labelgaugeBasementHumidity.TextColor = fx.Col";
+_labelgaugebasementhumidity.setTextColor(_fx.Colors.Blue);
+ }else if((_a[(int) (4)]).equals(BA.NumberToString(0))) { 
+ //BA.debugLineNum = 595;BA.debugLine="labelgaugeBasementHumidity.TextColor = fx.Col";
+_labelgaugebasementhumidity.setTextColor(_fx.Colors.Black);
+ }else {
+ //BA.debugLineNum = 597;BA.debugLine="labelgaugeBasementHumidity.TextColor = fx.Col";
+_labelgaugebasementhumidity.setTextColor(_fx.Colors.Red);
+ };
+ //BA.debugLineNum = 599;BA.debugLine="If a(3) > 3 Then";
 if ((double)(Double.parseDouble(_a[(int) (3)]))>3) { 
- //BA.debugLineNum = 591;BA.debugLine="labelgaugeBasementTemp.TextColor = fx.Colors.";
+ //BA.debugLineNum = 600;BA.debugLine="labelgaugeBasementTemp.TextColor = fx.Colors.";
 _labelgaugebasementtemp.setTextColor(_fx.Colors.Red);
  }else {
- //BA.debugLineNum = 593;BA.debugLine="labelgaugeBasementTemp.TextColor = fx.Colors.";
+ //BA.debugLineNum = 602;BA.debugLine="labelgaugeBasementTemp.TextColor = fx.Colors.";
 _labelgaugebasementtemp.setTextColor(_fx.Colors.Black);
  };
- //BA.debugLineNum = 595;BA.debugLine="If a(4) > 0 Then";
-if ((double)(Double.parseDouble(_a[(int) (4)]))>0) { 
- //BA.debugLineNum = 596;BA.debugLine="labelgaugeBasementHumidity.TextColor = fx.Col";
-_labelgaugebasementhumidity.setTextColor(_fx.Colors.Red);
- }else {
- //BA.debugLineNum = 598;BA.debugLine="labelgaugeBasementHumidity.TextColor = fx.Col";
-_labelgaugebasementhumidity.setTextColor(_fx.Colors.Black);
- };
- //BA.debugLineNum = 601;BA.debugLine="DateTime.DateFormat = \"yy-MM-dd HH:mm:ss z\"";
+ //BA.debugLineNum = 605;BA.debugLine="DateTime.DateFormat = \"yy-MM-dd HH:mm:ss z\"";
 anywheresoftware.b4a.keywords.Common.DateTime.setDateFormat("yy-MM-dd HH:mm:ss z");
- //BA.debugLineNum = 602;BA.debugLine="Dim ticks As Long = DateTime.DateParse(a(7) &";
+ //BA.debugLineNum = 606;BA.debugLine="Dim ticks As Long = DateTime.DateParse(a(7) &";
 _ticks = anywheresoftware.b4a.keywords.Common.DateTime.DateParse(_a[(int) (7)]+" "+_a[(int) (8)]+" GMT");
- //BA.debugLineNum = 603;BA.debugLine="DateTime.DateFormat = \"MMM d, yyyy h:mm:ss a z";
+ //BA.debugLineNum = 607;BA.debugLine="DateTime.DateFormat = \"MMM d, yyyy h:mm:ss a z";
 anywheresoftware.b4a.keywords.Common.DateTime.setDateFormat("MMM d, yyyy h:mm:ss a z");
- //BA.debugLineNum = 604;BA.debugLine="Dim lngTicks As Long = ticks";
+ //BA.debugLineNum = 608;BA.debugLine="Dim lngTicks As Long = ticks";
 _lngticks = _ticks;
- //BA.debugLineNum = 605;BA.debugLine="Dim p As Period = DateUtils.PeriodBetween(lngT";
+ //BA.debugLineNum = 609;BA.debugLine="Dim p As Period = DateUtils.PeriodBetween(lngT";
 _p = _dateutils._periodbetween(_lngticks,anywheresoftware.b4a.keywords.Common.DateTime.getNow());
- //BA.debugLineNum = 607;BA.debugLine="If p.Minutes > = 5 Then";
+ //BA.debugLineNum = 611;BA.debugLine="If p.Minutes > = 5 Then";
 if (_p.Minutes>=5) { 
- //BA.debugLineNum = 608;BA.debugLine="labelgaugeBasementTemp.Text = \"Message is \" &";
+ //BA.debugLineNum = 612;BA.debugLine="labelgaugeBasementTemp.Text = \"Message is \" &";
 _labelgaugebasementtemp.setText("Message is "+BA.NumberToString(_p.Hours)+"hr "+BA.NumberToString(_p.Minutes)+"m old.");
- //BA.debugLineNum = 609;BA.debugLine="labelgaugeBasementTemp.TextColor = fx.Colors.";
+ //BA.debugLineNum = 613;BA.debugLine="labelgaugeBasementTemp.TextColor = fx.Colors.";
 _labelgaugebasementtemp.setTextColor(_fx.Colors.Red);
- //BA.debugLineNum = 610;BA.debugLine="labelgaugeBasementHumidity.Text = \"Message is";
+ //BA.debugLineNum = 614;BA.debugLine="labelgaugeBasementHumidity.Text = \"Message is";
 _labelgaugebasementhumidity.setText("Message is "+BA.NumberToString(_p.Hours)+"hr "+BA.NumberToString(_p.Minutes)+"m old.");
- //BA.debugLineNum = 611;BA.debugLine="labelgaugeBasementHumidity.TextColor = fx.Col";
+ //BA.debugLineNum = 615;BA.debugLine="labelgaugeBasementHumidity.TextColor = fx.Col";
 _labelgaugebasementhumidity.setTextColor(_fx.Colors.Red);
  };
  };
  }else if((_topic).equals("MQ7Basement")) { 
- //BA.debugLineNum = 616;BA.debugLine="Dim s As String = BytesToString(Payload, 0, Pay";
+ //BA.debugLineNum = 620;BA.debugLine="Dim s As String = BytesToString(Payload, 0, Pay";
 _s = anywheresoftware.b4a.keywords.Common.BytesToString(_payload,(int) (0),_payload.length,"utf8");
- //BA.debugLineNum = 617;BA.debugLine="Dim a() As String = Regex.Split(\"\\|\",s)";
+ //BA.debugLineNum = 621;BA.debugLine="Dim a() As String = Regex.Split(\"\\|\",s)";
 _a = anywheresoftware.b4a.keywords.Common.Regex.Split("\\|",_s);
- //BA.debugLineNum = 618;BA.debugLine="If a.Length = 3 Then";
+ //BA.debugLineNum = 622;BA.debugLine="If a.Length = 3 Then";
 if (_a.length==3) { 
- //BA.debugLineNum = 619;BA.debugLine="GaugeBasementAirQuality.CurrentValue=a(0)";
+ //BA.debugLineNum = 623;BA.debugLine="GaugeBasementAirQuality.CurrentValue=a(0)";
 _gaugebasementairquality._setcurrentvalue((float)(Double.parseDouble(_a[(int) (0)])));
- //BA.debugLineNum = 620;BA.debugLine="labelGaugeBasementAirQuality.Text = GetAirQual";
+ //BA.debugLineNum = 624;BA.debugLine="labelGaugeBasementAirQuality.Text = GetAirQual";
 _labelgaugebasementairquality.setText(_getairquality((int)(Double.parseDouble(_a[(int) (0)]))));
- //BA.debugLineNum = 621;BA.debugLine="If a(0) > 400 Then";
+ //BA.debugLineNum = 625;BA.debugLine="If a(0) > 400 Then";
 if ((double)(Double.parseDouble(_a[(int) (0)]))>400) { 
- //BA.debugLineNum = 622;BA.debugLine="labelGaugeBasementAirQuality.TextColor = fx.C";
+ //BA.debugLineNum = 626;BA.debugLine="labelGaugeBasementAirQuality.TextColor = fx.C";
 _labelgaugebasementairquality.setTextColor(_fx.Colors.Red);
  }else {
- //BA.debugLineNum = 624;BA.debugLine="labelGaugeBasementAirQuality.TextColor = fx.C";
+ //BA.debugLineNum = 628;BA.debugLine="labelGaugeBasementAirQuality.TextColor = fx.C";
 _labelgaugebasementairquality.setTextColor(_fx.Colors.Black);
  };
- //BA.debugLineNum = 627;BA.debugLine="DateTime.DateFormat = \"yy-MM-dd HH:mm:ss z\"";
+ //BA.debugLineNum = 631;BA.debugLine="DateTime.DateFormat = \"yy-MM-dd HH:mm:ss z\"";
 anywheresoftware.b4a.keywords.Common.DateTime.setDateFormat("yy-MM-dd HH:mm:ss z");
- //BA.debugLineNum = 628;BA.debugLine="Dim ticks As Long = DateTime.DateParse(a(1) &";
+ //BA.debugLineNum = 632;BA.debugLine="Dim ticks As Long = DateTime.DateParse(a(1) &";
 _ticks = anywheresoftware.b4a.keywords.Common.DateTime.DateParse(_a[(int) (1)]+" "+_a[(int) (2)]+" GMT");
- //BA.debugLineNum = 629;BA.debugLine="DateTime.DateFormat = \"MMM d, yyyy h:mm:ss a z";
+ //BA.debugLineNum = 633;BA.debugLine="DateTime.DateFormat = \"MMM d, yyyy h:mm:ss a z";
 anywheresoftware.b4a.keywords.Common.DateTime.setDateFormat("MMM d, yyyy h:mm:ss a z");
- //BA.debugLineNum = 630;BA.debugLine="Dim lngTicks As Long = ticks";
+ //BA.debugLineNum = 634;BA.debugLine="Dim lngTicks As Long = ticks";
 _lngticks = _ticks;
- //BA.debugLineNum = 631;BA.debugLine="Dim p As Period = DateUtils.PeriodBetween(lngT";
+ //BA.debugLineNum = 635;BA.debugLine="Dim p As Period = DateUtils.PeriodBetween(lngT";
 _p = _dateutils._periodbetween(_lngticks,anywheresoftware.b4a.keywords.Common.DateTime.getNow());
- //BA.debugLineNum = 633;BA.debugLine="If p.Minutes > = 5 Then";
+ //BA.debugLineNum = 637;BA.debugLine="If p.Minutes > = 5 Then";
 if (_p.Minutes>=5) { 
- //BA.debugLineNum = 634;BA.debugLine="labelGaugeBasementAirQuality.Text = \"Message";
+ //BA.debugLineNum = 638;BA.debugLine="labelGaugeBasementAirQuality.Text = \"Message";
 _labelgaugebasementairquality.setText("Message is "+BA.NumberToString(_p.Hours)+"hr "+BA.NumberToString(_p.Minutes)+"m old.");
- //BA.debugLineNum = 635;BA.debugLine="labelGaugeBasementAirQuality.TextColor = fx.C";
+ //BA.debugLineNum = 639;BA.debugLine="labelGaugeBasementAirQuality.TextColor = fx.C";
 _labelgaugebasementairquality.setTextColor(_fx.Colors.Red);
  };
  };
  };
  } 
-       catch (Exception e106) {
-			ba.setLastException(e106); //BA.debugLineNum = 641;BA.debugLine="Log(LastException)";
+       catch (Exception e110) {
+			ba.setLastException(e110); //BA.debugLineNum = 645;BA.debugLine="Log(LastException)";
 anywheresoftware.b4a.keywords.Common.Log(BA.ObjectToString(anywheresoftware.b4a.keywords.Common.LastException(ba)));
  };
- //BA.debugLineNum = 643;BA.debugLine="End Sub";
+ //BA.debugLineNum = 647;BA.debugLine="End Sub";
 return "";
 }
 
@@ -1196,7 +1202,7 @@ _password = "KHSV1Q1qSUUY";
  //BA.debugLineNum = 28;BA.debugLine="Private gaugeHomeTemp As Gauge 'ignore";
 _gaugehometemp = new b4j.example.gauge();
  //BA.debugLineNum = 29;BA.debugLine="Private xui As XUI";
-_xui = new anywheresoftware.b4j.objects.B4XViewWrapper.XUI();
+_xui = new anywheresoftware.b4a.objects.B4XViewWrapper.XUI();
  //BA.debugLineNum = 30;BA.debugLine="Private GaugeAirQuality As Gauge 'ignore";
 _gaugeairquality = new b4j.example.gauge();
  //BA.debugLineNum = 31;BA.debugLine="Private serializator As B4XSerializator";

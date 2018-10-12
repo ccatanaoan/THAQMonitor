@@ -79,7 +79,7 @@ Public Sub DesignerCreateView (Base As Object, Lbl As Label, Props As Map)
 	mBase.AddView(IndicatorPanel, 0, 0, mBase.Width, mBase.Height)
 	cvsIndicator.Initialize(IndicatorPanel)
 	mlbl = Lbl
-	mlbl.Font = xui.CreateFont(NativeFont, 30)
+	mlbl.Font = xui.CreateFont(NativeFont, 25)
 	mlbl.SetTextAlignment("CENTER", "CENTER")
 	mlbl.TextColor = xui.Color_Black
 	Dim lblheight As Float
@@ -89,7 +89,7 @@ Public Sub DesignerCreateView (Base As Object, Lbl As Label, Props As Map)
 End Sub
 
 Private Sub Base_Resize (Width As Double, Height As Double)
-	mlbl.SetLayoutAnimated(0, 0, Height - mlbl.Height - 5dip, Width, mlbl.Height)
+	mlbl.SetLayoutAnimated(0, 0, Height - mlbl.Height, Width, mlbl.Height)
 	GaugePanel.SetLayoutAnimated(0, 0, 0, Width, Height)
 	cvsGauge.Resize(Width, Height)
 	IndicatorPanel.SetLayoutAnimated(0, 0, 0, Width, Height)
@@ -123,7 +123,7 @@ Private Sub DrawBackground
 	Next
 	cvsGauge.DrawCircle(x, y, Radius - IndicatorLength, BackgroundColor, True, 0)
 	If GaugeType = FULL_CIRCLE And PrefixText <> "" Then
-		cvsGauge.DrawText(PrefixText, x, y - 30dip, xui.CreateDefaultFont(16), xui.Color_Black, "CENTER")
+		cvsGauge.DrawText(PrefixText, x, y - 40dip, xui.CreateDefaultFont(12), xui.Color_Black, "CENTER")
 		'outer border
 		cvsGauge.DrawCircle(x, y, Radius + 1dip, xui.Color_Gray, False, 1dip)
 	End If

@@ -29,10 +29,10 @@ public class clxtoastmessage extends B4AClass.ImplB4AClass implements BA.SubDele
 
  public anywheresoftware.b4a.keywords.Common __c = null;
 public anywheresoftware.b4j.objects.JFX _fx = null;
-public anywheresoftware.b4j.objects.B4XViewWrapper.XUI _xui = null;
-public anywheresoftware.b4j.objects.B4XViewWrapper _mbase = null;
-public anywheresoftware.b4j.objects.B4XViewWrapper _mpanel = null;
-public anywheresoftware.b4j.objects.B4XViewWrapper _mlbl = null;
+public anywheresoftware.b4a.objects.B4XViewWrapper.XUI _xui = null;
+public anywheresoftware.b4a.objects.B4XViewWrapper _mbase = null;
+public anywheresoftware.b4a.objects.B4XViewWrapper _mpanel = null;
+public anywheresoftware.b4a.objects.B4XViewWrapper _mlbl = null;
 public int _mpanelpos = 0;
 public anywheresoftware.b4a.objects.collections.List _tmlist = null;
 public anywheresoftware.b4a.objects.collections.Map _tempsettings = null;
@@ -57,13 +57,13 @@ public String  _class_globals() throws Exception{
  //BA.debugLineNum = 9;BA.debugLine="Private fx As JFX";
 _fx = new anywheresoftware.b4j.objects.JFX();
  //BA.debugLineNum = 13;BA.debugLine="Private xui As XUI";
-_xui = new anywheresoftware.b4j.objects.B4XViewWrapper.XUI();
+_xui = new anywheresoftware.b4a.objects.B4XViewWrapper.XUI();
  //BA.debugLineNum = 14;BA.debugLine="Private mBase As B4XView				'base panel from call";
-_mbase = new anywheresoftware.b4j.objects.B4XViewWrapper();
+_mbase = new anywheresoftware.b4a.objects.B4XViewWrapper();
  //BA.debugLineNum = 15;BA.debugLine="Private mPanel As B4XView				'panel holding the m";
-_mpanel = new anywheresoftware.b4j.objects.B4XViewWrapper();
+_mpanel = new anywheresoftware.b4a.objects.B4XViewWrapper();
  //BA.debugLineNum = 16;BA.debugLine="Private mLbl As B4XView					'message label";
-_mlbl = new anywheresoftware.b4j.objects.B4XViewWrapper();
+_mlbl = new anywheresoftware.b4a.objects.B4XViewWrapper();
  //BA.debugLineNum = 17;BA.debugLine="Private mPanelPos As Int				'message position rel";
 _mpanelpos = 0;
  //BA.debugLineNum = 18;BA.debugLine="Private TMList As List					'list of toast message";
@@ -124,7 +124,7 @@ if (true) return _m1;
  //BA.debugLineNum = 243;BA.debugLine="End Sub";
 return null;
 }
-public String  _initialize(anywheresoftware.b4a.BA _ba,anywheresoftware.b4j.objects.B4XViewWrapper _base) throws Exception{
+public String  _initialize(anywheresoftware.b4a.BA _ba,anywheresoftware.b4a.objects.B4XViewWrapper _base) throws Exception{
 innerInitialize(_ba);
 anywheresoftware.b4j.objects.LabelWrapper _l1 = null;
  //BA.debugLineNum = 38;BA.debugLine="Public Sub Initialize(Base As B4XView)";

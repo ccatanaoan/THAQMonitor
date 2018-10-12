@@ -211,7 +211,7 @@ Module2=clXToastMessage
 NumberOfFiles=98
 NumberOfLibraries=9
 NumberOfModules=2
-Version=6.3
+Version=6.51
 @EndOfDesignText@
 #Region Project Attributes 
 	#MainFormWidth: 390
@@ -745,15 +745,17 @@ Private Sub mqtt_MessageArrived (Topic As String, Payload() As Byte)
 				labelgaugeHomeTemp.Text = GetPerception(a(3))
 				labelgaugeHomeHumidity.Text = GetComfort(a(4))
 			
+				If a(4) = 2 Or a(4) = 6 Or a(4) = 10 Then
+					labelgaugeHomeHumidity.TextColor = fx.Colors.Blue
+				Else If a(4) = 0 Then
+					labelgaugeHomeHumidity.TextColor = fx.Colors.Black
+				Else
+					labelgaugeHomeHumidity.TextColor = fx.Colors.Red
+				End If
 				If a(3) > 3 Then
 					labelgaugeHomeTemp.TextColor = fx.Colors.Red
 				Else
 					labelgaugeHomeTemp.TextColor = fx.Colors.Black
-				End If
-				If a(4) > 0 Then
-					labelgaugeHomeHumidity.TextColor = fx.Colors.Red
-				Else
-					labelgaugeHomeHumidity.TextColor = fx.Colors.Black
 				End If
 				' *** Check how old the message is
 				DateTime.DateFormat = "yy-MM-dd HH:mm:ss z"
@@ -802,15 +804,17 @@ Private Sub mqtt_MessageArrived (Topic As String, Payload() As Byte)
 				gaugeBasementHumidity.CurrentValue=a(2)
 				labelgaugeBasementTemp.Text = GetPerception(a(3))
 				labelgaugeBasementHumidity.Text = GetComfort(a(4))
+				If a(4) = 2 Or a(4) = 6 Or a(4) = 10 Then
+					labelgaugeBasementHumidity.TextColor = fx.Colors.Blue
+				Else If a(4) = 0 Then
+					labelgaugeBasementHumidity.TextColor = fx.Colors.Black
+				Else
+					labelgaugeBasementHumidity.TextColor = fx.Colors.Red
+				End If
 				If a(3) > 3 Then
 					labelgaugeBasementTemp.TextColor = fx.Colors.Red
 				Else
 					labelgaugeBasementTemp.TextColor = fx.Colors.Black
-				End If
-				If a(4) > 0 Then
-					labelgaugeBasementHumidity.TextColor = fx.Colors.Red
-				Else
-					labelgaugeBasementHumidity.TextColor = fx.Colors.Black
 				End If
 				' *** Check how old the message is
 				DateTime.DateFormat = "yy-MM-dd HH:mm:ss z"
