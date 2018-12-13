@@ -1,105 +1,108 @@
 ﻿AppType=JavaFX
-Build1=Default,b4j.example
+Build1=Default,cloyd.thaq.monitor
 File1=crysta.ttf
-File10=sk01_btMaxEnt.png
-File11=sk01_btMin.png
-File12=sk01_btMinEnt.png
-File13=sk01_left.png
-File14=sk01_right.png
-File15=sk01_title.png
-File16=sk01_top_left.png
-File17=sk01_top_right.png
-File18=sk02.css
-File19=sk02_bottom.png
-File2=icon.png
-File20=sk02_bottom_left.png
-File21=sk02_bottom_right.png
-File22=sk02_btClose.png
-File23=sk02_btCloseEnt.png
-File24=sk02_btMax.png
-File25=sk02_btMaxEnt.png
-File26=sk02_btMin.png
-File27=sk02_btMinEnt.png
-File28=sk02_left.png
-File29=sk02_right.png
-File3=sk01.css
-File30=sk02_title.png
-File31=sk02_top_left.png
-File32=sk02_top_right.png
-File33=sk03.css
-File34=sk03_bottom.png
-File35=sk03_bottom_left.png
-File36=sk03_bottom_right.png
-File37=sk03_btClose.png
-File38=sk03_btCloseEnt.png
-File39=sk03_btMax.png
-File4=sk01_bottom.png
-File40=sk03_btMaxEnt.png
-File41=sk03_btMin.png
-File42=sk03_btMinEnt.png
-File43=sk03_left.png
-File44=sk03_right.png
-File45=sk03_title.png
-File46=sk03_top_left.png
-File47=sk03_top_right.png
-File48=sk04.css
-File49=sk04_bottom.png
-File5=sk01_bottom_left.png
-File50=sk04_bottom_left.png
-File51=sk04_bottom_right.png
-File52=sk04_btClose.png
-File53=sk04_btCloseEnt.png
-File54=sk04_btMax.png
-File55=sk04_btMaxEnt.png
-File56=sk04_btMin.png
-File57=sk04_btMinEnt.png
-File58=sk04_left.png
-File59=sk04_right.png
-File6=sk01_bottom_right.png
-File60=sk04_title.png
-File61=sk04_top_left.png
-File62=sk04_top_right.png
-File63=sk05.css
-File64=sk05_bottom.png
-File65=sk05_bottom_left.png
-File66=sk05_bottom_right.png
-File67=sk05_btClose.png
-File68=sk05_btCloseEnt.png
-File69=sk05_btMax.png
-File7=sk01_btClose.png
-File70=sk05_btMaxEnt.png
-File71=sk05_btMin.png
-File72=sk05_btMinEnt.png
-File73=sk05_left.png
-File74=sk05_right.png
-File75=sk05_title.png
-File76=sk05_top_left.png
-File77=sk05_top_right.png
-File78=sk06.css
-File79=sk06_bottom.png
-File8=sk01_btCloseEnt.png
-File80=sk06_bottom_left.png
-File81=sk06_bottom_right.png
-File82=sk06_btClose.png
-File83=sk06_btCloseEnt.png
-File84=sk06_btMax.png
-File85=sk06_btMaxEnt.png
-File86=sk06_btMin.png
-File87=sk06_btMinEnt.png
-File88=sk06_left.png
-File89=sk06_right.png
-File9=sk01_btMax.png
-File90=sk06_title.png
-File91=sk06_top_left.png
-File92=sk06_top_right.png
-File93=vdSk01.bjl
-File94=vdSk02.bjl
-File95=vdSk03.bjl
-File96=vdSk04.bjl
-File97=vdSk05.bjl
-File98=vdSk06.bjl
+File10=sk01_btCloseEnt.png
+File100=vdSk06.bjl
+File11=sk01_btMax.png
+File12=sk01_btMaxEnt.png
+File13=sk01_btMin.png
+File14=sk01_btMinEnt.png
+File15=sk01_left.png
+File16=sk01_right.png
+File17=sk01_title.png
+File18=sk01_top_left.png
+File19=sk01_top_right.png
+File2=home.ico
+File20=sk02.css
+File21=sk02_bottom.png
+File22=sk02_bottom_left.png
+File23=sk02_bottom_right.png
+File24=sk02_btClose.png
+File25=sk02_btCloseEnt.png
+File26=sk02_btMax.png
+File27=sk02_btMaxEnt.png
+File28=sk02_btMin.png
+File29=sk02_btMinEnt.png
+File3=home.png
+File30=sk02_left.png
+File31=sk02_right.png
+File32=sk02_title.png
+File33=sk02_top_left.png
+File34=sk02_top_right.png
+File35=sk03.css
+File36=sk03_bottom.png
+File37=sk03_bottom_left.png
+File38=sk03_bottom_right.png
+File39=sk03_btClose.png
+File4=icon.png
+File40=sk03_btCloseEnt.png
+File41=sk03_btMax.png
+File42=sk03_btMaxEnt.png
+File43=sk03_btMin.png
+File44=sk03_btMinEnt.png
+File45=sk03_left.png
+File46=sk03_right.png
+File47=sk03_title.png
+File48=sk03_top_left.png
+File49=sk03_top_right.png
+File5=sk01.css
+File50=sk04.css
+File51=sk04_bottom.png
+File52=sk04_bottom_left.png
+File53=sk04_bottom_right.png
+File54=sk04_btClose.png
+File55=sk04_btCloseEnt.png
+File56=sk04_btMax.png
+File57=sk04_btMaxEnt.png
+File58=sk04_btMin.png
+File59=sk04_btMinEnt.png
+File6=sk01_bottom.png
+File60=sk04_left.png
+File61=sk04_right.png
+File62=sk04_title.png
+File63=sk04_top_left.png
+File64=sk04_top_right.png
+File65=sk05.css
+File66=sk05_bottom.png
+File67=sk05_bottom_left.png
+File68=sk05_bottom_right.png
+File69=sk05_btClose.png
+File7=sk01_bottom_left.png
+File70=sk05_btCloseEnt.png
+File71=sk05_btMax.png
+File72=sk05_btMaxEnt.png
+File73=sk05_btMin.png
+File74=sk05_btMinEnt.png
+File75=sk05_left.png
+File76=sk05_right.png
+File77=sk05_title.png
+File78=sk05_top_left.png
+File79=sk05_top_right.png
+File8=sk01_bottom_right.png
+File80=sk06.css
+File81=sk06_bottom.png
+File82=sk06_bottom_left.png
+File83=sk06_bottom_right.png
+File84=sk06_btClose.png
+File85=sk06_btCloseEnt.png
+File86=sk06_btMax.png
+File87=sk06_btMaxEnt.png
+File88=sk06_btMin.png
+File89=sk06_btMinEnt.png
+File9=sk01_btClose.png
+File90=sk06_left.png
+File91=sk06_right.png
+File92=sk06_title.png
+File93=sk06_top_left.png
+File94=sk06_top_right.png
+File95=vdSk01.bjl
+File96=vdSk02.bjl
+File97=vdSk03.bjl
+File98=vdSk04.bjl
+File99=vdSk05.bjl
 FileGroup1=Default Group
 FileGroup10=Default Group
+FileGroup100=Default Group
 FileGroup11=Default Group
 FileGroup12=Default Group
 FileGroup13=Default Group
@@ -196,6 +199,7 @@ FileGroup95=Default Group
 FileGroup96=Default Group
 FileGroup97=Default Group
 FileGroup98=Default Group
+FileGroup99=Default Group
 Group=Default Group
 Library1=jcore
 Library2=jfx
@@ -208,10 +212,10 @@ Library8=jrandomaccessfile
 Library9=jshell
 Module1=Gauge
 Module2=clXToastMessage
-NumberOfFiles=98
+NumberOfFiles=100
 NumberOfLibraries=9
 NumberOfModules=2
-Version=6.51
+Version=6.78
 @EndOfDesignText@
 #Region Project Attributes 
 	#MainFormWidth: 390
@@ -287,7 +291,7 @@ Sub AppStart (Form1 As Form, Args() As String)
 		MainForm.BackColor = fx.Colors.Transparent
 		MainForm.RootPane.Style = "-fx-background-color:transparent;-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1.0) , 15,0, 0.0, 0.0);"
 		MainForm.Resizable = False
-		MainForm.Icon = fx.LoadImage(File.DirAssets, "icon.png")
+		MainForm.Icon = fx.LoadImage(File.DirAssets, "home.png")
 		MainForm.Title = "THAQ"
 		lbTitle.MouseCursor = fx.Cursors.MOVE
 		lbTitle.Text = "Catanaoan THAQ Monitor v1.0"
@@ -412,19 +416,27 @@ Private Sub ivMax_MouseClicked (EventData As MouseEvent)
 		' 4 seconds display time for long duration
 		Toast.SetTMDuration(1000,3000)
 	
-		If File.Exists(File.DirApp,"webengine.jar") Then
+		If File.Exists("C:\Users\ccatanaoan\Desktop\IoT\THAQ Monitor\Java11\Accuweather","Accuweather.exe") Then
 			Dim jshl As Shell
-			jshl.Initialize("jsl","java",Array As String("-jar","webengine.jar"))
-			jshl.WorkingDirectory = File.DirApp
+			jshl.Initialize("jsl","C:\Users\ccatanaoan\Desktop\IoT\THAQ Monitor\Java11\Accuweather\bin\javaw.exe",Array As String("@release_java_modules.txt","-m","b4j/cloyd.leessummit.weather.main"))
+			jshl.WorkingDirectory = "C:\Users\ccatanaoan\Desktop\IoT\THAQ Monitor\Java11\Accuweather\bin"
 			jshl.run(-1)
-	
 			Toast.TMShow("          Running webview for Lee's Summit weather", True, True)
 		Else
-			Toast.TMShow("          Webview application (JAR) does not exist", True, True)
+			Toast.TMShow("          Webview application does not exist", True, True)
 		End If
 	Catch
 		Log(LastException)
 	End Try
+End Sub
+
+Sub jsl_ProcessCompleted (Success As Boolean, ExitCode As Int, StdOut As String, StdErr As String)
+	If Success And ExitCode = 0 Then
+		Log("Success")
+		Log(StdOut)
+	Else
+		Log("Error: " & StdErr)
+	End If
 End Sub
 
 Private Sub Max_Entered_Event(e As Event)
