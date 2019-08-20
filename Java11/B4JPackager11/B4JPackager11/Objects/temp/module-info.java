@@ -1,7 +1,6 @@
 module b4j {
 requires java.base;
 requires java.desktop;
-requires java.logging;
 requires javafx.base;
 requires javafx.controls;
 requires javafx.fxml;
@@ -16,5 +15,5 @@ requires java.datatransfer;
 requires jdk.unsupported.desktop;
 requires jdk.jsobject;
 requires jdk.xml.dom;
-exports cloyd.thaq.monitor;
+exports cloyd.leessummit.weather;
 }

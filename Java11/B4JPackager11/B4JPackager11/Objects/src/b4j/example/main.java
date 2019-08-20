@@ -1187,11 +1187,11 @@ public static void initializeProcessGlobals() {
 }public static String  _process_globals() throws Exception{
  //BA.debugLineNum = 7;BA.debugLine="Sub Process_Globals";
  //BA.debugLineNum = 9;BA.debugLine="Private InputJar As String = \"C:\\Users\\ccatanaoan";
-_inputjar = "C:\\Users\\ccatanaoan\\Desktop\\IoT\\THAQ Monitor\\Objects\\CloydTHAQMonitor.jar";
+_inputjar = "C:\\Users\\ccatanaoan\\Desktop\\IoT\\THAQ Monitor\\Accuweather\\b4j source\\Objects\\webengine.jar";
  //BA.debugLineNum = 10;BA.debugLine="Private NetFrameworkCSC As String = \"C:\\Windows\\M";
 _netframeworkcsc = "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe";
  //BA.debugLineNum = 11;BA.debugLine="Private IconFile As String = \"C:\\Users\\ccatanaoan";
-_iconfile = "C:\\Users\\ccatanaoan\\Desktop\\IoT\\THAQ Monitor\\Files\\home.ico";
+_iconfile = "C:\\Users\\ccatanaoan\\Desktop\\IoT\\THAQ Monitor\\Accuweather\\b4j source\\Files\\accuweather.ico";
  //BA.debugLineNum = 12;BA.debugLine="Private ExcludedModules As List";
 _excludedmodules = new anywheresoftware.b4a.objects.collections.List();
  //BA.debugLineNum = 14;BA.debugLine="Private IncludedModules As List";

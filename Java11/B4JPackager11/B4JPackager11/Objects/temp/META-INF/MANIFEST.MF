@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 JavaFX-Version: 2.2
-JavaFX-Application-Class: cloyd.thaq.monitor.main
+JavaFX-Application-Class: cloyd.leessummit.weather.main
 Created-By: JavaFX Packager
 Main-Class: anywheresoftware.b4a.keywords.Common
 

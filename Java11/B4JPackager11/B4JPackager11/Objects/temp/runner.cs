@@ -11,7 +11,7 @@ namespace B4JRunner
             Process p = new Process();
             p.StartInfo.FileName = "javaw.exe";
             p.StartInfo.WorkingDirectory = @"bin";
-            p.StartInfo.Arguments = "@release_java_modules.txt -m b4j/cloyd.thaq.monitor.main";
+            p.StartInfo.Arguments = "@release_java_modules.txt -m b4j/cloyd.leessummit.weather.main";
             p.Start();
         }
     }

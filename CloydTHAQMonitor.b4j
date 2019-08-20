@@ -215,7 +215,7 @@ Module2=clXToastMessage
 NumberOfFiles=100
 NumberOfLibraries=9
 NumberOfModules=2
-Version=6.78
+Version=7.51
 @EndOfDesignText@
 #Region Project Attributes 
 	#MainFormWidth: 390
@@ -590,7 +590,7 @@ Sub CheckMonitor() As Screen
 			Return S
 		Else If fx.Screens.Size> 1 Then
 			Dim SList As List = fx.Screens
-			Dim S As Screen = SList.Get(1)
+			Dim S As Screen = SList.Get(2)
 			'Msgbox.Show("Minimum X: " & S.MinX,"Screen")
 			Return S
 		Else

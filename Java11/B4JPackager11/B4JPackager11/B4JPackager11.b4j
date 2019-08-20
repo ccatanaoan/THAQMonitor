@@ -16,7 +16,7 @@ Library4=json
 NumberOfFiles=4
 NumberOfLibraries=4
 NumberOfModules=0
-Version=6.78
+Version=7
 @EndOfDesignText@
 'Non-UI application (console / server application)
 #Region Project Attributes 
@@ -26,9 +26,9 @@ Version=6.78
 
 Sub Process_Globals
 	'change InputJar as needed:
-	Private InputJar As String = "C:\Users\ccatanaoan\Desktop\IoT\THAQ Monitor\Objects\CloydTHAQMonitor.jar"
+	Private InputJar As String = "C:\Users\ccatanaoan\Desktop\IoT\THAQ Monitor\Accuweather\b4j source\Objects\webengine.jar"
 	Private NetFrameworkCSC As String = "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe" 'windows only
-	Private IconFile As String = "C:\Users\ccatanaoan\Desktop\IoT\THAQ Monitor\Files\home.ico"
+	Private IconFile As String = "C:\Users\ccatanaoan\Desktop\IoT\THAQ Monitor\Accuweather\b4j source\Files\accuweather.ico"
 	Private ExcludedModules As List 
 	'ExcludedModules = Array("javafx.web") 'comment this line if using WebView
 	Private IncludedModules As List
