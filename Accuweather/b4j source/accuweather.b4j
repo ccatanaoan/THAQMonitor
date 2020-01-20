@@ -11,7 +11,7 @@ Library3=jfx
 NumberOfFiles=2
 NumberOfLibraries=3
 NumberOfModules=0
-Version=7
+Version=8
 @EndOfDesignText@
 #Region  Project Attributes 
 	#MainFormWidth: 800
@@ -24,7 +24,7 @@ Sub Process_Globals
 	Private we,temp As JavaObject
 	Private wv1 As WebView
 	Private navBar As TextField
-	Private startPage As String = "https://ccatanaoan.github.io/Outlook/"
+	Private startPage As String = "https://www.accuweather.com/en/us/lees-summit-mo/64081/hourly-weather-forecast/28179_pc"
 	'"https://www.accuweather.com/en/us/lees-summit-mo/64081/hourly-weather-forecast/28179_pc"
 	Private doc As JavaObject		' JavaObject library
 	'Private js As jScriptEngine 	' jScriptengine library

@@ -210,12 +210,12 @@ Library6=jdateutils
 Library7=jmqtt
 Library8=jrandomaccessfile
 Library9=jshell
-Module1=Gauge
-Module2=clXToastMessage
+Module1=clXToastMessage
+Module2=Gauge
 NumberOfFiles=100
 NumberOfLibraries=9
 NumberOfModules=2
-Version=7.51
+Version=8
 @EndOfDesignText@
 #Region Project Attributes 
 	#MainFormWidth: 390
@@ -416,10 +416,10 @@ Private Sub ivMax_MouseClicked (EventData As MouseEvent)
 		' 4 seconds display time for long duration
 		Toast.SetTMDuration(1000,3000)
 	
-		If File.Exists("C:\Users\ccatanaoan\Desktop\IoT\THAQ Monitor\Java11\Accuweather","Accuweather.exe") Then
+		If File.Exists("C:\Users\ccatanaoan\Desktop\IoT\THAQ Monitor\Accuweather\b4j source\Objects","accuweather.jar") Then
 			Dim jshl As Shell
-			jshl.Initialize("jsl","C:\Users\ccatanaoan\Desktop\IoT\THAQ Monitor\Java11\Accuweather\bin\javaw.exe",Array As String("@release_java_modules.txt","-m","b4j/cloyd.leessummit.weather.main"))
-			jshl.WorkingDirectory = "C:\Users\ccatanaoan\Desktop\IoT\THAQ Monitor\Java11\Accuweather\bin"
+			jshl.Initialize("jsl","java",Array As String("-jar","accuweather.jar"))
+			jshl.WorkingDirectory = "C:\Users\ccatanaoan\Desktop\IoT\THAQ Monitor\Accuweather\b4j source\Objects"
 			jshl.run(-1)
 			Toast.TMShow("          Running webview for Lee's Summit weather", True, True)
 		Else
@@ -714,7 +714,12 @@ Sub mqtt_Connected (Success As Boolean)
 		If Success = False Then
 			Log(LastException)
 			lblStatus.TextColor = fx.Colors.Red
-			lblStatus.Text = "Status: Error connecting"
+			lblStatus.Text = "Status: Error connecting. Reconnecting..."
+			Sleep(1000)
+			MenuBar1.Enabled = False
+			Dim mo As MqttConnectOptions
+			mo.Initialize(user, password)
+			mqtt.Connect2(mo)
 		Else
 			lblStatus.TextColor = fx.Colors.White
 			lblStatus.Text = "Status: Connected to Cloud MQTT"
@@ -734,7 +739,7 @@ End Sub
 Private Sub mqtt_Disconnected
 	Try
 		lblStatus.TextColor = fx.Colors.Red
-		lblStatus.Text = "Status: Disconnected from Cloud MQTT"
+		lblStatus.Text = "Status: Disconnected. Reconnecting..."
 		Sleep(1000)
 		MenuBar1.Enabled = False
 		Dim mo As MqttConnectOptions
