@@ -215,7 +215,7 @@ Module2=Gauge
 NumberOfFiles=100
 NumberOfLibraries=9
 NumberOfModules=2
-Version=8
+Version=8.1
 @EndOfDesignText@
 #Region Project Attributes 
 	#MainFormWidth: 390
@@ -622,22 +622,23 @@ Sub GetPerception(DHT11Perception As String) As String 'ignore
 	Try
 		Dim localperception As String
 		Select Case DHT11Perception
+			' https://www.google.com/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwiQ2LSXpMznAhVkgnIEHQ67C9cQjRx6BAgBEAQ&url=https%3A%2F%2Ftwitter.com%2Fterpweather%2Fstatus%2F484003487127461889&psig=AOvVaw0h-Vtb_wN3Yy_gfmROPjFh&ust=1581606149864984
 			Case 0
-				localperception = "Feels like the western US, a bit dry to some"
+				localperception = "A bit dry"
 			Case 1
 				localperception = "Very comfortable"
 			Case 2
 				localperception = "Comfortable"
 			Case 3
-				localperception = "OK but humidity is at upper limit"
+				localperception = "Okay but sticky"
 			Case 4
 				localperception = "Uncomfortable and the humidity is at upper limit"
 			Case 5
-				localperception = "Very humid, quite uncomfortable"
+				localperception = "Very humid and oppressive"
 			Case 6
-				localperception = "Extremely uncomfortable, oppressive"
+				localperception = "Extremely uncomfortable and miserable"
 			Case 7
-				localperception = "Severely high, even deadly for asthma related illnesses"
+				localperception = "Humidity is severely high and intolerable"
 		End Select
 		Return localperception
 	Catch
