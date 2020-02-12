@@ -475,16 +475,16 @@ case 3: {
 _localperception = "Okay but sticky";
  break; }
 case 4: {
- //BA.debugLineNum = 416;BA.debugLine="localperception = \"Uncomfortable and the humid";
-_localperception = "Uncomfortable and the humidity is at upper limit";
+ //BA.debugLineNum = 416;BA.debugLine="localperception = \"Slightly uncomfortable and";
+_localperception = "Slightly uncomfortable and the humidity is at upper limit";
  break; }
 case 5: {
- //BA.debugLineNum = 418;BA.debugLine="localperception = \"Very humid and oppressive\"";
-_localperception = "Very humid and oppressive";
+ //BA.debugLineNum = 418;BA.debugLine="localperception = \"Very humid and uncomfortabl";
+_localperception = "Very humid and uncomfortable";
  break; }
 case 6: {
  //BA.debugLineNum = 420;BA.debugLine="localperception = \"Extremely uncomfortable and";
-_localperception = "Extremely uncomfortable and miserable";
+_localperception = "Extremely uncomfortable and oppressive";
  break; }
 case 7: {
  //BA.debugLineNum = 422;BA.debugLine="localperception = \"Humidity is severely high a";
