@@ -217,7 +217,7 @@ _gaugehomehumidity._setranges /*String*/ (anywheresoftware.b4a.keywords.Common.A
  //BA.debugLineNum = 113;BA.debugLine="gaugeHomeHumidity.CurrentValue=0";
 _gaugehomehumidity._setcurrentvalue /*float*/ ((float) (0));
  //BA.debugLineNum = 115;BA.debugLine="GaugeAirQuality.SetRanges(Array(GaugeAirQuality.";
-_gaugeairquality._setranges /*String*/ (anywheresoftware.b4a.keywords.Common.ArrayToList(new Object[]{(Object)(_gaugeairquality._createrange /*cloyd.thaq.monitor.gauge._gaugerange*/ ((float) (0),(float) (100),_xui.Color_Green)),(Object)(_gaugeairquality._createrange /*cloyd.thaq.monitor.gauge._gaugerange*/ ((float) (100),(float) (400),_xui.Color_RGB((int) (100),(int) (240),(int) (23)))),(Object)(_gaugeairquality._createrange /*cloyd.thaq.monitor.gauge._gaugerange*/ ((float) (400),(float) (900),_xui.Color_Yellow)),(Object)(_gaugeairquality._createrange /*cloyd.thaq.monitor.gauge._gaugerange*/ ((float) (900),(float) (1000),_xui.Color_Red))}));
+_gaugeairquality._setranges /*String*/ (anywheresoftware.b4a.keywords.Common.ArrayToList(new Object[]{(Object)(_gaugeairquality._createrange /*cloyd.thaq.monitor.gauge._gaugerange*/ ((float) (0),(float) (10),_xui.Color_Green)),(Object)(_gaugeairquality._createrange /*cloyd.thaq.monitor.gauge._gaugerange*/ ((float) (10),(float) (40),_xui.Color_RGB((int) (100),(int) (240),(int) (23)))),(Object)(_gaugeairquality._createrange /*cloyd.thaq.monitor.gauge._gaugerange*/ ((float) (40),(float) (90),_xui.Color_Yellow)),(Object)(_gaugeairquality._createrange /*cloyd.thaq.monitor.gauge._gaugerange*/ ((float) (90),(float) (100),_xui.Color_Red))}));
  //BA.debugLineNum = 119;BA.debugLine="GaugeAirQuality.CurrentValue = 0";
 _gaugeairquality._setcurrentvalue /*float*/ ((float) (0));
  //BA.debugLineNum = 121;BA.debugLine="gaugeBasementTemp.SetRanges(Array(gaugeBasementT";
@@ -229,7 +229,7 @@ _gaugebasementhumidity._setranges /*String*/ (anywheresoftware.b4a.keywords.Comm
  //BA.debugLineNum = 129;BA.debugLine="gaugeBasementHumidity.CurrentValue=0";
 _gaugebasementhumidity._setcurrentvalue /*float*/ ((float) (0));
  //BA.debugLineNum = 131;BA.debugLine="GaugeBasementAirQuality.SetRanges(Array(GaugeBas";
-_gaugebasementairquality._setranges /*String*/ (anywheresoftware.b4a.keywords.Common.ArrayToList(new Object[]{(Object)(_gaugebasementairquality._createrange /*cloyd.thaq.monitor.gauge._gaugerange*/ ((float) (0),(float) (100),_xui.Color_Green)),(Object)(_gaugebasementairquality._createrange /*cloyd.thaq.monitor.gauge._gaugerange*/ ((float) (100),(float) (400),_xui.Color_RGB((int) (100),(int) (240),(int) (23)))),(Object)(_gaugebasementairquality._createrange /*cloyd.thaq.monitor.gauge._gaugerange*/ ((float) (400),(float) (900),_xui.Color_Yellow)),(Object)(_gaugebasementairquality._createrange /*cloyd.thaq.monitor.gauge._gaugerange*/ ((float) (900),(float) (1000),_xui.Color_Red))}));
+_gaugebasementairquality._setranges /*String*/ (anywheresoftware.b4a.keywords.Common.ArrayToList(new Object[]{(Object)(_gaugebasementairquality._createrange /*cloyd.thaq.monitor.gauge._gaugerange*/ ((float) (0),(float) (10),_xui.Color_Green)),(Object)(_gaugebasementairquality._createrange /*cloyd.thaq.monitor.gauge._gaugerange*/ ((float) (10),(float) (40),_xui.Color_RGB((int) (100),(int) (240),(int) (23)))),(Object)(_gaugebasementairquality._createrange /*cloyd.thaq.monitor.gauge._gaugerange*/ ((float) (40),(float) (90),_xui.Color_Yellow)),(Object)(_gaugebasementairquality._createrange /*cloyd.thaq.monitor.gauge._gaugerange*/ ((float) (90),(float) (100),_xui.Color_Red))}));
  //BA.debugLineNum = 135;BA.debugLine="GaugeBasementAirQuality.CurrentValue = 0";
 _gaugebasementairquality._setcurrentvalue /*float*/ ((float) (0));
  //BA.debugLineNum = 137;BA.debugLine="AlwaysOnTop(MainForm,True)";
@@ -273,7 +273,7 @@ _slist = new anywheresoftware.b4a.objects.collections.List();
 _slist = _fx.getScreens();
  //BA.debugLineNum = 369;BA.debugLine="Dim S As Screen = SList.Get(0)";
 _s = new anywheresoftware.b4j.objects.JFX.ScreenWrapper();
-_s.setObject((javafx.stage.Screen)(_slist.Get((int) (0))));
+_s = (anywheresoftware.b4j.objects.JFX.ScreenWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4j.objects.JFX.ScreenWrapper(), (javafx.stage.Screen)(_slist.Get((int) (0))));
  //BA.debugLineNum = 371;BA.debugLine="Return S";
 if (true) return _s;
  }else if(_fx.getScreens().getSize()>1) { 
@@ -282,7 +282,7 @@ _slist = new anywheresoftware.b4a.objects.collections.List();
 _slist = _fx.getScreens();
  //BA.debugLineNum = 374;BA.debugLine="Dim S As Screen = SList.Get(2)";
 _s = new anywheresoftware.b4j.objects.JFX.ScreenWrapper();
-_s.setObject((javafx.stage.Screen)(_slist.Get((int) (2))));
+_s = (anywheresoftware.b4j.objects.JFX.ScreenWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4j.objects.JFX.ScreenWrapper(), (javafx.stage.Screen)(_slist.Get((int) (2))));
  //BA.debugLineNum = 376;BA.debugLine="Return S";
 if (true) return _s;
  }else {
@@ -291,7 +291,7 @@ _slist = new anywheresoftware.b4a.objects.collections.List();
 _slist = _fx.getScreens();
  //BA.debugLineNum = 379;BA.debugLine="Dim S As Screen = SList.Get(0)";
 _s = new anywheresoftware.b4j.objects.JFX.ScreenWrapper();
-_s.setObject((javafx.stage.Screen)(_slist.Get((int) (0))));
+_s = (anywheresoftware.b4j.objects.JFX.ScreenWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4j.objects.JFX.ScreenWrapper(), (javafx.stage.Screen)(_slist.Get((int) (0))));
  //BA.debugLineNum = 381;BA.debugLine="Return S";
 if (true) return _s;
  };
@@ -302,7 +302,7 @@ _slist = new anywheresoftware.b4a.objects.collections.List();
 _slist = _fx.getScreens();
  //BA.debugLineNum = 385;BA.debugLine="Dim S As Screen = SList.Get(0)";
 _s = new anywheresoftware.b4j.objects.JFX.ScreenWrapper();
-_s.setObject((javafx.stage.Screen)(_slist.Get((int) (0))));
+_s = (anywheresoftware.b4j.objects.JFX.ScreenWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4j.objects.JFX.ScreenWrapper(), (javafx.stage.Screen)(_slist.Get((int) (0))));
  //BA.debugLineNum = 387;BA.debugLine="Return S";
 if (true) return _s;
  };
@@ -343,13 +343,13 @@ anywheresoftware.b4a.objects.collections.List _stylesheets = null;
  //BA.debugLineNum = 329;BA.debugLine="Try";
 try { //BA.debugLineNum = 330;BA.debugLine="Dim jForm As JavaObject = MainForm";
 _jform = new anywheresoftware.b4j.object.JavaObject();
-_jform.setObject((java.lang.Object)(_mainform));
+_jform = (anywheresoftware.b4j.object.JavaObject) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4j.object.JavaObject(), (java.lang.Object)(_mainform));
  //BA.debugLineNum = 331;BA.debugLine="Dim scene As JavaObject = jForm.GetField(\"scene\"";
 _scene = new anywheresoftware.b4j.object.JavaObject();
-_scene.setObject((java.lang.Object)(_jform.GetField("scene")));
+_scene = (anywheresoftware.b4j.object.JavaObject) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4j.object.JavaObject(), (java.lang.Object)(_jform.GetField("scene")));
  //BA.debugLineNum = 332;BA.debugLine="Dim stylesheets As List = scene.RunMethod(\"getSt";
 _stylesheets = new anywheresoftware.b4a.objects.collections.List();
-_stylesheets.setObject((java.util.List)(_scene.RunMethod("getStylesheets",(Object[])(anywheresoftware.b4a.keywords.Common.Null))));
+_stylesheets = (anywheresoftware.b4a.objects.collections.List) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.collections.List(), (java.util.List)(_scene.RunMethod("getStylesheets",(Object[])(anywheresoftware.b4a.keywords.Common.Null))));
  //BA.debugLineNum = 333;BA.debugLine="stylesheets.Clear";
 _stylesheets.Clear();
  //BA.debugLineNum = 334;BA.debugLine="stylesheets.Add(File.GetUri(File.DirAssets, imgI";
@@ -365,17 +365,17 @@ return "";
 public static String  _getairquality(int _number) throws Exception{
  //BA.debugLineNum = 461;BA.debugLine="Sub GetAirQuality(number As Int) As String 'ignore";
  //BA.debugLineNum = 464;BA.debugLine="Try";
-try { //BA.debugLineNum = 465;BA.debugLine="If number <= 100 Then";
-if (_number<=100) { 
+try { //BA.debugLineNum = 465;BA.debugLine="If number <= 10 Then";
+if (_number<=10) { 
  //BA.debugLineNum = 466;BA.debugLine="Return(\"Carbon monoxide perfect\")";
 if (true) return ("Carbon monoxide perfect");
- }else if(((_number>100) && (_number<400)) || _number==400) { 
+ }else if(((_number>10) && (_number<40)) || _number==40) { 
  //BA.debugLineNum = 468;BA.debugLine="Return(\"Carbon monoxide normal\")";
 if (true) return ("Carbon monoxide normal");
- }else if(((_number>400) && (_number<900)) || _number==900) { 
+ }else if(((_number>40) && (_number<90)) || _number==90) { 
  //BA.debugLineNum = 470;BA.debugLine="Return(\"Carbon monoxide high\")";
 if (true) return ("Carbon monoxide high");
- }else if(_number>900) { 
+ }else if(_number>90) { 
  //BA.debugLineNum = 472;BA.debugLine="Return(\"ALARM Carbon monoxide very high\")";
 if (true) return ("ALARM Carbon monoxide very high");
  }else {
@@ -567,10 +567,10 @@ anywheresoftware.b4j.object.JavaObject _stage = null;
  //BA.debugLineNum = 240;BA.debugLine="Try";
 try { //BA.debugLineNum = 241;BA.debugLine="Dim jmf As JavaObject = MainForm";
 _jmf = new anywheresoftware.b4j.object.JavaObject();
-_jmf.setObject((java.lang.Object)(_mainform));
+_jmf = (anywheresoftware.b4j.object.JavaObject) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4j.object.JavaObject(), (java.lang.Object)(_mainform));
  //BA.debugLineNum = 242;BA.debugLine="Dim stage As JavaObject = jmf.GetField(\"stage\")";
 _stage = new anywheresoftware.b4j.object.JavaObject();
-_stage.setObject((java.lang.Object)(_jmf.GetField("stage")));
+_stage = (anywheresoftware.b4j.object.JavaObject) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4j.object.JavaObject(), (java.lang.Object)(_jmf.GetField("stage")));
  //BA.debugLineNum = 243;BA.debugLine="stage.RunMethod(\"setIconified\", Array As Object(";
 _stage.RunMethod("setIconified",new Object[]{(Object)(anywheresoftware.b4a.keywords.Common.True)});
  } 
@@ -605,7 +605,7 @@ if (_ismaximized) {
 if (true) return "";};
  //BA.debugLineNum = 151;BA.debugLine="Dim jo As JavaObject = EventData";
 _jo = new anywheresoftware.b4j.object.JavaObject();
-_jo.setObject((java.lang.Object)(_eventdata.getObject()));
+_jo = (anywheresoftware.b4j.object.JavaObject) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4j.object.JavaObject(), (java.lang.Object)(_eventdata.getObject()));
  //BA.debugLineNum = 152;BA.debugLine="MainForm.WindowLeft = jo.RunMethod(\"getScreenX\",";
 _mainform.setWindowLeft((double)(BA.ObjectToNumber(_jo.RunMethod("getScreenX",(Object[])(anywheresoftware.b4a.keywords.Common.Null))))-_xmouse);
  //BA.debugLineNum = 153;BA.debugLine="MainForm.WindowTop = jo.RunMethod(\"getScreenY\",";
@@ -746,7 +746,7 @@ if (_idx==-1) {
 if (true) return "";};
  //BA.debugLineNum = 269;BA.debugLine="Dim lb As Label = lstSkins.Items.Get(idx)";
 _lb = new anywheresoftware.b4j.objects.LabelWrapper();
-_lb.setObject((javafx.scene.control.Label)(_lstskins.getItems().Get((int) (_idx))));
+_lb = (anywheresoftware.b4j.objects.LabelWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4j.objects.LabelWrapper(), (javafx.scene.control.Label)(_lstskins.getItems().Get((int) (_idx))));
  //BA.debugLineNum = 270;BA.debugLine="If lb.tag = AtualSkin Then Return";
 if ((_lb.getTag()).equals((Object)(_atualskin))) { 
 if (true) return "";};
@@ -1119,12 +1119,12 @@ _s = anywheresoftware.b4a.keywords.Common.BytesToString(_payload,(int) (0),_payl
 _a = anywheresoftware.b4a.keywords.Common.Regex.Split("\\|",_s);
  //BA.debugLineNum = 577;BA.debugLine="If a.Length = 3 Then";
 if (_a.length==3) { 
- //BA.debugLineNum = 578;BA.debugLine="GaugeAirQuality.CurrentValue=a(0)";
-_gaugeairquality._setcurrentvalue /*float*/ ((float)(Double.parseDouble(_a[(int) (0)])));
- //BA.debugLineNum = 579;BA.debugLine="labelGaugeAirQuality.Text = GetAirQuality(a(0)";
-_labelgaugeairquality.setText(_getairquality((int)(Double.parseDouble(_a[(int) (0)]))));
- //BA.debugLineNum = 580;BA.debugLine="If a(0) > 400 Then";
-if ((double)(Double.parseDouble(_a[(int) (0)]))>400) { 
+ //BA.debugLineNum = 578;BA.debugLine="GaugeAirQuality.CurrentValue=(a(0)/10)";
+_gaugeairquality._setcurrentvalue /*float*/ ((float) (((double)(Double.parseDouble(_a[(int) (0)]))/(double)10)));
+ //BA.debugLineNum = 579;BA.debugLine="labelGaugeAirQuality.Text = GetAirQuality((a(0";
+_labelgaugeairquality.setText(_getairquality((int) (((double)(Double.parseDouble(_a[(int) (0)]))/(double)10))));
+ //BA.debugLineNum = 580;BA.debugLine="If (a(0)/10) > 40 Then";
+if (((double)(Double.parseDouble(_a[(int) (0)]))/(double)10)>40) { 
  //BA.debugLineNum = 581;BA.debugLine="labelGaugeAirQuality.TextColor = fx.Colors.Re";
 _labelgaugeairquality.setTextColor(_fx.Colors.Red);
  }else {
@@ -1212,12 +1212,12 @@ _s = anywheresoftware.b4a.keywords.Common.BytesToString(_payload,(int) (0),_payl
 _a = anywheresoftware.b4a.keywords.Common.Regex.Split("\\|",_s);
  //BA.debugLineNum = 636;BA.debugLine="If a.Length = 3 Then";
 if (_a.length==3) { 
- //BA.debugLineNum = 637;BA.debugLine="GaugeBasementAirQuality.CurrentValue=a(0)";
-_gaugebasementairquality._setcurrentvalue /*float*/ ((float)(Double.parseDouble(_a[(int) (0)])));
+ //BA.debugLineNum = 637;BA.debugLine="GaugeBasementAirQuality.CurrentValue=(a(0)/10)";
+_gaugebasementairquality._setcurrentvalue /*float*/ ((float) (((double)(Double.parseDouble(_a[(int) (0)]))/(double)10)));
  //BA.debugLineNum = 638;BA.debugLine="labelGaugeBasementAirQuality.Text = GetAirQual";
-_labelgaugebasementairquality.setText(_getairquality((int)(Double.parseDouble(_a[(int) (0)]))));
- //BA.debugLineNum = 639;BA.debugLine="If a(0) > 400 Then";
-if ((double)(Double.parseDouble(_a[(int) (0)]))>400) { 
+_labelgaugebasementairquality.setText(_getairquality((int) (((double)(Double.parseDouble(_a[(int) (0)]))/(double)10))));
+ //BA.debugLineNum = 639;BA.debugLine="If a(0) > 40 Then";
+if ((double)(Double.parseDouble(_a[(int) (0)]))>40) { 
  //BA.debugLineNum = 640;BA.debugLine="labelGaugeBasementAirQuality.TextColor = fx.C";
 _labelgaugebasementairquality.setTextColor(_fx.Colors.Red);
  }else {
@@ -1351,7 +1351,7 @@ anywheresoftware.b4j.object.JavaObject _jo = null;
  //BA.debugLineNum = 482;BA.debugLine="Try";
 try { //BA.debugLineNum = 483;BA.debugLine="Dim jo As JavaObject = n";
 _jo = new anywheresoftware.b4j.object.JavaObject();
-_jo.setObject((java.lang.Object)(_n.getObject()));
+_jo = (anywheresoftware.b4j.object.JavaObject) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4j.object.JavaObject(), (java.lang.Object)(_n.getObject()));
  //BA.debugLineNum = 484;BA.debugLine="jo.RunMethod(\"setRotate\", Array(Degree))";
 _jo.RunMethod("setRotate",new Object[]{(Object)(_degree)});
  } 

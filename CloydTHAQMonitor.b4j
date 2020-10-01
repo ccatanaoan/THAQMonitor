@@ -215,7 +215,7 @@ Module2=Gauge
 NumberOfFiles=100
 NumberOfLibraries=9
 NumberOfModules=2
-Version=8.1
+Version=8.5
 @EndOfDesignText@
 #Region Project Attributes 
 	#MainFormWidth: 390
@@ -331,10 +331,10 @@ Sub AppStart (Form1 As Form, Args() As String)
 	gaugeHomeHumidity.CreateRange(80, 100, xui.Color_Red)))
 		gaugeHomeHumidity.CurrentValue=0
 	
-		GaugeAirQuality.SetRanges(Array(GaugeAirQuality.CreateRange(0, 100, xui.Color_Green), _
-	GaugeAirQuality.CreateRange(100, 400, xui.Color_RGB(100,240,23)), _
-	GaugeAirQuality.CreateRange(400, 900, xui.Color_Yellow), _
-	GaugeAirQuality.CreateRange(900, 1000, xui.Color_Red)))
+		GaugeAirQuality.SetRanges(Array(GaugeAirQuality.CreateRange(0, 10, xui.Color_Green), _
+	GaugeAirQuality.CreateRange(10, 40, xui.Color_RGB(100,240,23)), _
+	GaugeAirQuality.CreateRange(40, 90, xui.Color_Yellow), _
+	GaugeAirQuality.CreateRange(90, 100, xui.Color_Red)))
 		GaugeAirQuality.CurrentValue = 0
 	
 		gaugeBasementTemp.SetRanges(Array(gaugeBasementTemp.CreateRange(0, 75, xui.Color_Green), _
@@ -347,10 +347,10 @@ Sub AppStart (Form1 As Form, Args() As String)
 	gaugeBasementHumidity.CreateRange(80, 100, xui.Color_Red)))
 		gaugeBasementHumidity.CurrentValue=0
 	
-		GaugeBasementAirQuality.SetRanges(Array(GaugeBasementAirQuality.CreateRange(0, 100, xui.Color_Green), _
-	GaugeBasementAirQuality.CreateRange(100, 400, xui.Color_RGB(100,240,23)), _
-	GaugeBasementAirQuality.CreateRange(400, 900, xui.Color_Yellow), _
-	GaugeBasementAirQuality.CreateRange(900, 1000, xui.Color_Red)))
+		GaugeBasementAirQuality.SetRanges(Array(GaugeBasementAirQuality.CreateRange(0, 10, xui.Color_Green), _
+	GaugeBasementAirQuality.CreateRange(10, 40, xui.Color_RGB(100,240,23)), _
+	GaugeBasementAirQuality.CreateRange(40, 90, xui.Color_Yellow), _
+	GaugeBasementAirQuality.CreateRange(90, 100, xui.Color_Red)))
 		GaugeBasementAirQuality.CurrentValue = 0
 	
 		AlwaysOnTop(MainForm,True)
@@ -681,13 +681,13 @@ Sub GetAirQuality(number As Int) As String 'ignore
 	' Detecting range: 10ppm-1000ppm carbon monoxide
 	' Air quality-cases: < 100 perfect | 100 - 400 normal | > 400 - 900 high | > 900 abnormal
 	Try
-		If number <= 100 Then
+		If number <= 10 Then
 			Return("Carbon monoxide perfect")
-		else if ((number > 100) And (number < 400)) Or number = 400 Then
+		else if ((number > 10) And (number < 40)) Or number = 40 Then
 			Return("Carbon monoxide normal")
-		else if ((number > 400) And (number < 900)) Or number = 900 Then
+		else if ((number > 40) And (number < 90)) Or number = 90 Then
 			Return("Carbon monoxide high")
-		else If number > 900 Then
+		else If number > 90 Then
 			Return("ALARM Carbon monoxide very high")
 		Else
 			Return("MQ-7 - cant read any value - check the sensor!")
@@ -794,9 +794,9 @@ Private Sub mqtt_MessageArrived (Topic As String, Payload() As Byte)
 			Dim s As String = BytesToString(Payload, 0, Payload.Length, "utf8")
 			Dim a() As String = Regex.Split("\|",s)
 			If a.Length = 3 Then
-				GaugeAirQuality.CurrentValue=a(0)
-				labelGaugeAirQuality.Text = GetAirQuality(a(0))
-				If a(0) > 400 Then
+				GaugeAirQuality.CurrentValue=(a(0)/10)
+				labelGaugeAirQuality.Text = GetAirQuality((a(0)/10))
+				If (a(0)/10) > 40 Then
 					labelGaugeAirQuality.TextColor = fx.Colors.Red
 				Else
 					labelGaugeAirQuality.TextColor = fx.Colors.Black
@@ -853,9 +853,9 @@ Private Sub mqtt_MessageArrived (Topic As String, Payload() As Byte)
 			Dim s As String = BytesToString(Payload, 0, Payload.Length, "utf8")
 			Dim a() As String = Regex.Split("\|",s)
 			If a.Length = 3 Then
-				GaugeBasementAirQuality.CurrentValue=a(0)
-				labelGaugeBasementAirQuality.Text = GetAirQuality(a(0))
-				If a(0) > 400 Then
+				GaugeBasementAirQuality.CurrentValue=(a(0)/10)
+				labelGaugeBasementAirQuality.Text = GetAirQuality((a(0)/10))
+				If a(0) > 40 Then
 					labelGaugeBasementAirQuality.TextColor = fx.Colors.Red
 				Else
 					labelGaugeBasementAirQuality.TextColor = fx.Colors.Black

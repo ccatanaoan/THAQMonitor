@@ -326,7 +326,7 @@ _suffixtext = BA.ObjectToString(_props.Get((Object)("SuffixText")));
  //BA.debugLineNum = 56;BA.debugLine="DurationFromZeroTo100 = Props.Get(\"Duration\")";
 _durationfromzeroto100 = (int)(BA.ObjectToNumber(_props.Get((Object)("Duration"))));
  //BA.debugLineNum = 57;BA.debugLine="mBase = Base";
-_mbase.setObject((java.lang.Object)(_base));
+_mbase = (anywheresoftware.b4a.objects.B4XViewWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.B4XViewWrapper(), (java.lang.Object)(_base));
  //BA.debugLineNum = 58;BA.debugLine="Dim NativeFont As Object";
 _nativefont = new Object();
  //BA.debugLineNum = 60;BA.debugLine="Dim fx As JFX";
@@ -348,7 +348,7 @@ _mbase.AddView((javafx.scene.Node)(_indicatorpanel.getObject()),0,0,_mbase.getWi
  //BA.debugLineNum = 74;BA.debugLine="cvsIndicator.Initialize(IndicatorPanel)";
 _cvsindicator.Initialize(ba,_indicatorpanel);
  //BA.debugLineNum = 75;BA.debugLine="mlbl = Lbl";
-_mlbl.setObject((java.lang.Object)(_lbl.getObject()));
+_mlbl = (anywheresoftware.b4a.objects.B4XViewWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.B4XViewWrapper(), (java.lang.Object)(_lbl.getObject()));
  //BA.debugLineNum = 76;BA.debugLine="mlbl.Font = xui.CreateFont(NativeFont, 25)";
 _mlbl.setFont(_xui.CreateFont((javafx.scene.text.Font)(_nativefont),(float) (25)));
  //BA.debugLineNum = 77;BA.debugLine="mlbl.SetTextAlignment(\"CENTER\", \"CENTER\")";
