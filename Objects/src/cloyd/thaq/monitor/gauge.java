@@ -45,7 +45,6 @@ public float _indicatorbasewidth = 0f;
 public float _mcurrentvalue = 0f;
 public String _prefixtext = "";
 public String _suffixtext = "";
-public int _durationfromzeroto100 = 0;
 public int _half_circle = 0;
 public int _full_circle = 0;
 public int _gaugetype = 0;
@@ -69,104 +68,14 @@ Color = 0;
 		public String toString() {
 			return BA.TypeToString(this, false);
 		}}
-public void  _animatevalueto(float _newvalue) throws Exception{
-ResumableSub_AnimateValueTo rsub = new ResumableSub_AnimateValueTo(this,_newvalue);
-rsub.resume(ba, null);
-}
-public static class ResumableSub_AnimateValueTo extends BA.ResumableSub {
-public ResumableSub_AnimateValueTo(cloyd.thaq.monitor.gauge parent,float _newvalue) {
-this.parent = parent;
-this._newvalue = _newvalue;
-}
-cloyd.thaq.monitor.gauge parent;
-float _newvalue;
-long _n = 0L;
-int _duration = 0;
-float _start = 0f;
-float _tempvalue = 0f;
-
-@Override
-public void resume(BA ba, Object[] result) throws Exception{
-
-    while (true) {
-        switch (state) {
-            case -1:
-return;
-
-case 0:
-//C
-this.state = 1;
- //BA.debugLineNum = 228;BA.debugLine="Dim n As Long = DateTime.Now";
-_n = parent.__c.DateTime.getNow();
- //BA.debugLineNum = 229;BA.debugLine="Dim duration As Int = Abs(mCurrentValue - NewValu";
-_duration = (int) (parent.__c.Abs(parent._mcurrentvalue-_newvalue)/(double)100*parent._durationfromzeroto100+1000);
- //BA.debugLineNum = 230;BA.debugLine="Dim start As Float = mCurrentValue";
-_start = parent._mcurrentvalue;
- //BA.debugLineNum = 231;BA.debugLine="mCurrentValue = NewValue";
-parent._mcurrentvalue = _newvalue;
- //BA.debugLineNum = 232;BA.debugLine="Dim tempValue As Float";
-_tempvalue = 0f;
- //BA.debugLineNum = 233;BA.debugLine="Do While DateTime.Now < n + duration";
-if (true) break;
-
-case 1:
-//do while
-this.state = 10;
-while (parent.__c.DateTime.getNow()<_n+_duration) {
-this.state = 3;
-if (true) break;
-}
-if (true) break;
-
-case 3:
-//C
-this.state = 4;
- //BA.debugLineNum = 234;BA.debugLine="tempValue = ValueFromTimeEaseInOut(DateTime.Now";
-_tempvalue = parent._valuefromtimeeaseinout((float) (parent.__c.DateTime.getNow()-_n),_start,(float) (_newvalue-_start),_duration);
- //BA.debugLineNum = 235;BA.debugLine="DrawIndicator(tempValue)";
-parent._drawindicator(_tempvalue);
- //BA.debugLineNum = 236;BA.debugLine="Sleep(10)";
-parent.__c.Sleep(ba,this,(int) (10));
-this.state = 11;
-return;
-case 11:
-//C
-this.state = 4;
-;
- //BA.debugLineNum = 237;BA.debugLine="If NewValue <> mCurrentValue Then Return 'will h";
-if (true) break;
-
-case 4:
-//if
-this.state = 9;
-if (_newvalue!=parent._mcurrentvalue) { 
-this.state = 6;
-;}if (true) break;
-
-case 6:
-//C
-this.state = 9;
-if (true) return ;
-if (true) break;
-
-case 9:
-//C
-this.state = 1;
-;
- if (true) break;
-
-case 10:
-//C
-this.state = -1;
-;
- //BA.debugLineNum = 239;BA.debugLine="DrawIndicator(mCurrentValue)";
-parent._drawindicator(parent._mcurrentvalue);
- //BA.debugLineNum = 240;BA.debugLine="End Sub";
-if (true) break;
-
-            }
-        }
-    }
+public String  _animatevalueto(float _newvalue) throws Exception{
+ //BA.debugLineNum = 227;BA.debugLine="Private Sub AnimateValueTo(NewValue As Float)";
+ //BA.debugLineNum = 241;BA.debugLine="mCurrentValue = NewValue";
+_mcurrentvalue = _newvalue;
+ //BA.debugLineNum = 242;BA.debugLine="DrawIndicator(mCurrentValue)";
+_drawindicator(_mcurrentvalue);
+ //BA.debugLineNum = 243;BA.debugLine="End Sub";
+return "";
 }
 public String  _base_resize(double _width,double _height) throws Exception{
  //BA.debugLineNum = 85;BA.debugLine="Private Sub Base_Resize (Width As Double, Height A";
@@ -226,8 +135,6 @@ _mcurrentvalue = (float) (50);
  //BA.debugLineNum = 29;BA.debugLine="Private PrefixText, SuffixText As String";
 _prefixtext = "";
 _suffixtext = "";
- //BA.debugLineNum = 30;BA.debugLine="Private DurationFromZeroTo100 As Int";
-_durationfromzeroto100 = 0;
  //BA.debugLineNum = 31;BA.debugLine="Private HALF_CIRCLE = 1, FULL_CIRCLE = 2 As Int";
 _half_circle = (int) (1);
 _full_circle = (int) (2);
@@ -323,8 +230,6 @@ _maxvalue = (float)(BA.ObjectToNumber(_props.Get((Object)("MaxValue"))));
 _prefixtext = BA.ObjectToString(_props.Get((Object)("PrefixText")));
  //BA.debugLineNum = 55;BA.debugLine="SuffixText = Props.Get(\"SuffixText\")";
 _suffixtext = BA.ObjectToString(_props.Get((Object)("SuffixText")));
- //BA.debugLineNum = 56;BA.debugLine="DurationFromZeroTo100 = Props.Get(\"Duration\")";
-_durationfromzeroto100 = (int)(BA.ObjectToNumber(_props.Get((Object)("Duration"))));
  //BA.debugLineNum = 57;BA.debugLine="mBase = Base";
 _mbase = (anywheresoftware.b4a.objects.B4XViewWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.B4XViewWrapper(), (java.lang.Object)(_base));
  //BA.debugLineNum = 58;BA.debugLine="Dim NativeFont As Object";
@@ -601,23 +506,6 @@ _r.Color /*int*/  = __c.Bit.Or((int) (0x88000000),_r.Color /*int*/ );
 _drawbackground();
  //BA.debugLineNum = 207;BA.debugLine="End Sub";
 return "";
-}
-public float  _valuefromtimeeaseinout(float _time,float _start,float _changeinvalue,int _duration) throws Exception{
- //BA.debugLineNum = 243;BA.debugLine="Private Sub ValueFromTimeEaseInOut(Time As Float,";
- //BA.debugLineNum = 244;BA.debugLine="Time = Time / (Duration / 2)";
-_time = (float) (_time/(double)(_duration/(double)2));
- //BA.debugLineNum = 245;BA.debugLine="If Time < 1 Then";
-if (_time<1) { 
- //BA.debugLineNum = 246;BA.debugLine="Return ChangeInValue / 2 * Time * Time * Time *";
-if (true) return (float) (_changeinvalue/(double)2*_time*_time*_time*_time+_start);
- }else {
- //BA.debugLineNum = 248;BA.debugLine="Time = Time - 2";
-_time = (float) (_time-2);
- //BA.debugLineNum = 249;BA.debugLine="Return -ChangeInValue / 2 * (Time * Time * Time";
-if (true) return (float) (-_changeinvalue/(double)2*(_time*_time*_time*_time-2)+_start);
- };
- //BA.debugLineNum = 251;BA.debugLine="End Sub";
-return 0f;
 }
 public float  _valuetoangle(float _value) throws Exception{
  //BA.debugLineNum = 196;BA.debugLine="Private Sub ValueToAngle (Value As Float) As Float";

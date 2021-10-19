@@ -215,12 +215,14 @@ Module2=Gauge
 NumberOfFiles=100
 NumberOfLibraries=9
 NumberOfModules=2
-Version=8.5
+Version=9.1
 @EndOfDesignText@
 #Region Project Attributes 
 	#MainFormWidth: 390
 	#MainFormHeight: 710 
 #End Region
+
+#PackagerProperty: AdditionalModuleInfoString = provides org.eclipse.paho.client.mqttv3.spi.NetworkModuleFactory with org.eclipse.paho.client.mqttv3.internal.TCPNetworkModuleFactory, org.eclipse.paho.client.mqttv3.internal.SSLNetworkModuleFactory,  org.eclipse.paho.client.mqttv3.internal.websocket.WebSocketNetworkModuleFactory, org.eclipse.paho.client.mqttv3.internal.websocket.WebSocketSecureNetworkModuleFactory;
 
 Sub Process_Globals
 	Private fx As JFX
@@ -325,7 +327,7 @@ Sub AppStart (Form1 As Form, Args() As String)
     gaugeHomeTemp.CreateRange(75, 90, xui.Color_Yellow), _
     gaugeHomeTemp.CreateRange(90, 100, xui.Color_Red)))
 		gaugeHomeTemp.CurrentValue=0
-	
+			
 		gaugeHomeHumidity.SetRanges(Array(gaugeHomeHumidity.CreateRange(0, 70, xui.Color_Green), _
 	gaugeHomeHumidity.CreateRange(70, 80, xui.Color_Yellow), _
 	gaugeHomeHumidity.CreateRange(80, 100, xui.Color_Red)))
@@ -855,7 +857,7 @@ Private Sub mqtt_MessageArrived (Topic As String, Payload() As Byte)
 			If a.Length = 3 Then
 				GaugeBasementAirQuality.CurrentValue=(a(0)/10)
 				labelGaugeBasementAirQuality.Text = GetAirQuality((a(0)/10))
-				If a(0) > 40 Then
+				If (a(0)/10) > 40 Then
 					labelGaugeBasementAirQuality.TextColor = fx.Colors.Red
 				Else
 					labelGaugeBasementAirQuality.TextColor = fx.Colors.Black
