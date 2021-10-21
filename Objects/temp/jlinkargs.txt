@@ -1,1 +1,1 @@
---add-modules b4j,java.base,java.desktop,java.logging,java.prefs,javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.swing,java.scripting,java.xml,jdk.unsupported,java.datatransfer,jdk.unsupported.desktop,jdk.jsobject,jdk.xml.dom
+--add-modules b4j,java.base,java.desktop,java.logging,java.prefs,javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.swing
