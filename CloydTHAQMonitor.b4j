@@ -201,27 +201,26 @@ FileGroup97=Default Group
 FileGroup98=Default Group
 FileGroup99=Default Group
 Group=Default Group
-Library1=jcore
-Library2=jfx
-Library3=javaobject
-Library4=jreflection
-Library5=jxui
-Library6=jdateutils
-Library7=jmqtt
-Library8=jrandomaccessfile
-Library9=jshell
-Module1=clXToastMessage
-Module2=Gauge
+Library1=javaobject
+Library2=jcore
+Library3=jdateutils
+Library4=jfx
+Library5=jmqtt
+Library6=jrandomaccessfile
+Library7=jreflection
+Library8=jxui
+Module1=Gauge
 NumberOfFiles=100
-NumberOfLibraries=9
-NumberOfModules=2
-Version=9.1
+NumberOfLibraries=8
+NumberOfModules=1
+Version=10
 @EndOfDesignText@
 #Region Project Attributes 
 	#MainFormWidth: 390
 	#MainFormHeight: 710 
 #End Region
 
+#JavaCompilerPath: 22, C:\java\jdk-22\bin\
 #PackagerProperty: AdditionalModuleInfoString = provides org.eclipse.paho.client.mqttv3.spi.NetworkModuleFactory with org.eclipse.paho.client.mqttv3.internal.TCPNetworkModuleFactory, org.eclipse.paho.client.mqttv3.internal.SSLNetworkModuleFactory,  org.eclipse.paho.client.mqttv3.internal.websocket.WebSocketNetworkModuleFactory, org.eclipse.paho.client.mqttv3.internal.websocket.WebSocketSecureNetworkModuleFactory;
 
 Sub Process_Globals
@@ -244,8 +243,6 @@ Sub Process_Globals
 	Private mqtt As MqttClient
 	Type CircleData (x As Double, y As Double, clr As Int)
 	Private MenuBar1 As MenuBar 'ignore
-	Private user As String = "vynckfaq"
-	Private password As String = "KHSV1Q1qSUUY"
 	Private gaugeHomeTemp As Gauge 'ignore
 	Private xui As XUI
 	Private GaugeAirQuality As Gauge 'ignore
@@ -261,7 +258,6 @@ Sub Process_Globals
 	Private labelGaugeBasementAirQuality As Label 'ignore
 	Private labelgaugeBasementHumidity As Label 'ignore
 	Private lblStatus As Label 'ignore
-	Private Toast As clXToastMessage
 End Sub
 
 Sub AppStart (Form1 As Form, Args() As String)
@@ -316,12 +312,10 @@ Sub AppStart (Form1 As Form, Args() As String)
 		MainForm.Show
 	
 		lblStatus.TextColor = fx.Colors.Red
-		lblStatus.Text = "Status: *** Connecting to Cloud MQTT ***"
+		lblStatus.Text = "Status: *** Connecting to HiveMQ ***"
 		Dim clientId As String = Rnd(0, 999999999) & DateTime.Now 'create a unique id
-		mqtt.Initialize("mqtt", "tcp://m14.cloudmqtt.com:11816", clientId)
-		Dim mo As MqttConnectOptions
-		mo.Initialize(user, password)
-		mqtt.Connect2(mo)
+		mqtt.Initialize("mqtt", "tcp://broker.hivemq.com:1883", clientId)
+		mqtt.Connect
 	
 		gaugeHomeTemp.SetRanges(Array(gaugeHomeTemp.CreateRange(0, 75, xui.Color_Green), _
     gaugeHomeTemp.CreateRange(75, 90, xui.Color_Yellow), _
@@ -401,32 +395,6 @@ End Sub
 Private Sub Close_Exited_Event(e As Event)
 	Try
 		ivClose.SetImage(fx.LoadImage(File.DirAssets, imgInit & "_btClose.png"))
-	Catch
-		Log(LastException)
-	End Try
-End Sub
-
-Private Sub ivMax_MouseClicked (EventData As MouseEvent)
-	Try
-		Toast.Initialize(MainForm.RootPane)
-	
-		Toast.SetTMDefaults
-		'set blue backgroud, thick yellow border with radius
-		Toast.SetTMBackground(fx.Colors.Blue, 4, fx.Colors.Yellow, 8)
-		'set toast message to be displayed at the center of the Form
-		Toast.SetTMPosition(Toast.TMPOS_CENTER)
-		' 4 seconds display time for long duration
-		Toast.SetTMDuration(1000,3000)
-	
-		If File.Exists("C:\Users\ccatanaoan\Desktop\IoT\THAQ Monitor\Accuweather\b4j source\Objects","accuweather.jar") Then
-			Dim jshl As Shell
-			jshl.Initialize("jsl","java",Array As String("-jar","accuweather.jar"))
-			jshl.WorkingDirectory = "C:\Users\ccatanaoan\Desktop\IoT\THAQ Monitor\Accuweather\b4j source\Objects"
-			jshl.run(-1)
-			Toast.TMShow("          Running webview for Lee's Summit weather", True, True)
-		Else
-			Toast.TMShow("          Webview application does not exist", True, True)
-		End If
 	Catch
 		Log(LastException)
 	End Try
@@ -720,18 +688,16 @@ Sub mqtt_Connected (Success As Boolean)
 			lblStatus.Text = "Status: Error connecting. Reconnecting..."
 			Sleep(1000)
 			MenuBar1.Enabled = False
-			Dim mo As MqttConnectOptions
-			mo.Initialize(user, password)
-			mqtt.Connect2(mo)
+			mqtt.Connect
 		Else
 			lblStatus.TextColor = fx.Colors.White
-			lblStatus.Text = "Status: Connected to Cloud MQTT"
+			lblStatus.Text = "Status: Connected to HiveMQ"
 			MenuBar1.Enabled = True
 			mqtt.Subscribe("TempHumid", 0)
-			mqtt.Subscribe("MQ7", 0)
+			mqtt.Subscribe("MQ7LivingRoomCloyd", 0)
 			mqtt.Subscribe("TempHumidBasement", 0)
 			mqtt.Subscribe("MQ7Basement", 0)
-			mqtt.Publish("MQ7", serializator.ConvertObjectToBytes("Read voltage"))
+			mqtt.Publish("MQ7LivingRoomCloyd", serializator.ConvertObjectToBytes("Read voltage"))
 			mqtt.Publish("MQ7Basement", serializator.ConvertObjectToBytes("Read voltage"))
 		End If
 	Catch
@@ -745,9 +711,7 @@ Private Sub mqtt_Disconnected
 		lblStatus.Text = "Status: Disconnected. Reconnecting..."
 		Sleep(1000)
 		MenuBar1.Enabled = False
-		Dim mo As MqttConnectOptions
-		mo.Initialize(user, password)
-		mqtt.Connect2(mo)
+		mqtt.Connect
 	Catch
 		Log(LastException)
 	End Try
@@ -792,7 +756,7 @@ Private Sub mqtt_MessageArrived (Topic As String, Payload() As Byte)
 				End If
 				' *** Check how old the message is
 			End If
-		else If Topic = "MQ7" Then
+		else If Topic = "MQ7LivingRoomCloyd" Then
 			Dim s As String = BytesToString(Payload, 0, Payload.Length, "utf8")
 			Dim a() As String = Regex.Split("\|",s)
 			If a.Length = 3 Then

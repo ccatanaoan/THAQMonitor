@@ -497,9 +497,9 @@ final int groupLen2 = group2.getSize()
 for (; index2 < groupLen2;index2++){
 _r = (cloyd.thaq.monitor.gauge._gaugerange)(group2.Get(index2));
  //BA.debugLineNum = 203;BA.debugLine="r.Color = Bit.And(0x00ffffff, r.Color)";
-_r.Color /*int*/  = __c.Bit.And((int) (0x00ffffff),_r.Color /*int*/ );
+_r.Color /*int*/  = __c.Bit.And(((int)0x00ffffff),_r.Color /*int*/ );
  //BA.debugLineNum = 204;BA.debugLine="r.Color = Bit.Or(0x88000000, r.Color)";
-_r.Color /*int*/  = __c.Bit.Or((int) (0x88000000),_r.Color /*int*/ );
+_r.Color /*int*/  = __c.Bit.Or(((int)0x88000000),_r.Color /*int*/ );
  }
 };
  //BA.debugLineNum = 206;BA.debugLine="DrawBackground";
