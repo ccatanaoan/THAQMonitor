@@ -699,6 +699,8 @@ Sub mqtt_Connected (Success As Boolean)
 			mqtt.Subscribe("MQ7Basement", 0)
 			mqtt.Publish("MQ7LivingRoomCloyd", serializator.ConvertObjectToBytes("Read voltage"))
 			mqtt.Publish("MQ7Basement", serializator.ConvertObjectToBytes("Read voltage"))
+			mqtt.Publish("TempHumid", serializator.ConvertObjectToBytes("Read weather"))
+			mqtt.Publish("TempHumidBasement", serializator.ConvertObjectToBytes("Read weather"))
 		End If
 	Catch
 		Log(LastException)
