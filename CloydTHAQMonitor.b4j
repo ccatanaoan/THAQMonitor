@@ -750,10 +750,15 @@ Private Sub mqtt_MessageArrived (Topic As String, Payload() As Byte)
 				Dim lngTicks As Long = ticks
 				Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
 				'Log("TempHumidity Time difference: " & p.Hours & ":" & p.Minutes & " minutes")
-				If p.Minutes > = 5 Then
-					labelgaugeHomeTemp.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+				If p.Minutes <= -5 Then
+					labelgaugeHomeTemp.Text = "Timestamp is " & p.Hours & "hr " & p.Minutes & "m old"
 					labelgaugeHomeTemp.TextColor = fx.Colors.Red
-					labelgaugeHomeHumidity.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+					labelgaugeHomeHumidity.Text = "Timestamp is " & p.Hours & "hr " & p.Minutes & "m old"
+					labelgaugeHomeHumidity.TextColor = fx.Colors.Red
+				else If p.Minutes >= 5 Then
+					labelgaugeHomeTemp.Text = "Timestamp is " & p.Hours & "hr " & p.Minutes & "m advance"
+					labelgaugeHomeTemp.TextColor = fx.Colors.Red
+					labelgaugeHomeHumidity.Text = "Timestamp is " & p.Hours & "hr " & p.Minutes & "m advance"
 					labelgaugeHomeHumidity.TextColor = fx.Colors.Red
 				End If
 				' *** Check how old the message is
@@ -776,8 +781,11 @@ Private Sub mqtt_MessageArrived (Topic As String, Payload() As Byte)
 				Dim lngTicks As Long = ticks
 				Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
 				'Log("AirQuality Time difference: " & p.Minutes & " minutes" & p.Seconds & " seconds")
-				If p.Minutes > = 5 Then
-					labelGaugeAirQuality.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+				If p.Minutes <= -5 Then
+					labelGaugeAirQuality.Text = "Timestamp is " & p.Hours & "hr " & p.Minutes & "m old"
+					labelGaugeAirQuality.TextColor = fx.Colors.Red
+				else If p.Minutes >= 5 Then
+					labelGaugeAirQuality.Text = "Timestamp is " & p.Hours & "hr " & p.Minutes & "m advance"
 					labelGaugeAirQuality.TextColor = fx.Colors.Red
 				End If
 				' *** Check how old the message is
@@ -809,10 +817,15 @@ Private Sub mqtt_MessageArrived (Topic As String, Payload() As Byte)
 				Dim lngTicks As Long = ticks
 				Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
 				'Log("TempHumidity Time difference: " & p.Hours & ":" & p.Minutes & " minutes")
-				If p.Minutes > = 5 Then
-					labelgaugeBasementTemp.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+				If p.Minutes <= -5 Then
+					labelgaugeBasementTemp.Text = "Timestamp is " & p.Hours & "hr " & p.Minutes & "m old"
 					labelgaugeBasementTemp.TextColor = fx.Colors.Red
-					labelgaugeBasementHumidity.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+					labelgaugeBasementHumidity.Text = "Timestamp is " & p.Hours & "hr " & p.Minutes & "m old"
+					labelgaugeBasementHumidity.TextColor = fx.Colors.Red
+				else If p.Minutes >= 5 Then
+					labelgaugeBasementTemp.Text = "Timestamp is " & p.Hours & "hr " & p.Minutes & "m advance"
+					labelgaugeBasementTemp.TextColor = fx.Colors.Red
+					labelgaugeBasementHumidity.Text = "Timestamp is " & p.Hours & "hr " & p.Minutes & "m advance"
 					labelgaugeBasementHumidity.TextColor = fx.Colors.Red
 				End If
 				' *** Check how old the message is
@@ -835,8 +848,11 @@ Private Sub mqtt_MessageArrived (Topic As String, Payload() As Byte)
 				Dim lngTicks As Long = ticks
 				Dim p As Period = DateUtils.PeriodBetween(lngTicks,DateTime.now)
 				'Log("AirQuality Time difference: " & p.Minutes & " minutes" & p.Seconds & " seconds")
-				If p.Minutes > = 5 Then
-					labelGaugeBasementAirQuality.Text = "Message is " & p.Hours & "hr " & p.Minutes & "m old."
+				If p.Minutes <= -5 Then
+					labelGaugeBasementAirQuality.Text = "Timestamp is " & p.Hours & "hr " & p.Minutes & "m old"
+					labelGaugeBasementAirQuality.TextColor = fx.Colors.Red
+				else If p.Minutes >= 5 Then
+					labelGaugeBasementAirQuality.Text = "Timestamp is " & p.Hours & "hr " & p.Minutes & "m advance"
 					labelGaugeBasementAirQuality.TextColor = fx.Colors.Red
 				End If
 				' *** Check how old the message is
