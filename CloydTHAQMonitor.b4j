@@ -314,7 +314,7 @@ Sub AppStart (Form1 As Form, Args() As String)
 		lblStatus.TextColor = fx.Colors.Red
 		lblStatus.Text = "Status: *** Connecting to HiveMQ ***"
 		Dim clientId As String = Rnd(0, 999999999) & DateTime.Now 'create a unique id
-		mqtt.Initialize("mqtt", "tcp://broker.hivemq.com:1883", clientId)
+		mqtt.Initialize("mqtt", "tcp://broker.emqx.io:1883", clientId)
 		mqtt.Connect
 	
 		gaugeHomeTemp.SetRanges(Array(gaugeHomeTemp.CreateRange(0, 75, xui.Color_Green), _
