@@ -312,7 +312,7 @@ Sub AppStart (Form1 As Form, Args() As String)
 		MainForm.Show
 	
 		lblStatus.TextColor = fx.Colors.Red
-		lblStatus.Text = "Status: *** Connecting to HiveMQ ***"
+		lblStatus.Text = "Status: *** Connecting to EMQX broker ***"
 		Dim clientId As String = Rnd(0, 999999999) & DateTime.Now 'create a unique id
 		mqtt.Initialize("mqtt", "tcp://broker.emqx.io:1883", clientId)
 		mqtt.Connect
@@ -691,7 +691,7 @@ Sub mqtt_Connected (Success As Boolean)
 			mqtt.Connect
 		Else
 			lblStatus.TextColor = fx.Colors.White
-			lblStatus.Text = "Status: Connected to HiveMQ"
+			lblStatus.Text = "Status: Connected to EMQX broker"
 			MenuBar1.Enabled = True
 			mqtt.Subscribe("TempHumid", 0)
 			mqtt.Subscribe("MQ7LivingRoomCloyd", 0)
