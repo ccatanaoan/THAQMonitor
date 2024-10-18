@@ -355,6 +355,7 @@ Sub AppStart (Form1 As Form, Args() As String)
 	
 		MainForm.WindowLeft = CheckMonitor.MaxX	- MainForm.Width
 		MainForm.WindowTop = CheckMonitor.MaxY - MainForm.Height - 20dip
+		
 	Catch
 		Log(LastException)
 	End Try
@@ -861,4 +862,11 @@ Private Sub mqtt_MessageArrived (Topic As String, Payload() As Byte)
 	Catch
 		Log(LastException)
 	End Try
+End Sub
+
+Private Sub lblStatus_MouseClicked (EventData As MouseEvent)
+	mqtt.Publish("TempHumid", serializator.ConvertObjectToBytes("Read weather"))
+	mqtt.Publish("MQ7LivingRoomCloyd", serializator.ConvertObjectToBytes("Read voltage"))
+	mqtt.Publish("MQ7Basement", serializator.ConvertObjectToBytes("Read voltage"))
+	mqtt.Publish("TempHumidBasement", serializator.ConvertObjectToBytes("Read weather"))
 End Sub
