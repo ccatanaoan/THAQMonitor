@@ -4,6 +4,6 @@ ModuleBreakpoints0=
 ModuleBreakpoints1=
 ModuleClosedNodes0=
 ModuleClosedNodes1=
-NavigationStack=Main,RotateNode,458,0,Visual Designer,vdSk01.bjl,-100,3,Main,mqtt_MessageArrived,632,6,Main,lblStatus_MouseClicked,659,0,Main,lbTitle_MouseDragged,150,0,Main,Process_Globals,27,0,Main,Min_Exited_Event,234,0,Main,AlwaysOnTop,322,0,Main,AppStart,97,6,Main,mqtt_Connected,477,2
+NavigationStack=Visual Designer,vdSk01.bjl,-100,3,Main,mqtt_MessageArrived,632,6,Main,lblStatus_MouseClicked,659,0,Main,lbTitle_MouseDragged,150,0,Main,Process_Globals,27,0,Main,Min_Exited_Event,234,0,Main,AlwaysOnTop,322,0,Main,mqtt_Connected,477,2,Main,CheckMonitor,355,0,Main,AppStart,99,6
 SelectedBuild=0
 VisibleModules=1
